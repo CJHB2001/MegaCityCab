@@ -1,83 +1,47 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-
-<%
-    // Retrieve messages from the session
-    String successMessage = (String) session.getAttribute("successMessage");
-    String errorMessage = (String) session.getAttribute("errorMessage");
-    List<String> errorMessages = (List<String>) session.getAttribute("errorMessages");
-
-    // Clear messages from the session after displaying
-    session.removeAttribute("successMessage");
-    session.removeAttribute("errorMessage");
-    session.removeAttribute("errorMessages");
-%>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Display success message
-        <% if (successMessage != null && !successMessage.isEmpty()) { %>
-            toastr.success('<%= successMessage %>', '', {
-                "closeButton": false,
+           <!-- Put this right after opening the <body> tag -->
+<c:if test="${not empty sessionScope.alertMessage}">
+    <script>
+        $(document).ready(function() {
+            // Configure Toastr options
+            toastr.options = {
+                "closeButton": true,
                 "debug": false,
                 "newestOnTop": false,
                 "progressBar": true,
                 "positionClass": "toast-top-right",
                 "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": 300,
-                "hideDuration": 1000,
-                "timeOut": 5000,
-                "extendedTimeOut": 1000,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
                 "showEasing": "swing",
                 "hideEasing": "linear",
                 "showMethod": "fadeIn",
                 "hideMethod": "fadeOut"
-            });
-        <% } %>
+            };
 
-        // Display error message
-        <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
-            toastr.error('<%= errorMessage %>', '', {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": 300,
-                "hideDuration": 1000,
-                "timeOut": 5000,
-                "extendedTimeOut": 1000,
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            });
-        <% } %>
+            // Add custom CSS for Toastr
+            $("<style>")
+                .text(`
+                    .toast-success { background-color: #51A351 !important; }
+                    .toast-error { background-color: #BD362F !important; }
+                    .toast-info { background-color: #2F96B4 !important; }
+                    .toast-warning { background-color: #F89406 !important; }
+                    #toast-container > div { opacity: 1; }
+                    .toast-message { color: #ffffff !important; font-weight: 500; }
+                `)
+                .appendTo("head");
 
-        // Display multiple error messages
-        <% if (errorMessages != null && !errorMessages.isEmpty()) { %>
-            <% for (String error : errorMessages) { %>
-                toastr.error('<%= error %>', '', {
-                    "closeButton": false,
-                    "debug": false,
-                    "newestOnTop": false,
-                    "progressBar": true,
-                    "positionClass": "toast-top-right",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": 300,
-                    "hideDuration": 1000,
-                    "timeOut": 5000,
-                    "extendedTimeOut": 1000,
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                });
-            <% } %>
-        <% } %>
-    });
-</script>
+            // Show the notification
+            toastr["${sessionScope.alertType}"]("${sessionScope.alertMessage}");
+            
+            <% 
+                // Clear the session attributes after displaying
+                session.removeAttribute("alertMessage");
+                session.removeAttribute("alertType");
+            %>
+        });
+    </script>
+</c:if>
