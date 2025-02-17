@@ -20,7 +20,13 @@ List<Gallery> galleryList = galleryDAO.getAllGalleries();
 
 </head>
 <body>
+
        <jsp:include page="./toastr-config.jsp" />
+       <% 
+                // Clear the session attributes after displaying
+                session.removeAttribute("alertMessage");
+                session.removeAttribute("alertType");
+            %>
     <jsp:include page="./sideBar.jsp" />
 
     <section id="content">
