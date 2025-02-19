@@ -63,7 +63,7 @@
             <div class="collapse navbar-collapse oder-lg-2" id="navbarSupportedContent">
                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                     <a class="nav-link" href="index-2.html">Home</a>
+                     <a class="nav-link" href="./index.jsp">Home</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="about.html">about us</a>
