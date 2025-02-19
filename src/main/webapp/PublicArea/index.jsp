@@ -1,5 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.res.model.Service " %>
+<%@ page import="com.res.dao.ServiceDAO" %>
+<%
+    // Fetch the employee list from the database
+    ServiceDAO serviceDAO = new ServiceDAO();
+    List<Service> servicList = serviceDAO.getAllServices();
+    request.setAttribute("serviceList", servicList);
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,8 +104,7 @@
          </div>
       </div>
    </section>
-   <!-- Slider Section End -->
-
+  
    <!-- How Start Section Start -->
    <section class="how-start sec-padding">
       <div class="container">
@@ -194,54 +203,19 @@
                <div class="swiper-button-next"></div>
                <div class="swiper-button-prev"></div>
                <div class="swiper-wrapper service-list">
-                  <div class="swiper-slide">
-                     <div class="service-card rounded-3 text-center">
-                        <div class="icon icon-sm"><img src="images/icons/serv1.png" alt=""></div>
-                        <h3>Ride Sharing</h3>
-                        <p>In pellentesque massa vida placerat duis. Cursus sit amet dictum sit amet.</p>
-                        <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
-                     </div>
-                  </div>
-                  <div class="swiper-slide">
-                     <div class="service-card rounded-3 text-center">
-                        <div class="icon icon-sm"><img src="images/icons/serv3.png" alt=""></div>
-                        <h3>Taxi Reserve</h3>
-                        <p>In pellentesque massa vida placerat duis. Cursus sit amet dictum sit amet.</p>
-                        <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
-                     </div>
-                  </div>
-                  <div class="swiper-slide">
-                     <div class="service-card rounded-3 text-center">
-                        <div class="icon icon-sm"><img src="images/icons/serv1.png" alt=""></div>
-                        <h3>Ride Sharing</h3>
-                        <p>In pellentesque massa vida placerat duis. Cursus sit amet dictum sit amet.</p>
-                        <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
-                     </div>
-                  </div>
-                  <div class="swiper-slide">
-                     <div class="service-card rounded-3 text-center">
-                        <div class="icon icon-sm"><img src="images/icons/serv3.png" alt=""></div>
-                        <h3>Taxi Reserve</h3>
-                        <p>In pellentesque massa vida placerat duis. Cursus sit amet dictum sit amet.</p>
-                        <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
-                     </div>
-                  </div>
-                  <div class="swiper-slide">
-                     <div class="service-card rounded-3 text-center">
-                        <div class="icon icon-sm"><img src="images/icons/serv2.png" alt=""></div>
-                        <h3>Taxi Rental</h3>
-                        <p>In pellentesque massa vida placerat duis. Cursus sit amet dictum sit amet.</p>
-                        <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
-                     </div>
-                  </div>
-                  <div class="swiper-slide">
-                     <div class="service-card rounded-3 text-center">
-                        <div class="icon icon-sm"><img src="images/icons/intercity.png" alt=""></div>
-                        <h3>Intercity Service</h3>
-                        <p>In pellentesque massa vida placerat duis. Cursus sit amet dictum sit amet.</p>
-                        <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
-                     </div>
-                  </div>
+                  <c:forEach var="service" items="${serviceList}" varStatus="status" begin="0" end="6">
+    <div class="swiper-slide">
+        <div class="service-card rounded-3 text-center">
+            <div class="icon icon-sm">
+                <img src="${pageContext.request.contextPath}/${service.imagePath}" alt="Service Image">
+            </div>
+            <h3>${service.serviceName}</h3>
+            <p>${service.description}</p>
+            <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
+        </div>
+    </div>
+</c:forEach>
+                  
                </div>
             </div>
          </div>
