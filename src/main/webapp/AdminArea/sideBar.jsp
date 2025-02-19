@@ -19,9 +19,9 @@
 	
 <li><a href="#"><i class='bx bxs-id-card icon'></i> Drivers</a></li>
 <li><a href="#"><i class='bx bxs-car icon'></i> Cars</a></li>
-<li><a href="#"><i class='bx bxs-image icon'></i> Gallery</a></li>
+<li><a href="./gallery.jsp"><i class='bx bxs-image icon'></i> Gallery</a></li>
 <li><a href="./service.jsp"><i class='bx bxs-wrench icon'></i> Services</a></li>
-<li><a href="#"><i class='bx bxl-blogger icon'></i> Blog</a></li>
+<li><a href="./blog.jsp"><i class='bx bxl-blogger icon'></i> Blog</a></li>
 <li><a href="#"><i class='bx bxs-user icon'></i> Customers</a></li>
 
 			
@@ -35,11 +35,6 @@
 				</ul>
 			</li>
 		</ul>
-		<div class="ads">
-			<div class="wrapper">
-				<a href="#" class="btn-upgrade">Upgrade</a>
-				<p>Become a <span>PRO</span> member and enjoy <span>All Features</span></p>
-			</div>
-		</div>
+		
 	</section>
 	
