@@ -6,6 +6,8 @@
 <%@ page import="com.res.dao.ServiceDAO" %>
 <%@ page import="com.res.model.Gallery" %>
 <%@ page import="com.res.dao.GalleryDAO" %>
+<%@ page import="com.res.model.Review " %>
+<%@ page import="com.res.dao.ReviewDAO" %>
 <%
     // Fetch the employee list from the database
     ServiceDAO serviceDAO = new ServiceDAO();
@@ -15,6 +17,10 @@
     GalleryDAO galleryDAO = new GalleryDAO();
     List<Gallery> galleryList = galleryDAO.getAllGalleries();
     request.setAttribute("galleryList", galleryList);
+    
+    ReviewDAO reviewDAO = new ReviewDAO();
+    List<Review> reviewList = reviewDAO.getAllReviews();
+    request.setAttribute("reviewList", reviewList);
 %>
 
 <!DOCTYPE html>
@@ -441,79 +447,31 @@
                   <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis auctor elit sed vulputate
                      mi sit. Auctor eu
                      augue ut lectus arcu bibendum at varius vel.</p>
-                  <a href="#" class="btn btn-dark mt-4">leave a review <i class="fa fa-arrow-right"></i></a>
+                  <a href="./review.jsp" class="btn btn-dark mt-4">leave a review <i class="fa fa-arrow-right"></i></a>
                </div>
             </div>
             <div class="col-lg-7">
                <div class="review-wrapper position-relative pt-4">
                   <div class="swiper review-slider">
                      <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                           <div class="single-quote rounded-3 graphic-bg-light">
-                              <div class="quote-head d-flex align-items-center mb-4">
-                                 <div class="quote-img">
-                                    <img src="images/customer1.png" class="rounded-circle"
-                                       alt="Client">
-                                 </div>
-                                 <div class="quote-name ms-3">
-                                    <h3>Courtney Henry</h3>
-                                    <p class="mb-0">happy customer</p>
-                                 </div>
-                              </div>
-                              <p>“Massa tincidunt dui ut ornare lectus sit amet est placerat mauris augue neque gravida
-                                 in fermentum turpis egestas sed
-                                 tempus. Adipiscing elit habitant morbi. Massa sapien faucibus et molestie ac”.</p>
-                           </div>
-                        </div><!-- Single Slide End -->
-                        <div class="swiper-slide">
-                           <div class="single-quote rounded-3 graphic-bg-light">
-                              <div class="quote-head d-flex align-items-center mb-4">
-                                 <div class="quote-img">
-                                    <img src="images/entry4.jpg" class="rounded-circle"
-                                       alt="Client">
-                                 </div>
-                                 <div class="quote-name ms-3">
-                                    <h3>Courtney Henry</h3>
-                                    <p class="mb-0">happy customer</p>
-                                 </div>
-                              </div>
-                              <p>“Massa tincidunt dui ut ornare lectus sit amet est placerat mauris augue neque gravida
-                                 in fermentum turpis egestas sed
-                                 tempus. Adipiscing elit habitant morbi. Massa sapien faucibus et molestie ac”.</p>
-                           </div>
-                        </div><!-- Single Slide End -->
-                        <div class="swiper-slide">
-                           <div class="single-quote rounded-3  graphic-bg-light">
-                              <div class="quote-head d-flex align-items-center mb-4">
-                                 <div class="quote-img">
-                                    <img src="images/customer1.png" class="rounded-circle" alt="Client">
-                                 </div>
-                                 <div class="quote-name ms-3">
-                                    <h3>Courtney Henry</h3>
-                                    <p class="mb-0">happy customer</p>
-                                 </div>
-                              </div>
-                              <p>“Massa tincidunt dui ut ornare lectus sit amet est placerat mauris augue neque gravida
-                                 in fermentum turpis egestas sed
-                                 tempus. Adipiscing elit habitant morbi. Massa sapien faucibus et molestie ac”.</p>
-                           </div>
-                        </div><!-- Single Slide End -->
-                        <div class="swiper-slide">
-                           <div class="single-quote rounded-3  graphic-bg-light">
-                              <div class="quote-head d-flex align-items-center mb-4">
-                                 <div class="quote-img">
-                                    <img src="images/customer1.png" class="rounded-circle" alt="Client">
-                                 </div>
-                                 <div class="quote-name ms-3">
-                                    <h3>Courtney Henry</h3>
-                                    <p class="mb-0">happy customer</p>
-                                 </div>
-                              </div>
-                              <p>“Massa tincidunt dui ut ornare lectus sit amet est placerat mauris augue neque gravida
-                                 in fermentum turpis egestas sed
-                                 tempus. Adipiscing elit habitant morbi. Massa sapien faucibus et molestie ac”.</p>
-                           </div>
-                        </div><!-- Single Slide End -->
+                       <c:forEach var="review" items="${reviewList}">
+    <div class="swiper-slide">
+        <div class="single-quote rounded-3 graphic-bg-light">
+            <div class="quote-head d-flex align-items-center mb-4">
+                <div class="quote-img">
+                    <img src="images/customer1.png" class="rounded-circle" alt="Client"> <!-- Default Image -->
+                </div>
+                <div class="quote-name ms-3">
+                    <h3>${review.firstName} ${review.lastName}</h3>
+                    <p class="mb-0">Happy Customer</p> <!-- Assuming this is a static label -->
+                </div>
+            </div>
+            <p>“${review.message}”</p>
+        </div>
+    </div><!-- Single Slide End -->
+</c:forEach>
+                       
+                        
                      </div>
                      <div class="swiper-button-next"></div>
                      <div class="swiper-button-prev"></div>
