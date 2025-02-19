@@ -1,5 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.res.model.Service " %>
+<%@ page import="com.res.dao.ServiceDAO" %>
+<%@ page import="com.res.model.Gallery" %>
+<%@ page import="com.res.dao.GalleryDAO" %>
+<%
+    // Fetch the employee list from the database
+    ServiceDAO serviceDAO = new ServiceDAO();
+    List<Service> servicList = serviceDAO.getAllServices();
+    request.setAttribute("serviceList", servicList);
+    
+    GalleryDAO galleryDAO = new GalleryDAO();
+    List<Gallery> galleryList = galleryDAO.getAllGalleries();
+    request.setAttribute("galleryList", galleryList);
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,8 +111,7 @@
          </div>
       </div>
    </section>
-   <!-- Slider Section End -->
-
+  
    <!-- How Start Section Start -->
    <section class="how-start sec-padding">
       <div class="container">
@@ -194,54 +210,19 @@
                <div class="swiper-button-next"></div>
                <div class="swiper-button-prev"></div>
                <div class="swiper-wrapper service-list">
-                  <div class="swiper-slide">
-                     <div class="service-card rounded-3 text-center">
-                        <div class="icon icon-sm"><img src="images/icons/serv1.png" alt=""></div>
-                        <h3>Ride Sharing</h3>
-                        <p>In pellentesque massa vida placerat duis. Cursus sit amet dictum sit amet.</p>
-                        <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
-                     </div>
-                  </div>
-                  <div class="swiper-slide">
-                     <div class="service-card rounded-3 text-center">
-                        <div class="icon icon-sm"><img src="images/icons/serv3.png" alt=""></div>
-                        <h3>Taxi Reserve</h3>
-                        <p>In pellentesque massa vida placerat duis. Cursus sit amet dictum sit amet.</p>
-                        <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
-                     </div>
-                  </div>
-                  <div class="swiper-slide">
-                     <div class="service-card rounded-3 text-center">
-                        <div class="icon icon-sm"><img src="images/icons/serv1.png" alt=""></div>
-                        <h3>Ride Sharing</h3>
-                        <p>In pellentesque massa vida placerat duis. Cursus sit amet dictum sit amet.</p>
-                        <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
-                     </div>
-                  </div>
-                  <div class="swiper-slide">
-                     <div class="service-card rounded-3 text-center">
-                        <div class="icon icon-sm"><img src="images/icons/serv3.png" alt=""></div>
-                        <h3>Taxi Reserve</h3>
-                        <p>In pellentesque massa vida placerat duis. Cursus sit amet dictum sit amet.</p>
-                        <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
-                     </div>
-                  </div>
-                  <div class="swiper-slide">
-                     <div class="service-card rounded-3 text-center">
-                        <div class="icon icon-sm"><img src="images/icons/serv2.png" alt=""></div>
-                        <h3>Taxi Rental</h3>
-                        <p>In pellentesque massa vida placerat duis. Cursus sit amet dictum sit amet.</p>
-                        <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
-                     </div>
-                  </div>
-                  <div class="swiper-slide">
-                     <div class="service-card rounded-3 text-center">
-                        <div class="icon icon-sm"><img src="images/icons/intercity.png" alt=""></div>
-                        <h3>Intercity Service</h3>
-                        <p>In pellentesque massa vida placerat duis. Cursus sit amet dictum sit amet.</p>
-                        <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
-                     </div>
-                  </div>
+                  <c:forEach var="service" items="${serviceList}" varStatus="status" begin="0" end="6">
+    <div class="swiper-slide">
+        <div class="service-card rounded-3 text-center">
+            <div class="icon icon-sm">
+                <img src="${pageContext.request.contextPath}/${service.imagePath}" alt="Service Image">
+            </div>
+            <h3>${service.serviceName}</h3>
+            <p>${service.description}</p>
+            <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
+        </div>
+    </div>
+</c:forEach>
+                  
                </div>
             </div>
          </div>
@@ -545,97 +526,41 @@
    <!-- Client Section End -->
 
    <!-- Blog Section Start -->
-   <section class="blog-sec sec-padding">
+<section class="rider-sec sec-padding">
       <div class="container">
          <div class="row">
             <div class="col-xl-5 col-sm-9 mx-auto text-center">
-               <h2 class="sec-title">Unlocking Latest Posts</h2>
-               <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis auctor elit sed vulputate mi
-                  sit.</p>
+               <h2 class="sec-title">Our Gallery</h2>
+               <p>Browse through our gallery to discover the highlights of our services and experiences..</p>
             </div>
          </div>
-         <div class="blog-lists row row-cols-lg-2 row-cols-1 gy-4 mt-5">
-            <div class="col">
-               <article class="single-entry list-entry d-sm-flex align-items-center justify-conetent-between rounded-3">
-                  <div class="entry-thumb">
-                     <a href="single-post-sidebar.html">
-                        <img src="images/entry1.jpg" alt="">
-                     </a>
-                  </div>
-                  <div class="entry-content">
-                     <div class="entry-meta text-xs">
-                        <span><i class="fa-solid fa-calendar-days me-2"></i>14 June 2023</span>
-                        <span><i class="fa-solid fa-comments me-2"></i>Comment (05)</span>
-                     </div>
-                     <h3 class="entry-title"><a href="single-post-sidebar.html">Interdum velit laoreet id donec ultrices
-                           tincidunt arcu
-                           tincidunt tortor.</a></h3>
-                     <a href="#" class="btn btn-info">Read more</a>
-                  </div>
-               </article>
+         <div class="row mt-5 pt-5">
+         <c:forEach var="gallery" items="${galleryList}">
+    <div class="col-lg-3 col-sm-6">
+        <div class="rider-man">
+            <div class="rider-head rounded-3">
+                <div class="rider-media position-relative">
+                    <img class="img-fluid rounded-3" src="${pageContext.request.contextPath}/${gallery.imagePath}" alt="Gallery Image">
+                    <div class="rider-meta position-absolute rounded-3 text-white">
+                 
+                        <p>${gallery.description}</p>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-               <article class="single-entry list-entry d-sm-flex align-items-center justify-conetent-between rounded-3">
-                  <div class="entry-thumb">
-                     <a href="#">
-                        <img src="images/entry3.jpg" alt="">
-                     </a>
+               <div class="rider-info text-center mt-4">
+                            <h5>${gallery.title}</h5>
+                 
                   </div>
-                  <div class="entry-content">
-                     <div class="entry-meta text-xs">
-                        <span><i class="fa-solid fa-calendar-days me-2"></i>14 June 2023</span>
-                        <span><i class="fa-solid fa-comments me-2"></i>Comment (05)</span>
-                     </div>
-                     <h3 class="entry-title"><a href="single-post-sidebar.html">Interdum velit laoreet id donec ultrices
-                           tincidunt arcu
-                           tincidunt tortor.</a></h3>
-                     <a href="#" class="btn btn-info">Read more</a>
-                  </div>
-               </article>
-            </div>
-            <div class="col">
-               <article
-                  class="single-entry list-entry  d-sm-flex align-items-center justify-conetent-between rounded-3">
-                  <div class="entry-thumb">
-                     <a href="single-post-sidebar.html">
-                        <img src="images/entry2.jpg" alt="">
-                     </a>
-                  </div>
-                  <div class="entry-content">
-                     <div class="entry-meta text-xs">
-                        <span><i class="fa-solid fa-calendar-days me-2"></i>14 June 2023</span>
-                        <span><i class="fa-solid fa-comments me-2"></i>Comment (05)</span>
-                     </div>
-                     <h3 class="entry-title"><a href="single-post-sidebar.html">Interdum velit laoreet id donec ultrices
-                           tincidunt arcu
-                           tincidunt tortor.</a></h3>
-                     <a href="#" class="btn btn-info">Read more</a>
-                  </div>
-               </article>
-            </div>
-            <div class="col">
-               <article
-                  class="single-entry list-entry  d-sm-flex align-items-center justify-conetent-between rounded-3">
-                  <div class="entry-thumb">
-                     <a href="single-post-sidebar.html">
-                        <img src="images/entry4.jpg" alt="">
-                     </a>
-                  </div>
-                  <div class="entry-content">
-                     <div class="entry-meta text-xs">
-                        <span><i class="fa-solid fa-calendar-days me-2"></i>14 June 2023</span>
-                        <span><i class="fa-solid fa-comments me-2"></i>Comment (05)</span>
-                     </div>
-                     <h3 class="entry-title"><a href="single-post-sidebar.html">Interdum velit laoreet id donec ultrices
-                           tincidunt arcu
-                           tincidunt tortor.</a></h3>
-                     <a href="#" class="btn btn-info">Read more</a>
-                  </div>
-               </article>
-            </div>
+        </div>
+    </div>
+</c:forEach>
+
+             <!-- Rider Member End -->
          </div>
       </div>
+    
    </section>
+  
    <!-- Blog Section End -->
               <jsp:include page="./footer.jsp" />
 <!-- Footer Start -->
