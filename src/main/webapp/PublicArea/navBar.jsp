@@ -33,6 +33,7 @@
    <!-- Header Start -->
    <header class="header header-white">
       <br>
+             <jsp:include page="./toastr-config.jsp" />
       <nav class="navbar navbar-expand-lg">
          <div class="container rounded-4 bg-info">
             <a class="navbar-brand" href="#"><img src="images/logo-alt.png" alt="Logo"></a>

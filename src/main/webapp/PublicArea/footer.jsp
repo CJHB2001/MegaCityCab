@@ -54,13 +54,14 @@
                         <li>fax :<a href="#"> info @ride nexa</a></li>
                      </ul>
                   </div><!-- Widget End -->
+                  
                   <div class="widget newsletter-widget">
                      <h4 class="text-white text-capitalize mb-5">newsletter:</h4>
-                     <form action="#">
-                        <input class="form-control" type="email" placeholder="Enter your email">
+                     <form action="${pageContext.request.contextPath}/newsletter" method="post">
+                       <input class="form-control" type="email" name="email" placeholder="Enter your email" required>
                         <button class="btn btn-primary my-3">Subscribe Now</button>
                         <div class="form-check mt-4">
-                           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                          <input class="form-check-input" type="checkbox" name="agreement" id="flexCheckDefault" required>
                            <label class="form-check-label text-white" for="flexCheckDefault">
                               I agree to email receive.
                            </label>
