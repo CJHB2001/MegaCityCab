@@ -54,6 +54,7 @@
                         <li>fax :<a href="#"> info @ride nexa</a></li>
                      </ul>
                   </div><!-- Widget End -->
+                  
                   <div class="widget newsletter-widget">
                      <h4 class="text-white text-capitalize mb-5">newsletter:</h4>
                      <form action="${pageContext.request.contextPath}/newsletter" method="post">
