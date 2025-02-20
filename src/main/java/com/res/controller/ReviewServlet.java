@@ -30,7 +30,7 @@ public class ReviewServlet extends HttpServlet {
                 session.setAttribute("alertMessage", "Error: " + e.getMessage());
                 session.setAttribute("alertType", "danger");
             }
-            response.sendRedirect(request.getContextPath() + "/AdminArea/review_index.");
+            response.sendRedirect(request.getContextPath() + "/AdminArea/review.jsp");
         } else {
             try {
                 request.setAttribute("reviewList", reviewService.getAllReviews());
