@@ -185,7 +185,7 @@
                                         </div>
                                     </div>
                                     <button class="btn btn-primary mt-3" type="submit">Sign Up</button>
-                                    <p class="mt-3">Already have an account? <a href="${pageContext.request.contextPath}/login.jsp">Sign In</a></p>
+                                    <p class="mt-3">Already have an account? <a href="./signIn.jsp">Sign In</a></p>
                                 </form>
                             </div>
                         </div>

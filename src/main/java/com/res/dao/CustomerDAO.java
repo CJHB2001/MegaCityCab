@@ -69,4 +69,29 @@ public class CustomerDAO {
         }
         return "CUST00001"; // Default if no customers exist
     }
+    public Customer getCustomerByEmailAndPassword(String email, String password) throws SQLException {
+        String sql = "SELECT * FROM customers WHERE email = ? AND password = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, email);
+            pstmt.setString(2, password);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    Customer customer = new Customer();
+                    customer.setId(rs.getInt("id"));
+                    customer.setFirstName(rs.getString("first_name"));
+                    customer.setLastName(rs.getString("last_name"));
+                    customer.setPhone(rs.getString("phone"));
+                    customer.setEmail(rs.getString("email"));
+                    customer.setPassword(rs.getString("password"));
+                    customer.setAddressLine1(rs.getString("address_line1"));
+                    customer.setAddressLine2(rs.getString("address_line2"));
+                    customer.setNicNumber(rs.getString("nic_number"));
+                    customer.setRegistrationNumber(rs.getString("registration_number"));
+                    return customer;
+                }
+            }
+        }
+        return null; // Return null if no customer is found
+    }
 }

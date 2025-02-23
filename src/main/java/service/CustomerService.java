@@ -27,4 +27,8 @@ public class CustomerService {
     public String generateRegistrationNumber() throws SQLException {
         return customerDAO.generateRegistrationNumber();
     }
+    
+    public Customer validateCustomer(String email, String password) throws SQLException {
+        return customerDAO.getCustomerByEmailAndPassword(email, password);
+    }
 }

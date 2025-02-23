@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,6 +16,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    <!-- Font Awesome CSS -->
    <link rel="stylesheet" href="font-awesome/css/all.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
    <!-- Style css -->
    <link rel="stylesheet" href="css/swiper-bundle.min.css">
@@ -33,7 +34,7 @@
    <!-- Header Start -->
    <header class="header header-white">
       <br>
-             <jsp:include page="./toastr-config.jsp" />
+      <jsp:include page="./toastr-config.jsp" />
       <nav class="navbar navbar-expand-lg">
          <div class="container rounded-4 bg-info">
             <a class="navbar-brand" href="#"><img src="images/logo-alt.png" alt="Logo"></a>
@@ -44,20 +45,21 @@
             </button>
             <div class="nav-cta d-none d-sm-block order-lg-3">
                <div class="d-flex align-items-center">
-                  <div class="dropdown nav-search">
-                     <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-search text-dark"></i>
-                     </a>
-                     <div class="dropdown-menu shadow-sm border-0">
-                        <form class="input-group">
-                           <input class="form-control border-light" type="search" placeholder="your destination..."
-                              aria-label="Search">
-                           <button class="btn btn-primary m-0" type="submit">Search</button>
-                        </form>
-                     </div>
-                  </div>
-                  <a href="book-ride.html" class="btn btn-outline-dark d-none d-md-block">Book Now</a>
-                  <a href="sign-up.html" class="btn btn-primary ms-2">Get Started</a>
+                
+                  <a href="book-ride.html" class="btn btn-outline-dark d-none d-md-block ml-4" style="margin-right: 10px;">Book Now</a>
+                           
+                  <c:choose>
+                     <c:when test="${not empty sessionScope.customer}">
+                        <!-- Display customer's first name as a link to logout -->
+                        <a href="${pageContext.request.contextPath}/customerLogout" class="btn btn-outline-dark">
+                           <i class="fas fa-user"></i> ${sessionScope.customer.firstName}
+                        </a>
+                     </c:when>
+                     <c:otherwise>
+                        <!-- Display "Get Started" button for non-logged-in users -->
+                        <a href="./signUp.jsp" class="btn btn-primary ms-2">Get Started</a>
+                     </c:otherwise>
+                  </c:choose>
                </div>
             </div>
             <!-- Nav CTA End -->
@@ -67,7 +69,7 @@
                      <a class="nav-link" href="./index.jsp">Home</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="about.html">about us</a>
+                     <a class="nav-link" href="about.html">About Us</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="services.html">Services</a>
@@ -89,3 +91,5 @@
          </div>
       </nav>
    </header>
+</body>
+</html>
