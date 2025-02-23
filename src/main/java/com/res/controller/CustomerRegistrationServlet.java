@@ -63,10 +63,8 @@ public class CustomerRegistrationServlet extends HttpServlet {
             return;
         }
 
-        if (nicNumber == null || !nicNumber.trim().isEmpty()) {
-    
-            session.setAttribute("alertMessage", "NIC is required." );
-            session.setAttribute("alertType", "danger");
+        if (nicNumber == null || !nicNumber.matches("\\d{9}[Vv]")) {
+            session.setAttribute("error", "NIC number must be 9 digits followed by 'V' or 'v'.");
             response.sendRedirect(request.getContextPath() + "/PublicArea/signUp.jsp");
             return;
         }
@@ -112,7 +110,7 @@ public class CustomerRegistrationServlet extends HttpServlet {
             }
         } catch (SQLException e) {
             session.setAttribute("error", "Database error: " + e.getMessage());
-            response.sendRedirect(request.getContextPath() + "/register.jsp");
+            response.sendRedirect(request.getContextPath() + "//PublicArea/signUp.jsp");
         }
     }
 }
