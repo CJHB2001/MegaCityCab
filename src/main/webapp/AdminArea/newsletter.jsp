@@ -107,7 +107,8 @@
                     <h5 class="modal-title" id="sendEmailModalLabel">Send Email to Subscribers</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="${pageContext.request.contextPath}/sendBulkEmail" method="post">
+       <form id="sendEmailForm" action="${pageContext.request.contextPath}/sendBulkEmail" method="post">
+       
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="subject" class="form-label">Email Subject</label>
@@ -136,5 +137,30 @@
             toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
         });
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector("#sendEmailForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            let formData = new FormData(this);
+
+            fetch(this.action, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Replace modal content with success message
+                document.querySelector("#sendEmailModal .modal-body").innerHTML = 
+                    "<h5 class='text-success text-center'>Email has been sent to all customers.</h5>";
+
+                // Hide the close button and submit button
+                document.querySelector("#sendEmailModal .modal-footer").style.display = "none";
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    });
+</script>
+    
 </body>
 </html>
