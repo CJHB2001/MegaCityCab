@@ -18,6 +18,11 @@ public class CustomerService {
     public boolean isPhoneExists(String phone) throws SQLException {
         return customerDAO.isPhoneExists(phone);
     }
+    
+    public boolean isNicNumberExists(String nicNumber) throws SQLException {
+        return customerDAO.isPhoneExists(nicNumber);
+    }
+
 
     public String generateRegistrationNumber() throws SQLException {
         return customerDAO.generateRegistrationNumber();

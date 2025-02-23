@@ -83,6 +83,14 @@ public class CustomerRegistrationServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/PublicArea/signUp.jsp");
                 return;
             }
+            
+            if (customerService.isNicNumberExists(nicNumber)) {
+                session.setAttribute("error", "NIC number already exists.");
+                response.sendRedirect(request.getContextPath() + "/PublicArea/signUp.jsp");
+                return;
+            }
+        
+
 
             // Generate a registration number
             String registrationNumber = customerService.generateRegistrationNumber();
@@ -110,7 +118,7 @@ public class CustomerRegistrationServlet extends HttpServlet {
             }
         } catch (SQLException e) {
             session.setAttribute("error", "Database error: " + e.getMessage());
-            response.sendRedirect(request.getContextPath() + "//PublicArea/signUp.jsp");
+            response.sendRedirect(request.getContextPath() + "/PublicArea/signUp.jsp");
         }
     }
 }

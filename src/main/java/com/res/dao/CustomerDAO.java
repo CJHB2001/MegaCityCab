@@ -45,6 +45,18 @@ public class CustomerDAO {
         }
     }
 
+    
+    public boolean isNicNumberExists(String nicNumber) throws SQLException {
+        String sql = "SELECT * FROM customers WHERE nic_number = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, nicNumber);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                return rs.next();
+            }
+        }
+    }
+    
     public String generateRegistrationNumber() throws SQLException {
         String sql = "SELECT MAX(id) FROM customers";
         try (Connection conn = DatabaseUtil.getConnection();
