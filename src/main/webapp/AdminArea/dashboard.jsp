@@ -99,14 +99,7 @@
 				<div class="content-data">
 					<div class="head">
 						<h3>Chatbox</h3>
-						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon'></i>
-							<ul class="menu-link">
-								<li><a href="#">Edit</a></li>
-								<li><a href="#">Save</a></li>
-								<li><a href="#">Remove</a></li>
-							</ul>
-						</div>
+					
 					</div>
 					<div class="chat-box">
 						<p class="day"><span>Today</span></p>
