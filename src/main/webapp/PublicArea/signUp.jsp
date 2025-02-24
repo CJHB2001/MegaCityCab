@@ -49,31 +49,17 @@
             border-color: #c3e6cb;
         }
         
-        .alert-danger {
-            background-color: #f8d7da;
-            border-color: #f5c6cb;
-           
-        }
-        
-        .btn-close {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            font-size: 20px;
-            color: inherit;
-            padding: 0 5px;
-        }
-        
-        .btn-close:hover {
-            opacity: 0.7;
-        }
+       .alert-danger {
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb;
+
+/* Make it more visible */
+}
+ 
         
       
     </style>
+</head>
 </head>
 
 <body>
@@ -117,7 +103,7 @@
                               <c:if test="${not empty error}">
                 <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorAlert">
                     ${error}
-                    <button type="button" class="btn-close" onclick="dismissAlert(this.parentElement)">&times;</button>
+                  
                     <div class="alert-progress">
                         <div class="alert-progress-bar"></div>
                     </div>
@@ -127,7 +113,7 @@
             <c:if test="${not empty success}">
                 <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
                     ${success}
-                    <button type="button" class="btn-close" onclick="dismissAlert(this.parentElement)">&times;</button>
+                   
                     <div class="alert-progress">
                         <div class="alert-progress-bar"></div>
                     </div>

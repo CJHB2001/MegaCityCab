@@ -49,28 +49,13 @@
             border-color: #c3e6cb;
         }
         
-        .alert-danger {
-            background-color: #f8d7da;
-            border-color: #f5c6cb;
-           
-        }
-        
-        .btn-close {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            font-size: 20px;
-            color: inherit;
-            padding: 0 5px;
-        }
-        
-        .btn-close:hover {
-            opacity: 0.7;
-        }
+       .alert-danger {
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb;
+
+/* Make it more visible */
+}
+ 
         
       
     </style>
@@ -87,11 +72,11 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap text-center">
-						<h2 class="fw-bold text-white text-uppercase">create account</h2>
+						<h2 class="fw-bold text-white text-uppercase">sign in your account</h2>
 						<nav aria-label="breadcrumb w-75 mx-auto">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">sign up</li>
+								<li class="breadcrumb-item active" aria-current="page">sign In</li>
 							</ol>
 						</nav>
 					</div>
@@ -110,7 +95,7 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="signup-form">
-						<h2 class="sub-title border-bottom pb-4">sign up</h2>
+						<h2 class="sub-title border-bottom pb-4">sign In</h2>
 						
 						<div class="tab-content pt-4" id="pills-tabContent">
 							<div class="tab-pane fade show active" id="pills-rider" role="tabpanel"
@@ -119,7 +104,7 @@
 								  <c:if test="${not empty error}">
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 ${error}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+               
             </div>
         </c:if>
             <div class="mb-3">
@@ -129,16 +114,10 @@
                 <input class="form-control" type="password" name="password" placeholder="Password *" required>
             </div>
             <div class="d-flex justify-content-between">
-                <a href="#">Forgot password?</a>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Remember me
-                    </label>
-                </div>
+         
             </div>
             <button class="btn btn-primary mt-3">Sign In</button>
-            <p>Don't have an account? <a href="${pageContext.request.contextPath}/register.jsp">Sign up</a></p>
+            <p>Don't have an account? <a href="./signUp.jsp">Sign up</a></p>
         </form>
 							</div>
 							

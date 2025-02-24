@@ -17,6 +17,8 @@
    <!-- Font Awesome CSS -->
    <link rel="stylesheet" href="font-awesome/css/all.min.css">
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
    <!-- Style css -->
    <link rel="stylesheet" href="css/swiper-bundle.min.css">
@@ -51,9 +53,10 @@
                   <c:choose>
                      <c:when test="${not empty sessionScope.customer}">
                         <!-- Display customer's first name as a link to logout -->
-                        <a href="${pageContext.request.contextPath}/customerLogout" class="btn btn-outline-dark">
-                           <i class="fas fa-user"></i> ${sessionScope.customer.firstName}
-                        </a>
+                       <a href="#" class="btn btn-outline-dark"  onclick="confirmLogout()">
+   <i class="fas fa-user"></i> ${sessionScope.customer.firstName}
+</a>
+                       
                      </c:when>
                      <c:otherwise>
                         <!-- Display "Get Started" button for non-logged-in users -->
@@ -91,5 +94,18 @@
          </div>
       </nav>
    </header>
+   
+   <!-- Logout Confirmation Modal -->
+
+<script type="text/javascript">
+  function confirmLogout() {
+    if (confirm("Are you sure you want to log out?")) {
+      window.location.href = "${pageContext.request.contextPath}/customerLogout";
+    }
+  }
+</script>
+   <!-- Bootstrap JS (with Popper.js) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   
 </body>
 </html>
