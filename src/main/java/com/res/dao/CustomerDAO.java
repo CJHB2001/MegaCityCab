@@ -1,7 +1,12 @@
 package com.res.dao;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.res.model.Customer;
+import com.res.model.Employee;
+
 import util.DatabaseUtil;
 
 public class CustomerDAO {
@@ -93,5 +98,29 @@ public class CustomerDAO {
             }
         }
         return null; // Return null if no customer is found
+    }
+    
+    public List<Customer> getAllCustomers() throws SQLException {
+        List<Customer> customerList = new ArrayList<>();
+        String sql = "SELECT * FROM customers";
+        try (Connection conn = DatabaseUtil.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+            	Customer customer = new Customer();
+                customer.setId(rs.getInt("id"));
+                customer.setFirstName(rs.getString("first_name"));
+                customer.setLastName(rs.getString("last_name"));
+                customer.setPhone(rs.getString("phone"));
+                customer.setEmail(rs.getString("email"));
+                customer.setPassword(rs.getString("password"));
+                customer.setAddressLine1(rs.getString("address_line1"));
+                customer.setAddressLine2(rs.getString("address_line2"));
+                customer.setNicNumber(rs.getString("nic_number"));
+                customer.setRegistrationNumber(rs.getString("registration_number"));
+                customerList.add(customer);
+            }
+        }
+        return customerList;
     }
 }
