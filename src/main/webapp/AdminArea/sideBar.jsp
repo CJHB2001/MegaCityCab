@@ -9,7 +9,7 @@
 			<li><a href="./employee_index.jsp"><i class='bx bxs-widget icon' ></i> Widgets</a></li>
 	
 	<li><a href="./customer.jsp"><i class='bx bxs-user icon'></i> Customers</a></li>
-<li><a href="#"><i class='bx bxs-id-card icon'></i> Drivers</a></li>
+<li><a href="./driver.jsp"><i class='bx bxs-id-card icon'></i> Drivers</a></li>
 <li><a href="#"><i class='bx bxs-car icon'></i> Cars</a></li>
 <li><a href="./gallery.jsp"><i class='bx bxs-image icon'></i> Gallery</a></li>
 <li><a href="./service.jsp"><i class='bx bxs-wrench icon'></i> Services</a></li>
