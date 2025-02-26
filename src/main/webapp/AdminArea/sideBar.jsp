@@ -8,6 +8,8 @@
 		
 			<li><a href="./employee_index.jsp"><i class='bx bxs-widget icon' ></i> Widgets</a></li>
 	
+<li><a href="./booking.jsp"><i class='bx bxs-calendar-check icon'></i> Customer Bookings</a></li>
+
 	<li><a href="./customer.jsp"><i class='bx bxs-user icon'></i> Customers</a></li>
 <li><a href="./driver.jsp"><i class='bx bxs-id-card icon'></i> Drivers</a></li>
 <li><a href="./cab.jsp"><i class='bx bxs-car icon'></i> Cars</a></li>
