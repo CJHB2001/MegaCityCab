@@ -21,7 +21,7 @@ public class Booking {
     private String message;
     private int bookingStatus;
     private int carId;
-    private String vehicleNumber; 
+    private String vehicleNumber; // New field for vehicle number
 
     // Getters and Setters
     public int getId() { return id; }
@@ -71,8 +71,10 @@ public class Booking {
 
     public int getBookingStatus() { return bookingStatus; }
     public void setBookingStatus(int bookingStatus) { this.bookingStatus = bookingStatus; }
-    
+
     public int getCarId() { return carId; }
     public void setCarId(int carId) { this.carId = carId; }
-    
+
+    public String getVehicleNumber() { return vehicleNumber; }
+    public void setVehicleNumber(String vehicleNumber) { this.vehicleNumber = vehicleNumber; }
 }

@@ -40,10 +40,12 @@ public class BookingDAO {
             pstmt.executeUpdate();
         }
     }
-    
+ 
     public List<Booking> getAllBookings() throws SQLException {
         List<Booking> bookingList = new ArrayList<>();
-        String sql = "SELECT * FROM booking";
+        String sql = "SELECT b.*, v.vehicle_number " +
+                      "FROM booking b " +
+                      "LEFT JOIN vehicle v ON b.car_id = v.id";
         try (Connection conn = DatabaseUtil.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
@@ -66,12 +68,12 @@ public class BookingDAO {
                 booking.setMessage(rs.getString("message"));
                 booking.setBookingStatus(rs.getInt("booking_status"));
                 booking.setCarId(rs.getInt("car_id"));
+                booking.setVehicleNumber(rs.getString("vehicle_number")); // Set the vehicle number
                 bookingList.add(booking);
             }
         }
         return bookingList;
     }
-
     
     public void updateBookingStatus(int bookingId, int status) throws SQLException {
         String sql = "UPDATE booking SET booking_status = ? WHERE id = ?";
