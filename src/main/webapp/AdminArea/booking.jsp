@@ -26,9 +26,7 @@ request.setAttribute("bookingList", bookingList);
         <main class="p-4">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1 class="h3">Booking Management</h1>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBookingModal">
-                    <i class='bx bx-plus'></i> Add Booking
-                </button>
+            
             </div>
 
             <div class="card">

@@ -22,4 +22,8 @@ public class BookingService {
     public void updateBookingStatus(int bookingId, int status) throws SQLException {
         bookingDAO.updateBookingStatus(bookingId, status);
     }
+    
+    public void deleteBooking(int bookingId) throws SQLException {
+    	bookingDAO.deleteBooking(bookingId);
+    }
 }
