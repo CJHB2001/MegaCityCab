@@ -3,6 +3,7 @@ package com.res.controller;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.Time;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -89,4 +90,6 @@ public class BookingServlet extends HttpServlet {
 
         response.sendRedirect(request.getContextPath() + "/PublicArea/bookRide.jsp");
     }
+
+  
 }

@@ -17,14 +17,8 @@ request.setAttribute("bookingList", bookingList);
     <title>Booking Management</title>
 </head>
 <body>
- <c:if test="${not empty alertMessage}">
-        <div class="alert alert-${alertType} alert-dismissible fade show" role="alert">
-            ${alertMessage}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </c:if>
     <jsp:include page="./toastr-config.jsp" />
-
+    <jsp:include page="./sideBar.jsp" />
 
     <section id="content">
         <jsp:include page="./navBar.jsp" />
@@ -42,19 +36,19 @@ request.setAttribute("bookingList", bookingList);
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Customer ID</th>
+                                    <th> ID</th>
+                          
                                     <th>Name</th>
-                                    <th>Phone Number</th>
-                                    <th>Pick Up Point</th>
-                                    <th>Drop Off Point</th>
+                                    <th>Phone</th>
+                                    <th>Pick Up </th>
+                                    <th>Drop Off </th>
                                     <th>Passengers</th>
-                                    <th>Vehicle Type</th>
-                                    <th>Distance (KM)</th>
-                                    <th>Total Bill</th>
-                                    <th>Ride Date</th>
-                                    <th>Ride Time</th>
-                                    <th>Booking Status</th>
+                                    <th>Type</th>
+            
+                                    <th>Price</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -62,14 +56,14 @@ request.setAttribute("bookingList", bookingList);
                                 <c:forEach var="booking" items="${bookingList}">
                                     <tr>
                                         <td>${booking.id}</td>
-                                        <td>${booking.customerId}</td>
+     
                                         <td>${booking.name}</td>
                                         <td>${booking.phoneNumber}</td>
                                         <td>${booking.pickUpPoint}</td>
                                         <td>${booking.dropOffPoint}</td>
                                         <td>${booking.passengers}</td>
                                         <td>${booking.vehicleType}</td>
-                                        <td>${booking.distanceKm}</td>
+                
                                         <td>${booking.totalBill}</td>
                                         <td>${booking.rideDate}</td>
                                         <td>${booking.rideTime}</td>
