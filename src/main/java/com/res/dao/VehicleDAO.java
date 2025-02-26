@@ -8,7 +8,7 @@ import util.DatabaseUtil;
 
 public class VehicleDAO {
     public void addVehicle(Vehicle vehicle) throws SQLException {
-        String sql = "INSERT INTO vehicle (vehicle_type, engine_number, vehicle_number, brand, color, vehicle_fuel_type, doors, capacity, driver_id, driver_name, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO vehicle (vehicle_type, engine_number, vehicle_number, brand, color, vehicle_fuel_type, doors, capacity, driver_id, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, vehicle.getVehicleType());
@@ -20,15 +20,16 @@ public class VehicleDAO {
             pstmt.setInt(7, vehicle.getDoors());
             pstmt.setInt(8, vehicle.getCapacity());
             pstmt.setInt(9, vehicle.getDriverId());
-            pstmt.setString(10, vehicle.getDriverName());
-            pstmt.setString(11, vehicle.getImagePath());
+
+            pstmt.setString(10, vehicle.getImagePath());
             pstmt.executeUpdate();
         }
     }
 
     public List<Vehicle> getAllVehicles() throws SQLException {
         List<Vehicle> vehicleList = new ArrayList<>();
-        String sql = "SELECT * FROM vehicle";
+        String sql = "SELECT v.*, u.name AS driver_name FROM vehicle v " +
+                     "JOIN users u ON v.driver_id = u.id"; // Join with users table
         try (Connection conn = DatabaseUtil.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
@@ -44,7 +45,7 @@ public class VehicleDAO {
                 vehicle.setDoors(rs.getInt("doors"));
                 vehicle.setCapacity(rs.getInt("capacity"));
                 vehicle.setDriverId(rs.getInt("driver_id"));
-                vehicle.setDriverName(rs.getString("driver_name"));
+                vehicle.setDriverName(rs.getString("driver_name")); // Fetch driver name from users table
                 vehicle.setImagePath(rs.getString("image_path"));
                 vehicleList.add(vehicle);
             }
@@ -79,7 +80,6 @@ public class VehicleDAO {
                     vehicle.setDoors(rs.getInt("doors"));
                     vehicle.setCapacity(rs.getInt("capacity"));
                     vehicle.setDriverId(rs.getInt("driver_id"));
-                    vehicle.setDriverName(rs.getString("driver_name"));
                     vehicle.setImagePath(rs.getString("image_path"));
                     return vehicle;
                 }
@@ -89,7 +89,7 @@ public class VehicleDAO {
     }
 
     public void updateVehicle(Vehicle vehicle) throws SQLException {
-        String sql = "UPDATE vehicle SET vehicle_type = ?, engine_number = ?, vehicle_number = ?, brand = ?, color = ?, vehicle_fuel_type = ?, doors = ?, capacity = ?, driver_id = ?, driver_name = ?, image_path = ? WHERE id = ?";
+        String sql = "UPDATE vehicle SET vehicle_type = ?, engine_number = ?, vehicle_number = ?, brand = ?, color = ?, vehicle_fuel_type = ?, doors = ?, capacity = ?, driver_id = ?, image_path = ? WHERE id = ?";
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, vehicle.getVehicleType());
@@ -101,9 +101,9 @@ public class VehicleDAO {
             pstmt.setInt(7, vehicle.getDoors());
             pstmt.setInt(8, vehicle.getCapacity());
             pstmt.setInt(9, vehicle.getDriverId());
-            pstmt.setString(10, vehicle.getDriverName());
-            pstmt.setString(11, vehicle.getImagePath());
-            pstmt.setInt(12, vehicle.getId());
+        
+            pstmt.setString(10, vehicle.getImagePath());
+            pstmt.setInt(11, vehicle.getId());
             pstmt.executeUpdate();
         }
     }
