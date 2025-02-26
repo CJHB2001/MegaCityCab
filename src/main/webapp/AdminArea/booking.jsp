@@ -15,6 +15,7 @@ request.setAttribute("bookingList", bookingList);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Management</title>
+
 </head>
 <body>
     <jsp:include page="./toastr-config.jsp" />
@@ -33,128 +34,170 @@ request.setAttribute("bookingList", bookingList);
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th> ID</th>
-                          
-                                    <th>Name</th>
-                                    <th>Phone</th>
-                                    <th>Pick Up </th>
-                                    <th>Drop Off </th>
-                                    <th>Passengers</th>
-                                    <th>Type</th>
-            
-                                    <th>Price</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach var="booking" items="${bookingList}">
-                                    <tr>
-                                        <td>${booking.id}</td>
-     
-                                        <td>${booking.name}</td>
-                                        <td>${booking.phoneNumber}</td>
-                                        <td>${booking.pickUpPoint}</td>
-                                        <td>${booking.dropOffPoint}</td>
-                                        <td>${booking.passengers}</td>
-                                        <td>${booking.vehicleType}</td>
-                
-                                        <td>${booking.totalBill}</td>
-                                        <td>${booking.rideDate}</td>
-                                        <td>${booking.rideTime}</td>
-                                        <td>${booking.bookingStatus}</td>
-                                        <td>
+                    
+ <table class="table ">
+    <thead class="table-dark">
+        <tr>
+   
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Vehicle Type</th>
+            <th>Total Bill</th>
+            <th>Booking Status</th>
+                   <th>Change Status</th>
+                   
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <c:forEach var="booking" items="${bookingList}">
+            <tr>
+       
+                <td>${booking.customerId}</td>
+                <td>${booking.name}</td>
+                <td>${booking.phoneNumber}</td>
+                <td>${booking.vehicleType}</td>
+                <td>Rs. ${booking.totalBill}</td>
+                <td>
+                    <c:choose>
+                        <c:when test="${booking.bookingStatus == 0}">
+                            <span class="badge bg-warning ">Pending</span>
+                        </c:when>
+                        <c:when test="${booking.bookingStatus == 1}">
+                            <span class="badge bg-success">Confirmed</span>
+                        </c:when>
+                        <c:when test="${booking.bookingStatus == 3}">
+                            <span class="badge bg-danger">Cancelled</span>
+                        </c:when>
+                        <c:otherwise>
+                            <span class="badge bg-secondary">${booking.bookingStatus}</span>
+                        </c:otherwise>
+                    </c:choose>
+                </td>
+                <td>
+                    <form action="${pageContext.request.contextPath}/booking" method="post" class="d-flex justify-content-center">
+                        <input type="hidden" name="action" value="updateStatus">
+                        <input type="hidden" name="id" value="${booking.id}">
+                        <select name="bookingStatus" class="form-select form-select-sm me-2" id="bookingStatus${booking.id}">
+                            <option value="0" ${booking.bookingStatus == 0 ? 'selected' : ''}>Pending</option>
+                            <option value="1" ${booking.bookingStatus == 1 ? 'selected' : ''}>Confirmed</option>
+                            <option value="3" ${booking.bookingStatus == 3 ? 'selected' : ''}>Cancelled</option>
+                        </select>
+                        <button type="submit" class="btn btn-sm btn-primary">
+                            <i class="bx bx-refresh"></i> 
+                        </button>
+                    </form>
+                </td>
+                             <td>
                                             <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editBookingModal${booking.id}">
-                                                <i class='bx bx-edit'></i>
+                                         <i class='bx bx-detail'></i>  <!-- Represents more details -->
+                                         
+                                          
                                             </button>
                                             <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteBookingModal${booking.id}">
                                                 <i class='bx bx-trash'></i>
                                             </button>
                                         </td>
-                                    </tr>
+            </tr>
+   
+ 
 
                                     <!-- Edit Modal -->
-                                    <div class="modal fade" id="editBookingModal${booking.id}" tabindex="-1" aria-labelledby="editBookingModalLabel${booking.id}" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="editBookingModalLabel${booking.id}">Edit Booking</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <form action="${pageContext.request.contextPath}/booking" method="post" enctype="multipart/form-data">
-                                                    <input type="hidden" name="action" value="update">
-                                                    <input type="hidden" name="id" value="${booking.id}">
-                                                    <div class="modal-body">
-                                                        <div class="mb-3">
-                                                            <label for="customer_id" class="form-label">Customer ID</label>
-                                                            <input type="text" class="form-control" id="customer_id" name="customer_id" value="${booking.customerId}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="name" class="form-label">Name</label>
-                                                            <input type="text" class="form-control" id="name" name="name" value="${booking.name}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="phone_number" class="form-label">Phone Number</label>
-                                                            <input type="text" class="form-control" id="phone_number" name="phone_number" value="${booking.phoneNumber}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="pick_up_point" class="form-label">Pick Up Point</label>
-                                                            <input type="text" class="form-control" id="pick_up_point" name="pick_up_point" value="${booking.pickUpPoint}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="drop_off_point" class="form-label">Drop Off Point</label>
-                                                            <input type="text" class="form-control" id="drop_off_point" name="drop_off_point" value="${booking.dropOffPoint}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="passengers" class="form-label">Passengers</label>
-                                                            <input type="number" class="form-control" id="passengers" name="passengers" value="${booking.passengers}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="vehicle_type" class="form-label">Vehicle Type</label>
-                                                            <input type="text" class="form-control" id="vehicle_type" name="vehicle_type" value="${booking.vehicleType}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="distance_km" class="form-label">Distance (KM)</label>
-                                                            <input type="number" class="form-control" id="distance_km" name="distance_km" value="${booking.distanceKm}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="total_bill" class="form-label">Total Bill</label>
-                                                            <input type="number" class="form-control" id="total_bill" name="total_bill" value="${booking.totalBill}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="ride_date" class="form-label">Ride Date</label>
-                                                            <input type="date" class="form-control" id="ride_date" name="ride_date" value="${booking.rideDate}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="ride_time" class="form-label">Ride Time</label>
-                                                            <input type="time" class="form-control" id="ride_time" name="ride_time" value="${booking.rideTime}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="message" class="form-label">Message</label>
-                                                            <textarea class="form-control" id="message" name="message">${booking.message}</textarea>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="booking_status" class="form-label">Booking Status</label>
-                                                            <input type="number" class="form-control" id="booking_status" name="booking_status" value="${booking.bookingStatus}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="car_id" class="form-label">Car ID</label>
-                                                            <input type="number" class="form-control" id="car_id" name="car_id" value="${booking.carId}" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Update</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+                      <div class="modal fade" id="editBookingModal${booking.id}" tabindex="-1" aria-labelledby="editBookingModalLabel${booking.id}" aria-hidden="true">
+                        <div class="modal-dialog modal-lg"> 
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editBookingModalLabel${booking.id}">Booking Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Customer ID</label>
+                        <input type="text" class="form-control" value="${booking.customerId}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" value="${booking.name}" readonly>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" value="${booking.phoneNumber}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Pick Up Point</label>
+                        <input type="text" class="form-control" value="${booking.pickUpPoint}" readonly>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Drop Off Point</label>
+                        <input type="text" class="form-control" value="${booking.dropOffPoint}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Passengers</label>
+                        <input type="number" class="form-control" value="${booking.passengers}" readonly>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Vehicle Type</label>
+                        <input type="text" class="form-control" value="${booking.vehicleType}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Distance (KM)</label>
+                        <input type="number" class="form-control" value="${booking.distanceKm}" readonly>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Total Bill</label>
+                        <input type="number" class="form-control" value="${booking.totalBill}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ride Date</label>
+                        <input type="date" class="form-control" value="${booking.rideDate}" readonly>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Ride Time</label>
+                        <input type="time" class="form-control" value="${booking.rideTime}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Booking Status</label>
+                        <input type="number" class="form-control" value="${booking.bookingStatus}" readonly>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Car ID</label>
+                        <input type="number" class="form-control" value="${booking.carId}" readonly>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-control" readonly>${booking.message}</textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+                      
+                               
 
                                     <!-- Delete Modal -->
                                     <div class="modal fade" id="deleteBookingModal${booking.id}" tabindex="-1" aria-labelledby="deleteBookingModalLabel${booking.id}" aria-hidden="true">
@@ -265,5 +308,22 @@ request.setAttribute("bookingList", bookingList);
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+    function updateBookingStatus(bookingId, status) {
+        fetch(`${pageContext.request.contextPath}/booking?action=updateStatus&id=${bookingId}&status=${status}`, {
+            method: 'POST'
+        })
+        .then(response => {
+            if (response.ok) {
+                location.reload(); // Reload the page to reflect the updated status
+            } else {
+                alert('Failed to update booking status.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+</script>
 </body>
 </html>

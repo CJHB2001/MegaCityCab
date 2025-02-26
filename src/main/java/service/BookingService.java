@@ -18,4 +18,8 @@ public class BookingService {
     public List<Booking> getAllBookings() throws SQLException {
         return bookingDAO.getAllBookings();
     }
+    
+    public void updateBookingStatus(int bookingId, int status) throws SQLException {
+        bookingDAO.updateBookingStatus(bookingId, status);
+    }
 }
