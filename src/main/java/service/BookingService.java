@@ -26,4 +26,8 @@ public class BookingService {
     public void deleteBooking(int bookingId) throws SQLException {
     	bookingDAO.deleteBooking(bookingId);
     }
+    
+    public void assignCarToBooking(int bookingId, int carId) throws SQLException {
+        bookingDAO.assignCarToBooking(bookingId, carId);
+    }
 }

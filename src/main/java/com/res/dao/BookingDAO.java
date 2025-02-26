@@ -83,5 +83,15 @@ public class BookingDAO {
         }
     }
     
+    public void assignCarToBooking(int bookingId, int carId) throws SQLException {
+        String sql = "UPDATE booking SET car_id = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, carId);
+            pstmt.setInt(2, bookingId);
+            pstmt.executeUpdate();
+        }
+    }
+    
  
 }

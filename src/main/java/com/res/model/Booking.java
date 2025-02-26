@@ -21,6 +21,7 @@ public class Booking {
     private String message;
     private int bookingStatus;
     private int carId;
+    private String vehicleNumber; 
 
     // Getters and Setters
     public int getId() { return id; }
@@ -73,4 +74,5 @@ public class Booking {
     
     public int getCarId() { return carId; }
     public void setCarId(int carId) { this.carId = carId; }
+    
 }
