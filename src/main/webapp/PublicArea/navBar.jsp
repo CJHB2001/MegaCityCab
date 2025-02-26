@@ -6,7 +6,7 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>HTML5 Template</title>
+   <title>Mega City Cab</title>
    <meta name="description" content="">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <link rel="apple-touch-icon" href="images/favicon.png">
@@ -48,7 +48,7 @@
             <div class="nav-cta d-none d-sm-block order-lg-3">
                <div class="d-flex align-items-center">
                 
-                  <a href="book-ride.html" class="btn btn-outline-dark d-none d-md-block ml-4" style="margin-right: 10px;">Book Now</a>
+                  <a href="./bookRide.jsp" class="btn btn-outline-dark d-none d-md-block ml-4" style="margin-right: 10px;">Book Now</a>
                            
                   <c:choose>
                      <c:when test="${not empty sessionScope.customer}">
