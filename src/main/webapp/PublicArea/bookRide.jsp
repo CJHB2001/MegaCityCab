@@ -57,64 +57,70 @@
 								dicta. Reiciendis officia,
 								optio aut adipisci accusantium ullam perferendis deleniti. Obcaecati, placeat quas?</p>
 						</div>
-						<form action="#" class="booking-form mt-5 row">
+					<form action="#" class="booking-form mt-5 row">
+    <div class="form-group col-lg-6">
+        <input class="form-control" type="text" placeholder="Your Name">
+        <span><i class="fa fa-user"></i></span>
+    </div>
+    <div class="form-group col-lg-6">
+        <input class="form-control" type="text" placeholder="Phone Number">
+        <span><i class="fa fa-phone"></i></span>
+    </div>
+    <div class="form-group col-lg-6">
+        <input class="form-control" type="text" placeholder="Pick Up point">
+        <span><i class="fa fa-location-dot"></i></span>
+    </div>
+    <div class="form-group col-lg-6">
+        <input class="form-control" type="text" placeholder="Drop Off point">
+        <span><i class="fa fa-location-dot"></i></span>
+    </div>
+    <div class="form-group col-lg-6">
+        <select class="wide" name="#" id="passenger">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="5+">5+</option>
+        </select>
+    </div>
+    <div class="form-group col-lg-6">
+        <select class="wide" name="#" id="select-car">
+            <option value="">Select Vehicle Type</option>
+            <option value="car" data-rate="200">Car</option>
+            <option value="van" data-rate="250">Van</option>
+            <option value="jeep" data-rate="220">Jeep</option>
+            <option value="tuk-tuk" data-rate="100">Tuk Tuk</option>
+            <option value="bus" data-rate="275">Bus</option>
+        </select>
+    </div>
+    <div class="form-group col-lg-6">
+        <input type="number" id="kmInput" class="form-control" placeholder="Enter Distance in KM">
+        <span><i class="fa fa-road"></i></span>
+    </div>
+    <div class="form-group col-lg-6">
+        <input type="text" id="totalBill" class="form-control" placeholder="Total Bill (LKR)" readonly>
+        <span><i class="fa fa-money"></i></span>
+    </div>
+    <div class="form-group col-lg-6">
+        <input type="text" name="foo" placeholder="Select Date">
+        <span><i class="fa fa-calendar"></i></span>
+    </div>
+    <div class="form-group col-lg-6">
+        <input type="text" class="timepicker" placeholder="Select Time" />
+        <span><i class="fa fa-clock"></i></span>
+    </div>
+    <div class="form-group col-lg-12">
+        <textarea placeholder="Your Message..." name="" id="" cols="30" rows="6"></textarea>
+        <span><i class="fa fa-pen"></i></span>
+    </div>
+    <div class="form-group text-center mt-5">
+        <button class="btn btn-primary">Book Now <i class="fa fa-arrow-right"></i></button>
+    </div>
+</form>
 
-							<div class="form-group col-lg-6">
-								<input class="form-control" type="text" placeholder="Your Name">
-								<span><i class="fa fa-user"></i></span>
-							</div>
-							<div class="form-group col-lg-6">
-								<input class="form-control" type="text" placeholder="Phone Number">
-								<span><i class="fa fa-phone"></i></span>
-							</div>
-							<div class="form-group col-lg-6">
-								<input class="form-control" type="text" placeholder="Pick Up point">
-								<span><i class="fa fa-location-dot"></i></span>
-							</div>
-							<div class="form-group col-lg-6">
-								<input class="form-control" type="text" placeholder="Drop Off point">
-								<span><i class="fa fa-location-dot"></i></span>
-							</div>
-							<div class="form-group col-lg-6">
-								<select class="wide" name="#" id="passenger">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="5+">5+</option>
-								</select>
-							</div>
-							<div class="form-group col-lg-6">
-								<select class="wide" name="#" id="select-car" >
-						      <option value="">Select Vehicle Type</option>
-        <option value="car">Car</option>
-        <option value="van">Van</option>
-        <option value="lorry">Lorry</option>
-        <option value="jeep">Jeep</option>
-        <option value="tuk-tuk">Tuk Tuk</option>
-        <option value="bus">Bus</option>
-        <option value="bike">Bike</option>
-        <option value="three-wheeler">Three-Wheeler</option>
-        <option value="pickup-truck">Pickup Truck</option>
-								</select>
-							</div>
-							<div class="form-group col-lg-6">
-								<input type="text" name="foo" placeholder="Select Date">
-								<span><i class="fa fa-calendar"></i></span>
-							</div>
-							<div class="form-group col-lg-6">
-								<input type="text" class="timepicker" placeholder="Select Time" />
-								<span><i class="fa fa-clock"></i></span>
-							</div>
-							<div class="form-group col-lg-12">
-								<textarea placeholder="Your Message..." name="" id="" cols="30" rows="6"></textarea>
-								<span><i class="fa fa-pen"></i></span>
-							</div>
-							<div class="form-group text-center mt-5">
-								<button class="btn btn-primary">Book Now <i class="fa fa-arrow-right"></i></button>
-							</div>
-						</form>
+
+					
 					</div>
 				</div>
 			</div>
@@ -142,6 +148,28 @@
             }, false);
         });
     })();
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let vehicleSelect = document.getElementById("select-car");
+        let kmInput = document.getElementById("kmInput");
+        let totalBill = document.getElementById("totalBill");
+
+        function calculateBill() {
+            let selectedOption = vehicleSelect.options[vehicleSelect.selectedIndex];
+            let rate = selectedOption.getAttribute("data-rate");
+            let km = parseFloat(kmInput.value);
+            
+            if (rate && km && km > 0) {
+                totalBill.value = " LKR " + (rate * km);
+            } else {
+                totalBill.value = "";
+            }
+        }
+
+        vehicleSelect.addEventListener("change", calculateBill);
+        kmInput.addEventListener("input", calculateBill);
+    });
 </script>
    <!-- Footer Start -->
  
