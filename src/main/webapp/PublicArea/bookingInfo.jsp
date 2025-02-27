@@ -25,6 +25,7 @@ request.setAttribute("vehicleList", vehicleList);
    <!-- Add your CSS and JS links here -->
 </head>
 <body>
+
    <!-- Header Start -->
    <jsp:include page="./navBar.jsp" />
    <!-- Header End -->
