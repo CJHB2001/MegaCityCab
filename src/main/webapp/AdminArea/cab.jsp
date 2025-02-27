@@ -79,7 +79,9 @@ request.setAttribute("vehicleList", vehicleList);
                                         <td>${vehicle.vehicleFuelType}</td>
                                         <td>${vehicle.doors}</td>
                                         <td>${vehicle.capacity}</td>
-
+  <td>
+                                            <img src="${pageContext.request.contextPath}/${gallery.imagePath}" alt="Gallery Image" width="50" height="50" class="rounded-circle">
+                                        </td>
                                                                                 <td>
                                             <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editVehicleModal${vehicle.id}">
                                                 <i class='bx bx-edit'></i>

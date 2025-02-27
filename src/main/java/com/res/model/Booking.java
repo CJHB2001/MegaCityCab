@@ -21,7 +21,19 @@ public class Booking {
     private String message;
     private int bookingStatus;
     private int carId;
-    private String vehicleNumber; // New field for vehicle number
+    private String vehicleNumber; // Vehicle number
+    private String vehicleImagePath; // Vehicle image
+    private String vehicleBrand; // Vehicle brand
+    private String vehicleColor; // Vehicle color
+    private String vehicleFuelType; // Vehicle fuel type
+    private int vehicleDoors; // Vehicle doors
+    private int vehicleCapacity; // Vehicle capacity
+    private String driverName; // Driver name
+    private String driverImagePath; // Driver image
+    private int driverAge; // Driver age
+    private String driverExperience; // Driver experience
+    private String driverLicenseId; // Driver license ID
+    private String driverGender; // Driver gender
 
     // Getters and Setters
     public int getId() { return id; }
@@ -77,4 +89,42 @@ public class Booking {
 
     public String getVehicleNumber() { return vehicleNumber; }
     public void setVehicleNumber(String vehicleNumber) { this.vehicleNumber = vehicleNumber; }
+    
+    public String getVehicleImagePath() { return vehicleImagePath; }
+    public void setVehicleImagePath(String vehicleImagePath) { this.vehicleImagePath = vehicleImagePath; }
+
+    public String getVehicleBrand() { return vehicleBrand; }
+    public void setVehicleBrand(String vehicleBrand) { this.vehicleBrand = vehicleBrand; }
+
+    public String getVehicleColor() { return vehicleColor; }
+    public void setVehicleColor(String vehicleColor) { this.vehicleColor = vehicleColor; }
+
+    public String getVehicleFuelType() { return vehicleFuelType; }
+    public void setVehicleFuelType(String vehicleFuelType) { this.vehicleFuelType = vehicleFuelType; }
+
+    public int getVehicleDoors() { return vehicleDoors; }
+    public void setVehicleDoors(int vehicleDoors) { this.vehicleDoors = vehicleDoors; }
+
+    public int getVehicleCapacity() { return vehicleCapacity; }
+    public void setVehicleCapacity(int vehicleCapacity) { this.vehicleCapacity = vehicleCapacity; }
+
+    public String getDriverName() { return driverName; }
+    public void setDriverName(String driverName) { this.driverName = driverName; }
+    
+    
+    public String getDriverImagePath() { return driverImagePath; }
+    public void setDriverImagePath(String driverImagePath) { this.driverImagePath = driverImagePath; }
+
+    public int getDriverAge() { return driverAge; }
+    public void setDriverAge(int driverAge) { this.driverAge = driverAge; }
+
+    public String getDriverExperience() { return driverExperience; }
+    public void setDriverExperience(String driverExperience) { this.driverExperience = driverExperience; }
+
+    public String getDriverLicenseId() { return driverLicenseId; }
+    public void setDriverLicenseId(String driverLicenseId) { this.driverLicenseId = driverLicenseId; }
+
+    public String getDriverGender() { return driverGender; }
+    public void setDriverGender(String driverGender) { this.driverGender = driverGender; }
+
 }

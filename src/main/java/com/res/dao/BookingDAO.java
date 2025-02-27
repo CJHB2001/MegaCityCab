@@ -41,11 +41,15 @@ public class BookingDAO {
         }
     }
  
+  
     public List<Booking> getAllBookings() throws SQLException {
         List<Booking> bookingList = new ArrayList<>();
-        String sql = "SELECT b.*, v.vehicle_number " +
-                      "FROM booking b " +
-                      "LEFT JOIN vehicle v ON b.car_id = v.id";
+        String sql = "SELECT b.*, v.vehicle_number, v.image_path AS vehicle_image, v.brand, v.color, v.vehicle_fuel_type, v.doors, v.capacity, " +
+                     "u.name AS driver_name, u.profile_photo AS driver_image, u.age AS driver_age, u.experience AS driver_experience, " +
+                     "u.license_id AS driver_license_id, u.gender AS driver_gender " +
+                     "FROM booking b " +
+                     "LEFT JOIN vehicle v ON b.car_id = v.id " +
+                     "LEFT JOIN users u ON v.driver_id = u.id";
         try (Connection conn = DatabaseUtil.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
@@ -68,7 +72,19 @@ public class BookingDAO {
                 booking.setMessage(rs.getString("message"));
                 booking.setBookingStatus(rs.getInt("booking_status"));
                 booking.setCarId(rs.getInt("car_id"));
-                booking.setVehicleNumber(rs.getString("vehicle_number")); // Set the vehicle number
+                booking.setVehicleNumber(rs.getString("vehicle_number")); // Vehicle number
+                booking.setVehicleImagePath(rs.getString("vehicle_image")); // Vehicle image
+                booking.setVehicleBrand(rs.getString("brand")); // Vehicle brand
+                booking.setVehicleColor(rs.getString("color")); // Vehicle color
+                booking.setVehicleFuelType(rs.getString("vehicle_fuel_type")); // Vehicle fuel type
+                booking.setVehicleDoors(rs.getInt("doors")); // Vehicle doors
+                booking.setVehicleCapacity(rs.getInt("capacity")); // Vehicle capacity
+                booking.setDriverName(rs.getString("driver_name")); // Driver name
+                booking.setDriverImagePath(rs.getString("driver_image")); // Driver image
+                booking.setDriverAge(rs.getInt("driver_age")); // Driver age
+                booking.setDriverExperience(rs.getString("driver_experience")); // Driver experience
+                booking.setDriverLicenseId(rs.getString("driver_license_id")); // Driver license ID
+                booking.setDriverGender(rs.getString("driver_gender")); // Driver gender
                 bookingList.add(booking);
             }
         }
