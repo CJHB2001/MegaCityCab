@@ -1,164 +1,244 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.res.model.Booking" %>
+<%@ page import="com.res.dao.BookingDAO" %>
+<%@ page import="com.res.model.Vehicle" %>
+<%@ page import="com.res.dao.VehicleDAO" %>
+
+<%
+
+	VehicleDAO vehicleDAO = new VehicleDAO();
+	List<Vehicle> vehicleList = vehicleDAO.getAllVehicles();
+	request.setAttribute("vehicleList", vehicleList);
+    // Fetch all bookings
+    BookingDAO bookingDAO = new BookingDAO();
+    List<Booking> bookingList = bookingDAO.getAllBookings();
+    request.setAttribute("bookingList", bookingList);
+    // Get current user ID from session
+    int currentUserId = 0;
+    if (session.getAttribute("user") != null) {
+        // Assuming user object has getId() method
+        currentUserId = ((com.res.model.User)session.getAttribute("user")).getId();
+    }
+    
+    // Initialize counters
+    int completedRides = 0;
+    int dueRides = 0;
+    float totalEarnings = 0;
+    
+    // Calculate statistics for current driver
+    for (Booking booking : bookingList) {
+        if (booking.getDriverId() == currentUserId && booking.getBookingStatus() == 1) {
+            if (booking.getTripStatus() == 3) {
+                // Completed rides
+                completedRides++;
+                totalEarnings += booking.getTotalBill();
+            } else {
+                // Due/Pending rides (Not Started or Started but not Completed)
+                dueRides++;
+            }
+        }
+    }
+    
+    // Calculate percentages
+    int totalRides = completedRides + dueRides;
+    int completedPercentage = (totalRides > 0) ? (completedRides * 100 / totalRides) : 0;
+    int duePercentage = (totalRides > 0) ? (dueRides * 100 / totalRides) : 0;
+    
+    // Set attributes for use in JSP
+    request.setAttribute("completedRides", completedRides);
+    request.setAttribute("dueRides", dueRides);
+    request.setAttribute("totalEarnings", totalEarnings);
+    request.setAttribute("completedPercentage", completedPercentage);
+    request.setAttribute("duePercentage", duePercentage);
+    request.setAttribute("totalRides", totalRides);
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	
-	<link rel="stylesheet" href="style.css">
-	<title>AdminSite</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Driver Dashboard</title>
 </head>
 <body>
-   <c:if test="${empty sessionScope.user}">
+    <c:if test="${empty sessionScope.user}">
         <c:redirect url="/AdminArea/login.jsp" />
     </c:if>
-	
-	<!-- SIDEBAR -->
-	 <jsp:include page="./sideBar.jsp" />
-	<!-- SIDEBAR -->
+    
+    <!-- SIDEBAR -->
+    <jsp:include page="./sideBar.jsp" />
+    <!-- SIDEBAR -->
 
-	<!-- NAVBAR -->
-	<section id="content">
-		<!-- NAVBAR -->
-		  <jsp:include page="./navBar.jsp" />
-		<!-- NAVBAR -->
+    <!-- NAVBAR -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <jsp:include page="./navBar.jsp" />
+        <!-- NAVBAR -->
 
-		<!-- MAIN -->
-		<main>
-			<h1 class="title">Dashboard</h1>
-			<ul class="breadcrumbs">
-				<li><a href="#">Home</a></li>
-				<li class="divider">/</li>
-				<li><a href="#" class="active">Dashboard</a></li>
-			</ul>
-			<div class="info-data">
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2>1500</h2>
-							<p>Traffic</p>
-						</div>
-						<i class='bx bx-trending-up icon' ></i>
-					</div>
-					<span class="progress" data-value="40%"></span>
-					<span class="label">40%</span>
-				</div>
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2>234</h2>
-							<p>Sales</p>
-						</div>
-						<i class='bx bx-trending-down icon down' ></i>
-					</div>
-					<span class="progress" data-value="60%"></span>
-					<span class="label">60%</span>
-				</div>
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2>465</h2>
-							<p>Pageviews</p>
-						</div>
-						<i class='bx bx-trending-up icon' ></i>
-					</div>
-					<span class="progress" data-value="30%"></span>
-					<span class="label">30%</span>
-				</div>
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2>235</h2>
-							<p>Visitors</p>
-						</div>
-						<i class='bx bx-trending-up icon' ></i>
-					</div>
-					<span class="progress" data-value="80%"></span>
-					<span class="label">80%</span>
-				</div>
-			</div>
-			<div class="data">
-				<div class="content-data">
-					<div class="head">
-						<h3>Sales Report</h3>
-						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon'></i>
-							<ul class="menu-link">
-								<li><a href="#">Edit</a></li>
-								<li><a href="#">Save</a></li>
-								<li><a href="#">Remove</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="chart">
-						<div id="chart"></div>
-					</div>
-				</div>
-				<div class="content-data">
-					<div class="head">
-						<h3>Chatbox</h3>
-						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon'></i>
-							<ul class="menu-link">
-								<li><a href="#">Edit</a></li>
-								<li><a href="#">Save</a></li>
-								<li><a href="#">Remove</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="chat-box">
-						<p class="day"><span>Today</span></p>
-						<div class="msg">
-							<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
-							<div class="chat">
-								<div class="profile">
-									<span class="username">Alan</span>
-									<span class="time">18:30</span>
-								</div>
-								<p>Hello</p>
-							</div>
-						</div>
-						<div class="msg me">
-							<div class="chat">
-								<div class="profile">
-									<span class="time">18:30</span>
-								</div>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptatum eos quam dolores eligendi exercitationem animi nobis reprehenderit laborum! Nulla.</p>
-							</div>
-						</div>
-						<div class="msg me">
-							<div class="chat">
-								<div class="profile">
-									<span class="time">18:30</span>
-								</div>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, architecto!</p>
-							</div>
-						</div>
-						<div class="msg me">
-							<div class="chat">
-								<div class="profile">
-									<span class="time">18:30</span>
-								</div>
-								<p>Lorem ipsum, dolor sit amet.</p>
-							</div>
-						</div>
-					</div>
-					<form action="#">
-						<div class="form-group">
-							<input type="text" placeholder="Type...">
-							<button type="submit" class="btn-send"><i class='bx bxs-send' ></i></button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</main>
-		<!-- MAIN -->
-	</section>
-	<!-- NAVBAR -->
-	
-	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-	<script src="script.js"></script>
+        <!-- MAIN -->
+        <main>
+            <h1 class="title">Driver Dashboard</h1>
+    
+            <div class="info-data">
+                <div class="card">
+                    <div class="head">
+                        <div>
+                            <h2>${completedRides}</h2>
+                            <p>Completed Rides</p>
+                        </div>
+                        <i class='bx bx-check-circle icon'></i>
+                    </div>
+                    <span class="progress" data-value="${completedPercentage}%"></span>
+                    <span class="label">${completedPercentage}%</span>
+                </div>
+                <div class="card">
+                    <div class="head">
+                        <div>
+                            <h2>${dueRides}</h2>
+                            <p>Pending Rides</p>
+                        </div>
+                        <i class='bx bx-time icon'></i>
+                    </div>
+                    <span class="progress" data-value="${duePercentage}%"></span>
+                    <span class="label">${duePercentage}%</span>
+                </div>
+                <div class="card">
+                    <div class="head">
+                        <div>
+                            <h2>${totalRides}</h2>
+                            <p>Total Assigned Rides</p>
+                        </div>
+                        <i class='bx bx-car icon'></i>
+                    </div>
+                    <span class="progress" data-value="100%"></span>
+                    <span class="label">Total</span>
+                </div>
+                <div class="card">
+                    <div class="head">
+                        <div>
+                            <h2>Rs. ${totalEarnings}</h2>
+                            <p>Total Earnings</p>
+                        </div>
+                        <i class='bx bx-money icon'></i>
+                    </div>
+                    <span class="progress" data-value="100%"></span>
+                    <span class="label">Revenue</span>
+                </div>
+            </div>
+            <div class="data">
+                <div class="content-data">
+                    <div class="head">
+                        <h3>Pending Rides</h3>
+                        <div class="menu">
+                            <i class='bx bx-dots-horizontal-rounded icon'></i>
+                            <ul class="menu-link">
+                                <li><a href="#">View All</a></li>
+                                <li><a href="#">Refresh</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <<table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th> Name</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th> Date</th>
+                                    <th> Time</th>
+                                    <th>Phone </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="booking" items="${bookingList}">
+                                    <c:if test="${booking.driverId == sessionScope.user.id && booking.bookingStatus == 1 && booking.tripStatus != 3}">
+                                        <tr>
+                                            <td>${booking.name}</td>
+                                            <td>${booking.pickUpPoint}</td>
+                                            <td>${booking.dropOffPoint}</td>
+                                            <td>${booking.rideDate}</td>
+                                            <td>${booking.rideTime}</td>
+                                            <td>${booking.phoneNumber}</td>                                      
+                                        </tr>
+                                    </c:if>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="content-data">
+                    <div class="head">
+                        <h3>Performance Summary</h3>
+                        <div class="menu">
+                            <i class='bx bx-dots-horizontal-rounded icon'></i>
+                            <ul class="menu-link">
+                                <li><a href="#">View Details</a></li>
+                                <li><a href="#">Print Report</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="performance-chart"></div>
+                    <div class="stats-summary">
+                        <p><strong>Completion Rate:</strong> ${completedPercentage}%</p>
+                        <p><strong>Average Fare:</strong> Rs. ${totalRides > 0 ? totalEarnings / totalRides : 0}</p>
+                        <p><strong>Pending Tasks:</strong> ${dueRides} rides</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- NAVBAR -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        // Initialize chart
+        document.addEventListener("DOMContentLoaded", function() {
+            var options = {
+                series: [{
+                    name: 'Completed Rides',
+                    data: [${completedRides}]
+                }, {
+                    name: 'Pending Rides',
+                    data: [${dueRides}]
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 250,
+                    stacked: true,
+                    toolbar: {
+                        show: false
+                    }
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                    }
+                },
+                xaxis: {
+                    categories: ['Ride Status']
+                },
+                fill: {
+                    opacity: 1
+                },
+                colors: ['#4CAF50', '#FFC107']
+            };
+
+            var chart = new ApexCharts(document.querySelector("#performance-chart"), options);
+            chart.render();
+            
+            // Set progress bars
+            const allProgress = document.querySelectorAll('.progress');
+            allProgress.forEach(item => {
+                item.style.setProperty('--value', item.dataset.value)
+            });
+        });
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -37,7 +37,7 @@
 
         <main class="p-4">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h1 class="h3">Booking Management</h1>
+                <h1 class="h3">Completed Bookings</h1>
             </div>
 
             <!-- Success/Error Messages -->
@@ -64,12 +64,12 @@
                                     <th>Phone Number</th>
                                     <th>Total Bill</th>
                                     <th>Trip Status</th>
-                                    <th>Change Status</th>
+                            
                                 </tr>
                             </thead>
                             <tbody>
                                 <c:forEach var="booking" items="${bookingList}">
-                                    <c:if test="${booking.driverId == sessionScope.user.id && booking.bookingStatus == 1 && booking.tripStatus != 3}">
+                                    <c:if test="${booking.driverId == sessionScope.user.id && booking.bookingStatus == 1 && booking.tripStatus == 3}">
                                         <tr>
                                             <td>${booking.customerId}</td>
                                             <td>${booking.name}</td>
@@ -81,30 +81,13 @@
                                             <td>Rs. ${booking.totalBill}</td>
                                             <td>
                                                 <c:choose>
-                                                    <c:when test="${booking.tripStatus == 0}">
-                                                        <span class="badge bg-warning">Not Started</span>
-                                                    </c:when>
-                                                    <c:when test="${booking.tripStatus == 1}">
-                                                        <span class="badge bg-success">Started</span>
-                                                    </c:when>
+                            
                                                     <c:when test="${booking.tripStatus == 3}">
-                                                        <span class="badge bg-danger">Completed</span>
+                                                        <span class="badge bg-success">Completed</span>
                                                     </c:when>
                                                 </c:choose>
                                             </td>
-                                            <td>
-                                                <form action="${pageContext.request.contextPath}/updateTripStatus" method="post" class="d-flex justify-content-center">
-                                                    <input type="hidden" name="id" value="${booking.id}">
-                                                    <select name="tripStatus" class="form-select form-select-sm me-2">
-                                                        <option value="0" ${booking.tripStatus == 0 ? 'selected' : ''}>Not Started</option>
-                                                        <option value="1" ${booking.tripStatus == 1 ? 'selected' : ''}>Started</option>
-                                                        <option value="3" ${booking.tripStatus == 3 ? 'selected' : ''}>Completed</option>
-                                                    </select>
-                                                    <button type="submit" class="btn btn-sm btn-primary">
-                                                        <i class="bx bx-refresh"></i>
-                                                    </button>
-                                                </form>
-                                            </td>
+                                           
                                         </tr>
                                     </c:if>
                                 </c:forEach>
