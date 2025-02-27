@@ -25,6 +25,9 @@
     <title>Booking Management</title>
 </head>
 <body>
+   <c:if test="${empty sessionScope.user}">
+        <c:redirect url="/AdminArea/login.jsp" />
+    </c:if>
 
     <jsp:include page="./toastr-config.jsp" />
     <jsp:include page="./sideBar.jsp" />
@@ -54,8 +57,8 @@
                                 <tr>
                                     <th>Customer ID</th>
                                     <th>Customer Name</th>
-                                    <th>Pickup Point</th>
-                                    <th>Drop-off Point</th>
+                                    <th>From</th>
+                                    <th>To</th>
                                     <th>Ride Date</th>
                                     <th>Ride Time</th>
                                     <th>Phone Number</th>
