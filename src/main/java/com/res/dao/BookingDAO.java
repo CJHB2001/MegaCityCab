@@ -122,31 +122,5 @@ public class BookingDAO {
         }
     }
     
-    public int getCompletedBookingsCount(int driverId) throws SQLException {
-        String sql = "SELECT COUNT(*) AS completed_count FROM booking WHERE driver_id = ? AND trip_status = 3";
-        try (Connection conn = DatabaseUtil.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, driverId);
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getInt("completed_count");
-                }
-            }
-        }
-        return 0;
-    }
-
-    public int getDueBookingsCount(int driverId) throws SQLException {
-        String sql = "SELECT COUNT(*) AS due_count FROM booking WHERE driver_id = ? AND trip_status != 3";
-        try (Connection conn = DatabaseUtil.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, driverId);
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getInt("due_count");
-                }
-            }
-        }
-        return 0;
-    }
+  
 }
