@@ -28,12 +28,14 @@ public class Booking {
     private String vehicleFuelType; // Vehicle fuel type
     private int vehicleDoors; // Vehicle doors
     private int vehicleCapacity; // Vehicle capacity
+    private int driverId; // Driver ID
     private String driverName; // Driver name
     private String driverImagePath; // Driver image
     private int driverAge; // Driver age
     private String driverExperience; // Driver experience
     private String driverLicenseId; // Driver license ID
     private String driverGender; // Driver gender
+    private int tripStatus; // New field for trip status
 
     // Getters and Setters
     public int getId() { return id; }
@@ -108,10 +110,15 @@ public class Booking {
     public int getVehicleCapacity() { return vehicleCapacity; }
     public void setVehicleCapacity(int vehicleCapacity) { this.vehicleCapacity = vehicleCapacity; }
 
+
+    
+    
+    public int getDriverId() { return driverId; }
+    public void setDriverId(int driverId) { this.driverId = driverId; }
+
     public String getDriverName() { return driverName; }
     public void setDriverName(String driverName) { this.driverName = driverName; }
-    
-    
+
     public String getDriverImagePath() { return driverImagePath; }
     public void setDriverImagePath(String driverImagePath) { this.driverImagePath = driverImagePath; }
 
@@ -127,4 +134,6 @@ public class Booking {
     public String getDriverGender() { return driverGender; }
     public void setDriverGender(String driverGender) { this.driverGender = driverGender; }
 
+    public int getTripStatus() { return tripStatus; }
+    public void setTripStatus(int tripStatus) { this.tripStatus = tripStatus; }
 }

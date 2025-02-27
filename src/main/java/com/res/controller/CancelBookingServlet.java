@@ -16,7 +16,7 @@ import com.res.model.Booking;
 import service.BookingService;
 
 
-@WebServlet("/cancel-booking")
+@WebServlet("/cancelBooking")
 public class CancelBookingServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int bookingId = Integer.parseInt(request.getParameter("id"));

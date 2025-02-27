@@ -45,7 +45,7 @@ public class BookingDAO {
     public List<Booking> getAllBookings() throws SQLException {
         List<Booking> bookingList = new ArrayList<>();
         String sql = "SELECT b.*, v.vehicle_number, v.image_path AS vehicle_image, v.brand, v.color, v.vehicle_fuel_type, v.doors, v.capacity, " +
-                     "u.name AS driver_name, u.profile_photo AS driver_image, u.age AS driver_age, u.experience AS driver_experience, " +
+                     "u.id AS driver_id, u.name AS driver_name, u.profile_photo AS driver_image, u.age AS driver_age, u.experience AS driver_experience, " +
                      "u.license_id AS driver_license_id, u.gender AS driver_gender " +
                      "FROM booking b " +
                      "LEFT JOIN vehicle v ON b.car_id = v.id " +
@@ -79,18 +79,19 @@ public class BookingDAO {
                 booking.setVehicleFuelType(rs.getString("vehicle_fuel_type")); // Vehicle fuel type
                 booking.setVehicleDoors(rs.getInt("doors")); // Vehicle doors
                 booking.setVehicleCapacity(rs.getInt("capacity")); // Vehicle capacity
+                booking.setDriverId(rs.getInt("driver_id")); // Driver ID
                 booking.setDriverName(rs.getString("driver_name")); // Driver name
                 booking.setDriverImagePath(rs.getString("driver_image")); // Driver image
                 booking.setDriverAge(rs.getInt("driver_age")); // Driver age
                 booking.setDriverExperience(rs.getString("driver_experience")); // Driver experience
                 booking.setDriverLicenseId(rs.getString("driver_license_id")); // Driver license ID
                 booking.setDriverGender(rs.getString("driver_gender")); // Driver gender
+                booking.setTripStatus(rs.getInt("trip_status")); // Driver gender
                 bookingList.add(booking);
             }
         }
         return bookingList;
     }
-    
     public void updateBookingStatus(int bookingId, int status) throws SQLException {
         String sql = "UPDATE booking SET booking_status = ? WHERE id = ?";
         try (Connection conn = DatabaseUtil.getConnection();
@@ -111,5 +112,13 @@ public class BookingDAO {
         }
     }
     
- 
+    public void updateTripStatus(int bookingId, int tripStatus) throws SQLException {
+        String sql = "UPDATE booking SET trip_status = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, tripStatus);
+            pstmt.setInt(2, bookingId);
+            pstmt.executeUpdate();
+        }
+    }
 }

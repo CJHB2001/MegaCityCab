@@ -170,7 +170,7 @@ request.setAttribute("vehicleList", vehicleList);
    <script>
       function confirmCancel(bookingId) {
          if (confirm("Are you sure you want to cancel this booking?")) {
-            window.location.href = "${pageContext.request.contextPath}/cancel-booking?id=" + bookingId;
+            window.location.href = "${pageContext.request.contextPath}/cancelBooking?id=" + bookingId;
          }
       }
    </script>

@@ -8,7 +8,7 @@
 		
 
 	
-<li><a href="./booking.jsp"><i class='bx bxs-calendar-check icon'></i> Customer Bookings</a></li>
+<li><a href="./rides.jsp"><i class='bx bxs-calendar-check icon'></i> Customer Bookings</a></li>
 
 
 
