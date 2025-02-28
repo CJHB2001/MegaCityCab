@@ -58,22 +58,25 @@ request.setAttribute("blogList", blogList);
 				<div class="col-lg-6 col-12">
 					<div class="contact-us ct-bg p-sm-5 p-4 h-100">
 						<h2 class="sub-title mb-5 border-bottom pb-4">get in touch</h2>
-						<form action="#">
-							<div class="mb-3">
-								<input class="form-control" type="text" placeholder="Full Name">
-							</div>
-							<div class="mb-3">
-								<input class="form-control" type=text placeholder="Phone ">
-							</div>
-							<div class="mb-3">
-								<input class="form-control" type="email" placeholder="Email *">
-							</div>
-							<div class="mb-3">
-						  <textarea placeholder="Your Message*" name="message" id="message" cols="30" rows="6"></textarea>
-							</div>
-
-							<button class="btn btn-primary mt-3">Send Message</button>
-						</form>
+					<form action="${pageContext.request.contextPath}/contact" method="post" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <input class="form-control" type="text" name="fullName" placeholder="Full Name" required>
+        <div class="invalid-feedback">Please enter your full name.</div>
+    </div>
+    <div class="mb-3">
+        <input class="form-control" type="text" name="phone" placeholder="Phone" required>
+        <div class="invalid-feedback">Please enter your phone number.</div>
+    </div>
+    <div class="mb-3">
+        <input class="form-control" type="email" name="email" placeholder="Email *" required>
+        <div class="invalid-feedback">Please enter a valid email address.</div>
+    </div>
+    <div class="mb-3">
+        <textarea name="message" id="message" cols="30" rows="6" placeholder="Your Message *" required></textarea>
+        <div class="invalid-feedback">Please enter your message.</div>
+    </div>
+    <button class="btn btn-primary mt-3" type="submit">Send Message</button>
+</form>
 						<div class="contact-widget widget mt-5 pt-4">
 							<h3 class="sub-title xs-title mb-4">
 								Contact Info:
