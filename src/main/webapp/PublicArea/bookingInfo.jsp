@@ -81,7 +81,7 @@ request.setAttribute("vehicleList", vehicleList);
                   <article class="car-entry d-md-flex border p-3 mb-4">
                      <c:choose>
                         <c:when test="${not empty booking.vehicleImagePath}">
-                           <img src="${pageContext.request.contextPath}/${booking.vehicleImagePath}" class="car-media bg-cover" alt="Driver Image" width="400" height="200">
+                           <img src="${pageContext.request.contextPath}/${booking.vehicleImagePath}" class="car-media bg-cover" alt="Driver Image" width="500" height="200">
                         </c:when>
                         <c:otherwise>
                            <a href="booking-details.html?id=${booking.id}" class="car-media bg-cover"
@@ -110,11 +110,39 @@ request.setAttribute("vehicleList", vehicleList);
                            <li><span>Drop-off Point: </span>${booking.dropOffPoint}</li>
                            <li><span>Passengers</span>${booking.passengers}</li>
                            <li><span>Distance</span>${booking.distanceKm}KM</li>
-                           <li><span>Status:</span>
-                              <span class="badge ${booking.carId != 0 ? 'bg-success' : 'bg-warning'}">
-                                 ${booking.carId != 0 ? 'Confirmed' : 'Pending'}
-                              </span>
-                           </li>
+                           <li><span>Vehicle Fuel Type</span>${booking.vehicleFuelType}</li>
+    <li><span>Booking Status:</span>
+   <span class="badge ${booking.carId != 0 ? 'bg-success text-white' : 'bg-warning text-white'}">
+      ${booking.carId != 0 ? 'Confirmed' : 'Pending'}
+   </span>
+</li>
+
+<li><span>Payment Status:</span>
+   <c:choose>
+      <c:when test="${booking.paymentStatus == 0}">
+         <span class="badge bg-warning text-white">Pending</span>
+      </c:when>
+      <c:when test="${booking.paymentStatus == 1}">
+         <span class="badge bg-success text-white">Paid</span>
+      </c:when>
+   </c:choose>
+</li>
+
+<li><span>Trip Status:</span>
+   <c:choose>
+      <c:when test="${booking.tripStatus == 0}">
+         <span class="badge bg-secondary text-white">Not Started</span>
+      </c:when>
+      <c:when test="${booking.tripStatus == 1}">
+         <span class="badge bg-primary text-white">Started</span>
+      </c:when>
+      <c:when test="${booking.tripStatus == 3}">
+         <span class="badge bg-danger text-white">Completed</span>
+      </c:when>
+   </c:choose>
+</li>
+    
+             
                         </ul>
                         <div class="rider-info d-sm-flex my-4">
                            <div class="d-flex">
@@ -146,14 +174,17 @@ request.setAttribute("vehicleList", vehicleList);
                               </div>
                            </div>
                         </div>
-                        <div class="car-cta mt-3">
-                           <a href="booking-details.html?id=${booking.id}" class="btn">
-                              Booking Details
-                           </a>
-                           <c:if test="${booking.carId == 0}">
-                              <a href="#" onclick="confirmCancel(${booking.id})" class="btn btn-primary">Cancel Booking</a>
-                           </c:if>
-                        </div>
+                     <div class="car-cta mt-3">
+   
+
+   <c:if test="${booking.carId == 0}">
+      <a href="#" onclick="confirmCancel(${booking.id})" class="btn ">Cancel Booking</a>
+   </c:if>
+
+   <c:if test="${booking.paymentStatus == 0}">
+      <a href="onlinePayment.jsp?bookingId=${booking.id}" class="btn ">Online Payment</a>
+   </c:if>
+</div>
                      </div>
                   </article>
                </c:if>
