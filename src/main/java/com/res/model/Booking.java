@@ -21,21 +21,65 @@ public class Booking {
     private String message;
     private int bookingStatus;
     private int carId;
-    private String vehicleNumber; // Vehicle number
-    private String vehicleImagePath; // Vehicle image
-    private String vehicleBrand; // Vehicle brand
-    private String vehicleColor; // Vehicle color
-    private String vehicleFuelType; // Vehicle fuel type
-    private int vehicleDoors; // Vehicle doors
-    private int vehicleCapacity; // Vehicle capacity
-    private int driverId; // Driver ID
-    private String driverName; // Driver name
-    private String driverImagePath; // Driver image
-    private int driverAge; // Driver age
-    private String driverExperience; // Driver experience
-    private String driverLicenseId; // Driver license ID
-    private String driverGender; // Driver gender
-    private int tripStatus; // New field for trip status
+    private String vehicleNumber;
+    private String vehicleImagePath;
+    private String vehicleBrand;
+    private String vehicleColor;
+    private String vehicleFuelType;
+    private int vehicleDoors;
+    private int vehicleCapacity;
+    private int driverId;
+    private String driverName;
+    private String driverImagePath;
+    private int driverAge;
+    private String driverExperience;
+    private String driverLicenseId;
+    private String driverGender;
+    private int tripStatus;
+
+    public Booking() {}
+
+    public Booking(int id, int customerId, String registrationNumber, String email, String name, String phoneNumber,
+                   String pickUpPoint, String dropOffPoint, int passengers, String vehicleType, float distanceKm, 
+                   float totalBill, Date rideDate, Time rideTime, String message, int bookingStatus, int carId, 
+                   String vehicleNumber, String vehicleImagePath, String vehicleBrand, String vehicleColor, 
+                   String vehicleFuelType, int vehicleDoors, int vehicleCapacity, int driverId, String driverName, 
+                   String driverImagePath, int driverAge, String driverExperience, String driverLicenseId, 
+                   String driverGender, int tripStatus) {
+        
+        this.id = id;
+        this.customerId = customerId;
+        this.registrationNumber = registrationNumber;
+        this.email = email;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.pickUpPoint = pickUpPoint;
+        this.dropOffPoint = dropOffPoint;
+        this.passengers = passengers;
+        this.vehicleType = vehicleType;
+        this.distanceKm = distanceKm;
+        this.totalBill = totalBill;
+        this.rideDate = rideDate;
+        this.rideTime = rideTime;
+        this.message = message;
+        this.bookingStatus = bookingStatus;
+        this.carId = carId;
+        this.vehicleNumber = vehicleNumber;
+        this.vehicleImagePath = vehicleImagePath;
+        this.vehicleBrand = vehicleBrand;
+        this.vehicleColor = vehicleColor;
+        this.vehicleFuelType = vehicleFuelType;
+        this.vehicleDoors = vehicleDoors;
+        this.vehicleCapacity = vehicleCapacity;
+        this.driverId = driverId;
+        this.driverName = driverName;
+        this.driverImagePath = driverImagePath;
+        this.driverAge = driverAge;
+        this.driverExperience = driverExperience;
+        this.driverLicenseId = driverLicenseId;
+        this.driverGender = driverGender;
+        this.tripStatus = tripStatus;
+    }
 
     // Getters and Setters
     public int getId() { return id; }
@@ -91,7 +135,7 @@ public class Booking {
 
     public String getVehicleNumber() { return vehicleNumber; }
     public void setVehicleNumber(String vehicleNumber) { this.vehicleNumber = vehicleNumber; }
-    
+
     public String getVehicleImagePath() { return vehicleImagePath; }
     public void setVehicleImagePath(String vehicleImagePath) { this.vehicleImagePath = vehicleImagePath; }
 
@@ -110,9 +154,6 @@ public class Booking {
     public int getVehicleCapacity() { return vehicleCapacity; }
     public void setVehicleCapacity(int vehicleCapacity) { this.vehicleCapacity = vehicleCapacity; }
 
-
-    
-    
     public int getDriverId() { return driverId; }
     public void setDriverId(int driverId) { this.driverId = driverId; }
 
