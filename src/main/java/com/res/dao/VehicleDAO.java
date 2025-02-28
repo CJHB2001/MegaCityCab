@@ -28,7 +28,7 @@ public class VehicleDAO {
 
     public List<Vehicle> getAllVehicles() throws SQLException {
         List<Vehicle> vehicleList = new ArrayList<>();
-        String sql = "SELECT v.*, u.name AS driver_name FROM vehicle v " +
+        String sql = "SELECT v.*, u.name AS driver_name, u.experience, u.profile_photo FROM vehicle v " +
                      "JOIN users u ON v.driver_id = u.id"; // Join with users table
         try (Connection conn = DatabaseUtil.getConnection();
              Statement stmt = conn.createStatement();
@@ -46,13 +46,14 @@ public class VehicleDAO {
                 vehicle.setCapacity(rs.getInt("capacity"));
                 vehicle.setDriverId(rs.getInt("driver_id"));
                 vehicle.setDriverName(rs.getString("driver_name")); // Fetch driver name from users table
+                vehicle.setDriverExperience(rs.getString("experience")); // Fetch driver experience
+                vehicle.setDriverProfilePhoto(rs.getString("profile_photo")); // Fetch driver profile photo
                 vehicle.setImagePath(rs.getString("image_path"));
                 vehicleList.add(vehicle);
             }
         }
         return vehicleList;
     }
-
     public void deleteVehicle(int vehicleId) throws SQLException {
         String sql = "DELETE FROM vehicle WHERE id = ?";
         try (Connection conn = DatabaseUtil.getConnection();
