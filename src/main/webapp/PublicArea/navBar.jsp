@@ -71,9 +71,7 @@
                   <li class="nav-item">
                      <a class="nav-link" href="./index.jsp">Home</a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="about.html">About Us</a>
-                  </li>
+      
                   <li class="nav-item">
                      <a class="nav-link" href="./service.jsp">Services</a>
                   </li>
@@ -84,10 +82,13 @@
                      <a class="nav-link" href="./bookingInfo.jsp">my </a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="riders.html">Riders</a>
+                     <a class="nav-link" href="./driver.jsp">Riders</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="blog-list.html">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="about.html">About Us</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="contact.html">Contact</a>
