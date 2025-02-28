@@ -238,73 +238,35 @@ Under his leadership, Mega City Cab Service offers 24/7 taxi service, airport tr
    <!-- Client Section End -->
    <!-- Blog Section Start -->
    <section class="blog-sec sec-padding">
-      <div class="container">
-         <div class="row">
+    <div class="container">
+        <div class="row">
             <div class="col-sm-9 col-lg-6 mx-auto text-center">
-               <h2 class="sec-title">Unlocking of Ride-Sharing article</h2>
-      
+                <h2 class="sec-title">Unlocking of Ride-Sharing article</h2>
             </div>
-         </div>
-         <div class="row mt-5 pt-5">
-            <div class="col-xl-4 col-lg-4 col-sm-6">
-               <article class="single-entry rounded-3">
-                  <div class="entry-thumb">
-                     <a href="single-post.html">
-                        <img class="img-fluid rounded-3" src="images/blog1.jpg" alt="">
-                     </a>
-                  </div>
-                  <div class="entry-content mt-4">
-                     <div class="entry-meta text-xs">
-                        <span><i class="fa-solid fa-calendar-days me-2"></i>14 June 2024</span>
-     
-                     </div>
-                     <h3 class="entry-title"><a href="single-post.html">Interdum velit laoreet id donec ultrices
-                           tincidunt arcu
-                           tincidunt tortor.</a></h3>
-                     <a href="single-post.html" class="btn btn-primary">Read more <i class="fa fa-arrow-right"></i></a>
-                  </div>
-               </article>
-            </div><!-- Single Entry End -->
-            <div class="col-xl-4 col-lg-4 col-sm-6">
-               <article class="single-entry rounded-3">
-                  <div class="entry-thumb">
-                     <a href="single-post.html">
-                        <img class="img-fluid rounded-3" src="images/blog2.jpg" alt="">
-                     </a>
-                  </div>
-                  <div class="entry-content mt-4">
-                     <div class="entry-meta text-xs">
-                        <span><i class="fa-solid fa-calendar-days me-2"></i>23 September 2024</span>
-               
-                     </div>
-                     <h3 class="entry-title"><a href="single-post.html">Pellentesque dignissim enim sit amet venenatis
-                           cursus eget nunc.</a></h3>
-                     <a href="single-post.html" class="btn btn-primary">Read more <i class="fa fa-arrow-right"></i></a>
-                  </div>
-               </article>
-            </div><!-- Single Entry End -->
-            <div class="col-xl-4 col-lg-4 col-sm-6">
-               <article class="single-entry rounded-3">
-                  <div class="entry-thumb">
-                     <a href="single-post.html">
-                        <img class="img-fluid rounded-3" src="images/blog3.jpg" alt="">
-                     </a>
-                  </div>
-                  <div class="entry-content mt-4">
-                     <div class="entry-meta text-xs">
-                        <span><i class="fa-solid fa-calendar-days me-2"></i>14 January 2025</span>
-                     
-                     </div>
-                     <h3 class="entry-title"><a href="single-post.html">Interdum velit laoreet id donec ultrices
-                           tincidunt arcu
-                           tincidunt tortor.</a></h3>
-                     <a href="single-post.html" class="btn btn-primary">Read more <i class="fa fa-arrow-right"></i></a>
-                  </div>
-               </article>
-            </div><!-- Single Entry End -->
-         </div>
-      </div>
-   </section>
+        </div>
+        <div class="row mt-5 pt-5">
+            <c:forEach var="blog" items="${blogList}" begin="0" end="3">
+                <div class="col-xl-4 col-lg-4 col-sm-6">
+                    <article class="single-entry rounded-3">
+                        <div class="entry-thumb">
+                            <a href="single-post-sidebar.html?id=${blog.id}">
+                                <img class="img-fluid rounded-3" src="${pageContext.request.contextPath}/${blog.imagePath}" alt="${blog.title}" style="width: 100%; height: 220px; object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="entry-content mt-4">
+                            <div class="entry-meta text-xs">
+                                <span><i class="fa-solid fa-calendar-days me-2"></i>${blog.date}</span>
+                                <span><i class="fa-solid fa-comments me-2"></i>Comment (05)</span>
+                            </div>
+                            <h3 class="entry-title"><a href="single-post-sidebar.html?id=${blog.id}">${blog.title}</a></h3>
+                            <p>${blog.summary}</p>
+                        </div>
+                    </article>
+                </div><!-- Single Entry End -->
+            </c:forEach>
+        </div>
+    </div>
+</section>
    
    <!-- Footer Start -->
    <jsp:include page="./footer.jsp" />
