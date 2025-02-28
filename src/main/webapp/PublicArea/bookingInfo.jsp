@@ -104,6 +104,7 @@ request.setAttribute("vehicleList", vehicleList);
                                  </c:otherwise>
                               </c:choose>
                            </li>
+           
                            <li><span>Ride Date</span>${booking.rideDate}</li>
                            <li><span>Ride Time</span>${booking.rideTime}</li>
                            <li><span>Pick-up Point:</span>${booking.pickUpPoint}</li>
@@ -175,16 +176,16 @@ request.setAttribute("vehicleList", vehicleList);
                            </div>
                         </div>
                      <div class="car-cta mt-3">
-   
-
-   <c:if test="${booking.carId == 0}">
-      <a href="#" onclick="confirmCancel(${booking.id})" class="btn ">Cancel Booking</a>
-   </c:if>
-
-   <c:if test="${booking.paymentStatus == 0}">
-      <a href="onlinePayment.jsp?bookingId=${booking.id}" class="btn ">Online Payment</a>
-   </c:if>
-</div>
+					   <c:if test="${booking.carId == 0}">
+					      <a href="#" onclick="confirmCancel(${booking.id})" class="btn ">Cancel Booking</a>
+					   </c:if>
+					
+					   <c:if test="${booking.paymentStatus == 0 && booking.bookingStatus == 1}">
+			<a href="payment.jsp?bookingId=${booking.id}&totalBill=${booking.totalBill}&registrationNumber=${sessionScope.customer.registrationNumber}&customerName=${sessionScope.customer.firstName}%20${sessionScope.customer.lastName}" class="btn">Online Payment</a>
+			
+					 
+					   </c:if>
+					</div>
                      </div>
                   </article>
                </c:if>

@@ -131,5 +131,13 @@ public class BookingDAO {
         }
     }
     
-  
+    public void updatePaymentStatus(int bookingId, int paymentStatus) throws SQLException {
+        String sql = "UPDATE booking SET payment_status = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, paymentStatus);
+            pstmt.setInt(2, bookingId);
+            pstmt.executeUpdate();
+        }
+    }
 }
