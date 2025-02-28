@@ -200,43 +200,6 @@
   font-size: 14px;
 }
 
-.cardStyle {
-        width:340px;
-        border-radius:12px;
-      }
-    
-      .selectBox {
-        border:1px solid #222;
-        width:24px;
-        height:24px;
-        text-align:center;
-        border-radius:50%;
-        line-height:22px;
-        font-size:12px;
-      }
-      .selected {
-        color:#fff;
-        border:1px solid #f7f7f7 !important;
-      }
-      small {
-        font-size:12px;
-        letter-spacing:1px;
-      }
-      label,
-      h6 {
-        font-size:12px;
-        text-transform : uppercase;
-        color:#aaaaaa
-      }
-      a.btn {
-        line-height:32px;
-      }
-      a.btn,
-      button.btn,
-      select.form-control,
-      input.form-control {
-        height:48px;
-        border-radius:2px;
-      }
+
 
 /*# sourceMappingURL=nice-select2.css.map*/

@@ -75,7 +75,7 @@
                      <a class="nav-link" href="about.html">About Us</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="services.html">Services</a>
+                     <a class="nav-link" href="./service.jsp">Services</a>
                   </li>
                    <li class="nav-item">
                      <a class="nav-link" href="./cab.jsp">Cars</a>
