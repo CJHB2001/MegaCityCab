@@ -64,6 +64,7 @@
                                     <th>Phone Number</th>
                                     <th>Total Bill</th>
                                     <th>Trip Status</th>
+                                         <th>Payment Status</th>
                                     <th>Change Status</th>
                                 </tr>
                             </thead>
@@ -92,6 +93,16 @@
                                                     </c:when>
                                                 </c:choose>
                                             </td>
+                                             <td>
+                    <c:choose>
+                        <c:when test="${booking.paymentStatus == 0}">
+                            <span class="badge bg-warning">Pending</span>
+                        </c:when>
+                        <c:when test="${booking.paymentStatus == 1}">
+                            <span class="badge bg-success">Paid</span>
+                        </c:when>
+                    </c:choose>
+                </td>
                                             <td>
                                                 <form action="${pageContext.request.contextPath}/updateTripStatus" method="post" class="d-flex justify-content-center">
                                                     <input type="hidden" name="id" value="${booking.id}">

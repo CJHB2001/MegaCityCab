@@ -30,4 +30,8 @@ public class BookingService {
     public void assignCarToBooking(int bookingId, int carId) throws SQLException {
         bookingDAO.assignCarToBooking(bookingId, carId);
     }
+    
+    public void updateTripStatus(int bookingId, int tripStatus) throws SQLException {
+        bookingDAO.updateTripStatus(bookingId, tripStatus);
+    }
 }

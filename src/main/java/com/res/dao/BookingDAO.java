@@ -87,6 +87,7 @@ public class BookingDAO {
                 booking.setDriverLicenseId(rs.getString("driver_license_id")); // Driver license ID
                 booking.setDriverGender(rs.getString("driver_gender")); // Driver gender
                 booking.setTripStatus(rs.getInt("trip_status")); // Driver gender
+                booking.setPaymentStatus(rs.getInt("payment_status"));
                 bookingList.add(booking);
             }
         }
@@ -113,7 +114,15 @@ public class BookingDAO {
     }
     
     public void updateTripStatus(int bookingId, int tripStatus) throws SQLException {
-        String sql = "UPDATE booking SET trip_status = ? WHERE id = ?";
+        String sql;
+        if (tripStatus == 3) {
+            // If the trip status is set to "Completed", update both trip_status and payment_status
+            sql = "UPDATE booking SET trip_status = ?, payment_status = 1 WHERE id = ?";
+        } else {
+            // Otherwise, only update the trip_status
+            sql = "UPDATE booking SET trip_status = ? WHERE id = ?";
+        }
+
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, tripStatus);
@@ -122,5 +131,13 @@ public class BookingDAO {
         }
     }
     
-  
+    public void updatePaymentStatus(int bookingId, int paymentStatus) throws SQLException {
+        String sql = "UPDATE booking SET payment_status = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, paymentStatus);
+            pstmt.setInt(2, bookingId);
+            pstmt.executeUpdate();
+        }
+    }
 }

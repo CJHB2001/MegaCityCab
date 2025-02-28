@@ -47,6 +47,7 @@ request.setAttribute("vehicleList", vehicleList);
         <th>Vehicle Number</th>
         <th>Total Bill</th>
         <th>Booking Status</th>
+                 <th>Payment Status</th>
         <th>Change Status</th>
         <th>Assign Car</th>
         <th>Actions</th>
@@ -69,38 +70,54 @@ request.setAttribute("vehicleList", vehicleList);
                 </c:choose>
             </td>
             <td>Rs. ${booking.totalBill}</td>
+           <td>
+    <c:choose>
+        <c:when test="${booking.tripStatus == 3}">
+            <span class="badge bg-primary">Complete</span>
+        </c:when>
+        <c:when test="${booking.bookingStatus == 0}">
+            <span class="badge bg-warning">Pending</span>
+        </c:when>
+        <c:when test="${booking.bookingStatus == 1}">
+            <span class="badge bg-success">Confirmed</span>
+        </c:when>
+        <c:when test="${booking.bookingStatus == 3}">
+            <span class="badge bg-danger">Cancelled</span>
+        </c:when>
+        <c:otherwise>
+            <span class="badge bg-secondary">${booking.bookingStatus}</span>
+        </c:otherwise>
+    </c:choose>
+</td>
+           
+                                         <td>
+                    <c:choose>
+                        <c:when test="${booking.paymentStatus == 0}">
+                            <span class="badge bg-warning">Pending</span>
+                        </c:when>
+                        <c:when test="${booking.paymentStatus == 1}">
+                            <span class="badge bg-success">Paid</span>
+                        </c:when>
+                    </c:choose>
+                </td>
             <td>
-                <c:choose>
-                    <c:when test="${booking.bookingStatus == 0}">
-                        <span class="badge bg-warning">Pending</span>
-                    </c:when>
-                    <c:when test="${booking.bookingStatus == 1}">
-                        <span class="badge bg-success">Confirmed</span>
-                    </c:when>
-                    <c:when test="${booking.bookingStatus == 3}">
-                        <span class="badge bg-danger">Cancelled</span>
-                    </c:when>
-                    <c:otherwise>
-                        <span class="badge bg-secondary">${booking.bookingStatus}</span>
-                    </c:otherwise>
-                </c:choose>
-            </td>
-            <td>
-                <form action="${pageContext.request.contextPath}/booking" method="post" class="d-flex justify-content-center">
-                    <input type="hidden" name="action" value="updateStatus">
-                    <input type="hidden" name="id" value="${booking.id}">
-                    <select name="bookingStatus" class="form-select form-select-sm me-2" id="bookingStatus${booking.id}">
-                        <option value="0" ${booking.bookingStatus == 0 ? 'selected' : ''}>Pending</option>
-                        <option value="1" ${booking.bookingStatus == 1 ? 'selected' : ''} 
-                            <c:if test="${booking.carId == 0}">disabled</c:if>>Confirmed</option>
-                        <option value="3" ${booking.bookingStatus == 3 ? 'selected' : ''}>Cancelled</option>
-                    </select>
-                    <button type="submit" class="btn btn-sm btn-primary">
-                        <i class="bx bx-refresh"></i>
-                    </button>
-                </form>
-            </td>
-            <td>
+			    <form action="${pageContext.request.contextPath}/booking" method="post" class="d-flex justify-content-center">
+			        <input type="hidden" name="action" value="updateStatus">
+			        <input type="hidden" name="id" value="${booking.id}">
+			        <select name="bookingStatus" class="form-select form-select-sm me-2" id="bookingStatus${booking.id}"
+			            <c:if test="${booking.tripStatus == 3}">disabled</c:if> >
+			            <option value="0" ${booking.bookingStatus == 0 ? 'selected' : ''}>Pending</option>
+			            <option value="1" ${booking.bookingStatus == 1 ? 'selected' : ''} 
+			                <c:if test="${booking.carId == 0}">disabled</c:if>>Confirmed</option>
+			            <option value="3" ${booking.bookingStatus == 3 ? 'selected' : ''}>Cancelled</option>
+			        </select>
+			        <button type="submit" class="btn btn-sm btn-primary"
+			            <c:if test="${booking.tripStatus == 3}">disabled</c:if> >
+			            <i class="bx bx-refresh"></i>
+			        </button>
+			    </form>
+			</td>
+                        <td>
                 <c:choose>
                     <c:when test="${booking.carId == 0}">
                         <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#assignCarModal${booking.id}" 
