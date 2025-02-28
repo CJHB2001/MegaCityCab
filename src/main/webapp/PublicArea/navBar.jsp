@@ -85,13 +85,13 @@
                      <a class="nav-link" href="./driver.jsp">Riders</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="blog-list.html">Blog</a>
+                     <a class="nav-link" href="./blog.jsp">Blog</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="about.html">About Us</a>
+                     <a class="nav-link" href="./aboutUs.jsp">About Us</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="contact.html">Contact</a>
+                     <a class="nav-link" href="./contactUs.jsp">Contact</a>
                   </li>
                </ul>
             </div>

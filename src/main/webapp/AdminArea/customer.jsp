@@ -32,10 +32,8 @@
 
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1 class="h3">Customer Management</h1>
-                <!-- Optionally, you can add a button for adding new customers -->
-                <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCustomerModal">
-                    <i class='bx bx-plus'></i> Add Customer
-                </button> -->
+            
+    
             </div>
 
             <div class="card">
