@@ -12,6 +12,8 @@ public class Vehicle {
     private int capacity;
     private int driverId; // Driver ID
     private String driverName; // Driver Name
+    private String driverExperience; // Driver Experience
+    private String driverProfilePhoto; // Driver Profile Photo
     private String imagePath;
 
     // Getters and Setters
@@ -47,6 +49,12 @@ public class Vehicle {
 
     public String getDriverName() { return driverName; }
     public void setDriverName(String driverName) { this.driverName = driverName; }
+
+    public String getDriverExperience() { return driverExperience; }
+    public void setDriverExperience(String driverExperience) { this.driverExperience = driverExperience; }
+
+    public String getDriverProfilePhoto() { return driverProfilePhoto; }
+    public void setDriverProfilePhoto(String driverProfilePhoto) { this.driverProfilePhoto = driverProfilePhoto; }
 
     public String getImagePath() { return imagePath; }
     public void setImagePath(String imagePath) { this.imagePath = imagePath; }

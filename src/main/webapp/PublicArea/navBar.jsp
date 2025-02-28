@@ -77,8 +77,11 @@
                   <li class="nav-item">
                      <a class="nav-link" href="services.html">Services</a>
                   </li>
+                   <li class="nav-item">
+                     <a class="nav-link" href="./cab.jsp">Cars</a>
+                  </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="./bookingInfo.jsp">Cars</a>
+                     <a class="nav-link" href="./bookingInfo.jsp">my </a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="riders.html">Riders</a>
