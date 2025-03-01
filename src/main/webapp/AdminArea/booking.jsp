@@ -42,6 +42,7 @@ request.setAttribute("vehicleList", vehicleList);
     <thead class="table-dark">
     <tr>
         <th>Customer ID</th>
+               <th>Booking ID</th>
         <th>Customer Name</th>
         <th>Vehicle Type</th>
         <th>Vehicle Number</th>
@@ -57,6 +58,8 @@ request.setAttribute("vehicleList", vehicleList);
     <c:forEach var="booking" items="${bookingList}">
         <tr>
             <td>${booking.customerId}</td>
+                 <td>${booking.id}</td>
+            
             <td>${booking.name}</td>
             <td>${booking.vehicleType}</td>
             <td>
