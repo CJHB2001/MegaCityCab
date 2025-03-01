@@ -110,11 +110,12 @@ public class CustomerRegistrationServlet extends HttpServlet {
             // Add the customer to the database
             boolean isSuccess = customerService.addCustomer(customer);
             if (isSuccess) {
-                session.setAttribute("success", "Registration successful! Your registration number is: " + registrationNumber);
-                response.sendRedirect(request.getContextPath() + "/login.jsp");
+                session.setAttribute("alertMessage", "Registration successful! Your registration number is:" + registrationNumber);
+                session.setAttribute("alertType", "success");
+                response.sendRedirect(request.getContextPath() + "/PublicArea/signIn.jsp");
             } else {
                 session.setAttribute("error", "Registration failed. Please try again.");
-                response.sendRedirect(request.getContextPath() + "/register.jsp");
+                response.sendRedirect(request.getContextPath() + "/PublicArea/signUp.jsp");
             }
         } catch (SQLException e) {
             session.setAttribute("error", "Database error: " + e.getMessage());

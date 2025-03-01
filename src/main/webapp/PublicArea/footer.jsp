@@ -8,32 +8,31 @@
                         <div class="f-logo mb-5">
                            <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
                         </div>
-                        <p>Interdum velit laoreet id donec ultrices tincidunt arcu. Tincidunt tortor aliquam nulla
-                           facilisi
-                           cras fermentum odio
-                           eu.</p>
+                      <p>Reliable and affordable cab services at your fingertips. Mega City Cab ensures safe, comfortable, and timely rides across the city, 24/7. Book your ride now and travel with ease!</p>
+                      
                      
                      </div> <!-- Widget End -->
                      <div class="widget">
                         <h4 class="text-white text-capitalize mb-5">our services:</h4>
                         <ul class="list-unstyled">
-                           <li><a href="#">ride sharing</a></li>
-                           <li><a href="#">taxi rentals</a></li>
-                           <li><a href="#">intercity service</a></li>
-                           <li><a href="#">taxi reserve</a></li>
-                           <li><a href="#">web development</a></li>
-                           <li><a href="#">ui/ux design</a></li>
+                           <li><a href="./service.jsp">Cab Booking</a></li>
+                           <li><a href="./service.jsp">Car Rental</a></li>
+                           <li><a href="./service.jsp">City Transfers</a></li>
+                           <li><a href="./service.jsp">Carpool Service</a></li>
+                           <li><a href="./service.jsp">Luxury Car Hire</a></li>
+                           <li><a href="./service.jsp">intercity service</a></li>
+        
                         </ul>
                      </div><!-- Widget End -->
                      <div class="widget">
                         <h4 class="text-white text-capitalize mb-5">quick links:</h4>
                         <ul class="list-unstyled">
-                           <li><a href="#">hOME</a></li>
-                           <li><a href="#">taxi rentals</a></li>
-                           <li><a href="#">intercity service</a></li>
-                           <li><a href="#">taxi reserve</a></li>
-                           <li><a href="#">web development</a></li>
-                           <li><a href="#">ui/ux design</a></li>
+                           <li><a href="./index.jsp">Home</a></li>
+                           <li><a href="./service.jsp">Services</a></li>
+                           <li><a href="./cab.jsp">Cabs</a></li>
+                           <li><a href="./driver.jsp">Riders</a></li>
+                           <li><a href="./aboutUs.jsp">About Us</a></li>
+                           <li><a href="./contactUs.jsp">Contact Us</a></li>
                         </ul>
                      </div><!-- Widget End -->
                      <div class="widget newsletter-widget">
@@ -61,18 +60,18 @@
          <div class="container">
             <div class="row align-items-center">
                <div class="col-lg-6 col-sm-6 order-2 order-sm-1">
-                  <p class="copy-right mb-0 text-white">© All rights reserved. Made by || <a class="text-primary"
-                        href="https://theme-village.com" target="_blank" rel="noopener">theme-village</a>
+                  <p class="copy-right mb-0 text-white"> Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved. Made by || <a class="text-primary"
+                        href="https://theme-village.com" target="_blank" rel="noopener">Mega City Cab</a>
                   </p>
                </div>
-               <div class="col-lg-6 col-sm-6 order-1 order-sm-2">
-                  <div class="social-share text-sm-end">
-                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                     <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                     <a href="#"><i class="fa-brands fa-skype"></i></a>
-                     <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                  </div>
-               </div>
+<div class="col-lg-6 col-sm-6 order-1 order-sm-2">
+   <div class="social-share text-sm-end">
+      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+   </div>
+</div>
             </div>
          </div>
       </div>
