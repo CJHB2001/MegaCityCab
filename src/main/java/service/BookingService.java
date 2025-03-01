@@ -38,4 +38,9 @@ public class BookingService {
     public void updatePaymentStatus(int bookingId, int paymentStatus) throws SQLException {
         bookingDAO.updateTripStatus(bookingId, paymentStatus);
     }
+    
+    public Booking getBookingById(int bookingId) throws SQLException {
+        return bookingDAO.getBookingById(bookingId);
+    }
+    
 }

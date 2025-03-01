@@ -140,4 +140,48 @@ public class BookingDAO {
             pstmt.executeUpdate();
         }
     }
+    
+    public Booking getBookingById(int bookingId) throws SQLException {
+        String sql = "SELECT b.*, v.vehicle_number, u.name AS driver_name " +
+                     "FROM booking b " +
+                     "LEFT JOIN vehicle v ON b.car_id = v.id " +
+                     "LEFT JOIN users u ON v.driver_id = u.id " +
+                     "WHERE b.id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, bookingId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    Booking booking = new Booking();
+                    booking.setId(rs.getInt("id"));
+                    booking.setCustomerId(rs.getInt("customer_id"));
+                    booking.setRegistrationNumber(rs.getString("registration_number"));
+                    booking.setEmail(rs.getString("email"));
+                    booking.setName(rs.getString("name"));
+                    booking.setPhoneNumber(rs.getString("phone_number"));
+                    booking.setPickUpPoint(rs.getString("pick_up_point"));
+                    booking.setDropOffPoint(rs.getString("drop_off_point"));
+                    booking.setPassengers(rs.getInt("passengers"));
+                    booking.setVehicleType(rs.getString("vehicle_type"));
+                    booking.setDistanceKm(rs.getFloat("distance_km"));
+                    booking.setTotalBill(rs.getFloat("total_bill"));
+                    booking.setRideDate(rs.getDate("ride_date"));
+                    booking.setRideTime(rs.getTime("ride_time"));
+                    booking.setMessage(rs.getString("message"));
+                    booking.setBookingStatus(rs.getInt("booking_status"));
+                    booking.setCarId(rs.getInt("car_id"));
+                    booking.setTripStatus(rs.getInt("trip_status"));
+                    booking.setPaymentStatus(rs.getInt("payment_status"));
+                    
+                    // Set driver name and vehicle number
+                    booking.setDriverName(rs.getString("driver_name"));
+                    booking.setVehicleNumber(rs.getString("vehicle_number"));
+                    
+                    return booking;
+                }
+            }
+        }
+        return null;
+    }
+    
 }

@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+
+   body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .report-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .report-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .report-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .report-summary {
+            margin-bottom: 20px;
+        }
+        .report-summary table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .report-summary table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .report-summary table td:first-child {
+            font-weight: bold;
+            width: 50%;
+        }
+        .report-details table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .report-details table th,
+        .report-details table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        .report-details table th {
+            background-color: #f2f2f2;
+        }
+       
+        
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.back-button button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.back-button button:hover {
+    background-color: #333;
+}
+
+.print-button button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.print-button button:hover {
+    background-color: #0056b3;
+}

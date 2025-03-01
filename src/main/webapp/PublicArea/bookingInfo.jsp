@@ -22,7 +22,6 @@ request.setAttribute("vehicleList", vehicleList);
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
    <title>Mega City Cab - My Bookings</title>
-   <!-- Add your CSS and JS links here -->
 </head>
 <body>
 
@@ -175,17 +174,19 @@ request.setAttribute("vehicleList", vehicleList);
                               </div>
                            </div>
                         </div>
-                     <div class="car-cta mt-3">
-					   <c:if test="${booking.carId == 0}">
-					      <a href="#" onclick="confirmCancel(${booking.id})" class="btn ">Cancel Booking</a>
-					   </c:if>
-					
-					   <c:if test="${booking.paymentStatus == 0 && booking.bookingStatus == 1}">
-			<a href="payment.jsp?bookingId=${booking.id}&totalBill=${booking.totalBill}&registrationNumber=${sessionScope.customer.registrationNumber}&customerName=${sessionScope.customer.firstName}%20${sessionScope.customer.lastName}" class="btn">Online Payment</a>
-			
-					 
-					   </c:if>
-					</div>
+                 <div class="car-cta mt-3">
+    <c:if test="${booking.carId == 0}">
+        <a href="#" onclick="confirmCancel(${booking.id})" class="btn">Cancel Booking</a>
+    </c:if>
+
+    <c:if test="${booking.paymentStatus == 0 && booking.bookingStatus == 1}">
+        <a href="payment.jsp?bookingId=${booking.id}&totalBill=${booking.totalBill}&registrationNumber=${sessionScope.customer.registrationNumber}&customerName=${sessionScope.customer.firstName}%20${sessionScope.customer.lastName}" class="btn">Online Payment</a>
+    </c:if>
+
+   <c:if test="${booking.paymentStatus == 1 && booking.bookingStatus == 1 && booking.tripStatus == 3}">
+        <a href="orderBill.jsp?bookingId=${booking.id}" class="btn"  target="_blank">View Bill</a>
+    </c:if>
+</div>
                      </div>
                   </article>
                </c:if>
