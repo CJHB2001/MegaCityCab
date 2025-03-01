@@ -83,7 +83,7 @@ request.setAttribute("blogList", blogList);
 							</h3>
 							<ul class="list-unstyled">
 								<li><img class="me-3" src="images/icons/tel-g.png" alt=""><a href="tel:(568) 367-987-237">0702740542</a></li>
-								<li><img class="me-3" src="images/icons/loc-g.png" alt="">No.100/3 , Mega City Cab , colombo</li>
+								<li><img class="me-3" src="images/icons/loc-g.png" alt="">No.100/3 , Mega City Cab , colombo 03</li>
 								<li><img class="me-3" src="images/icons/message.png" alt=""><a><span ">megacitycab@gmail.com</span></a></li>
 							</ul>
 						</div>

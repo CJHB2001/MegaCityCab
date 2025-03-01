@@ -28,7 +28,7 @@
                      <div class="widget">
                         <h4 class="text-white text-capitalize mb-5">quick links:</h4>
                         <ul class="list-unstyled">
-                           <li><a href="#">ride sharing</a></li>
+                           <li><a href="#">hOME</a></li>
                            <li><a href="#">taxi rentals</a></li>
                            <li><a href="#">intercity service</a></li>
                            <li><a href="#">taxi reserve</a></li>

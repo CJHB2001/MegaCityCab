@@ -40,83 +40,79 @@
    <!-- Header End -->
 
    <!-- Slider Section End -->
-   <section class="slider" style="background-image: url('images/road-bg.png');">
-      <div class="container">
-         <div class="row">
-            <div class="col-12">
-               <div class="slider-carousel swiper">
-                  <div class="swiper-wrapper">
-                     <div class="swiper-slide d-md-flex align-items-center">
-                        <div class="slide-media order-md-2">
-                           <img class="img-fluid" src="images/slide1.png" alt="">
+  <section class="slider" style="background-image: url('images/road-bg.png');">
+   <div class="container">
+      <div class="row">
+         <div class="col-12">
+            <div class="slider-carousel swiper">
+               <div class="swiper-wrapper">
+                  <div class="swiper-slide d-md-flex align-items-center">
+                     <div class="slide-media order-md-2">
+                        <img class="img-fluid" src="images/slide1.png" alt="Ride with Us">
+                     </div>
+                     <div class="slide-txt pe-lg-5 order-md-1">
+                        <div class="slide-meta">
+                           <span>Your Ride</span>
+                           <span>Your Way</span>
+                           <span>Your World</span>
                         </div>
-                        <div class="slide-txt pe-lg-5 order-md-1">
-                           <div class="slide-meta">
-                              <span>your ride</span>
-                              <span>your Way</span>
-                              <span>your World</span>
-                           </div>
-                           <h1>Ride with Us, Unite the Commute.</h1>
-                           <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis auctor elit sed
-                              vulputate mi sit.
-                           </p>
-                        </div>
-                     </div> <!-- Slide Item End -->
+                        <h1>Experience Seamless Rides with Mega City Cab</h1>
+                        <p>Reliable, comfortable, and always available—our cab service ensures that every journey is smooth and stress-free. Ride with professionals who prioritize your safety and convenience.</p>
+                     </div>
+                  </div> <!-- Slide Item End -->
 
-                     <div class="swiper-slide d-md-flex align-items-center">
-                        <div class="slide-media order-md-2">
-                           <img class="img-fluid" src="images/slide2.png" alt="">
+                  <div class="swiper-slide d-md-flex align-items-center">
+                     <div class="slide-media order-md-2">
+                        <img class="img-fluid" src="images/slide2.png" alt="24/7 Service">
+                     </div>
+                     <div class="slide-txt pe-lg-5 order-md-1">
+                        <div class="slide-meta">
+                           <span>Your World</span>
+                           <span>Your Ride</span>
+                           <span>Your Way</span>
                         </div>
-                        <div class="slide-txt pe-lg-5 order-md-1">
-                           <div class="slide-meta">
-                              <span>your World</span>
-                              <span>your ride</span>
-                              <span>your Way</span>
-                           </div>
-                           <h1>We are available in your City 24 Hours.</h1>
-                           <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis auctor elit sed
-                              vulputate mi sit.
-                           </p>
+                        <h1>Available 24/7 in Your City</h1>
+                        <p>Day or night, rain or shine—Mega City Cab Service is here to provide you with safe and timely transportation. No matter where you need to go, we are just a call away.</p>
+                     </div>
+                  </div> <!-- Slide Item End -->
+
+                  <div class="swiper-slide d-md-flex align-items-center">
+                     <div class="slide-media order-md-2">
+                        <img class="img-fluid" src="images/slide3.png" alt="Safety First">
+                     </div>
+                     <div class="slide-txt pe-lg-5 order-md-1">
+                        <div class="slide-meta">
+                           <span>Your Ride</span>
+                           <span>Your Way</span>
+                           <span>Your World</span>
                         </div>
-                     </div> <!-- Slide Item End -->
-                     <div class="swiper-slide d-md-flex align-items-center">
-                        <div class="slide-media order-md-2">
-                           <img class="img-fluid" src="images/slide3.png" alt="">
-                        </div>
-                        <div class="slide-txt pe-lg-5 order-md-1">
-                           <div class="slide-meta">
-                              <span>your ride</span>
-                              <span>your Way</span>
-                              <span>your World</span>
-                           </div>
-                           <h1>Safety is our first priority, Riding.</h1>
-                           <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis auctor elit sed
-                              vulputate mi sit.
-                           </p>
-                        </div>
-                     </div> <!-- Slide Item End -->
-                  </div>
-                  <div class="swiper-pagination"></div>
-                  <div class="autoplay-progress">
-                     <svg viewBox="0 0 48 48">
-                        <circle cx="24" cy="24" r="20"></circle>
-                     </svg>
-                     <span></span>
-                  </div>
+                        <h1>Safety is Our Top Priority</h1>
+                        <p>Your well-being matters to us. Our trained drivers, well-maintained vehicles, and advanced tracking systems ensure that you reach your destination securely and comfortably.</p>
+                     </div>
+                  </div> <!-- Slide Item End -->
+               </div>
+               <div class="swiper-pagination"></div>
+               <div class="autoplay-progress">
+                  <svg viewBox="0 0 48 48">
+                     <circle cx="24" cy="24" r="20"></circle>
+                  </svg>
+                  <span></span>
                </div>
             </div>
          </div>
       </div>
-      <div class="road-bg position-relative" style="background-image: url('images/road-run.png')">
-         <div class="container">
-            <div class="d-flex justify-content-between position-relative">
-               <img src="images/icons/taxi-r2.png" alt="" class="img-fluid anim-move move-3">
-               <img src="images/icons/taxi-r1.png" alt="" class="img-fluid anim-move">
-               <img src="images/icons/taxi-r1.png" alt="" class="img-fluid anim-move">
-            </div>
+   </div>
+   <div class="road-bg position-relative" style="background-image: url('images/road-run.png')">
+      <div class="container">
+         <div class="d-flex justify-content-between position-relative">
+            <img src="images/icons/taxi-r2.png" alt="Moving Taxi" class="img-fluid anim-move move-3">
+            <img src="images/icons/taxi-r1.png" alt="Moving Taxi" class="img-fluid anim-move">
+            <img src="images/icons/taxi-r1.png" alt="Moving Taxi" class="img-fluid anim-move">
          </div>
       </div>
-   </section>
+   </div>
+</section>
+  
   
    <!-- How Start Section Start -->
    <section class="how-start sec-padding">
@@ -124,9 +120,9 @@
          <div class="row">
             <div class="col-xl-5 col-sm-9 mx-auto mb-5">
                <div class="text-center">
-                  <h2 class="sec-title">how to get started</h2>
-                  <p>Suspendisse ultrice gravida dictum fusce placerat ultricies fusce integer quis auctor elit sed
-                     vulputate mi sit.</p>
+            <h2 class="sec-title">How to Get Started</h2>
+<p>Sign up, book a taxi, meet your driver, and enjoy a safe and comfortable ride with Mega City Cab.</p>
+            
                </div>
             </div>
          </div>
@@ -135,28 +131,28 @@
                <div class="card">
                   <span class="icon ms-3"><img src="images/icons/user.png" alt="user"></span>
                   <h3 class="h5 text-capitalize">create your account</h3>
-                  <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis.</p>
+                  <p>Sign up easily and access our cab booking services anytime.</p>
                </div>
             </div>
             <div class="col-lg-3 col-sm-6">
                <div class="card">
                   <span class="icon ms-3"><img src="images/icons/taxi.png" alt="user"></span>
-                  <h3 class="h5 text-capitalize">Find a Taxi</h3>
-                  <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis.</p>
+                  <h3 class="h5 text-capitalize">Book a Cab</h3>
+                  <p>Choose a taxi that suits your needs and budget.</p>
                </div>
             </div>
             <div class="col-lg-3 col-sm-6">
                <div class="card">
                   <span class="icon ms-3"><img src="images/icons/driver.png" alt="user"></span>
                   <h3 class="h5 text-capitalize">meet your driver</h3>
-                  <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis.</p>
+                  <p>Get driver details, track your ride, and connect easily.</p>
                </div>
             </div>
             <div class="col-lg-3 col-sm-6">
                <div class="card">
                   <span class="icon ms-3"><img src="images/icons/trip.png" alt="user"></span>
                   <h3 class="h5 text-capitalize">enjoy your trip</h3>
-                  <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis.</p>
+                  <p>Sit back, relax, and reach your destination safely.</p>
                </div>
             </div>
          </div>
@@ -176,24 +172,18 @@
             <div class="col-lg-7">
                <div class="choose-txt ps-md-5 ms-md-4 mt-5 mt-lg-0">
                   <h2 class="sec-title mb-4">Why choose us?</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                     et dolore magna
-                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                     commodo consequat aute
-                     irure dolor in reprehenderit.</p>
+                  <p>  At Mega City Cab, your safety and comfort are our top priorities. Enjoy punctual pickups, professional drivers, and a seamless booking experience that makes every ride stress-free.</p>
                   <div class="d-sm-flex mt-5">
                      <div class="choose-info">
                         <h4 class="text-uppercase">OUR MISSION:</h4>
-                        <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis auctor elit sed
-                           vulputate mi sit.</p>
+                        <p>To provide safe, reliable, and affordable transportation with excellent customer service, ensuring a comfortable and hassle-free travel experience.</p>
                      </div>
                      <div class="choose-info">
                         <h4 class="text-uppercase">OUR vision:</h4>
-                        <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis auctor elit sed
-                           vulputate mi sit.</p>
+                        <p>To be the most trusted cab service in Sri Lanka, offering innovative and efficient transport solutions for all.</p>
                      </div>
                   </div>
-                  <a href="#" class="btn btn-primary mt-5">Learn more <i class="fa fa-arrow-right"></i></a>
+                  <a href="./aboutUs.jsp" class="btn btn-primary mt-5">Learn more <i class="fa fa-arrow-right"></i></a>
                </div>
             </div>
          </div>
@@ -289,151 +279,147 @@
    <!-- Fact Section End -->
 
    <!-- Rider Section Start -->
-   <section class="rider-sec sec-padding">
-      <div class="container">
-         <div class="row">
-            <div class="col-xl-5 col-sm-9 mx-auto text-center">
-               <h2 class="sec-title">Our Ridenexa Team</h2>
-               <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis auctor elit sed vulputate mi
-                  sit.</p>
-            </div>
-         </div>
-         <div class="row mt-5 pt-5">
-            <div class="col-lg-3 col-sm-6">
-               <div class="rider-man">
-                  <div class="rider-head rounded-3">
-                     <div class="rider-media position-relative">
-                        <img class="img-fluid rounded-3" src="images/rider1.jpg" alt="rider">
-                        <div class="rider-meta position-absolute  rounded-3 text-white">
-                           <h4>toyouta 458 mx</h4>
-                           <ul class="list-unstyled">
-                              <li>- Rating: 4.9</li>
-                              <li>- star rating</li>
-                              <li>- Category: Ford</li>
-                              <li>- Gear : Auto</li>
-                              <li>- Passenger: 03</li>
-                              <li>- Poel: Petrol</li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="rider-info text-center mt-4">
-                     <h3 class="h4"><a href="#">Esther Howard</a></h3>
-                     <p>Talent Rider</p>
-                  </div>
-               </div>
-            </div> <!-- Rider Member End -->
-            <div class="col-lg-3 col-sm-6">
-               <div class="rider-man">
-                  <div class="rider-head rounded-3">
-                     <div class="rider-media position-relative">
-                        <img class="img-fluid rounded-3" src="images/rider2.png" alt="rider">
-                        <div class="rider-meta position-absolute  rounded-3 text-white">
-                           <h4>toyouta 458 mx</h4>
-                           <ul class="list-unstyled">
-                              <li>- Rating: 4.9</li>
-                              <li>- star rating</li>
-                              <li>- Category: Ford</li>
-                              <li>- Gear : Auto</li>
-                              <li>- Passenger: 03</li>
-                              <li>- Poel: Petrol</li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="rider-info text-center mt-4">
-                     <h3 class="h4"><a href="#">Esther Howard</a></h3>
-                     <p>Talent Rider</p>
-                  </div>
-               </div>
-            </div> <!-- Rider Member End -->
-            <div class="col-lg-3 col-sm-6">
-               <div class="rider-man">
-                  <div class="rider-head rounded-3">
-                     <div class="rider-media position-relative">
-                        <img class="img-fluid rounded-3" src="images/rider4.png" alt="rider">
-                        <div class="rider-meta position-absolute  rounded-3 text-white">
-                           <h4>toyouta 458 mx</h4>
-                           <ul class="list-unstyled">
-                              <li>- Rating: 4.9</li>
-                              <li>- star rating</li>
-                              <li>- Category: Ford</li>
-                              <li>- Gear : Auto</li>
-                              <li>- Passenger: 03</li>
-                              <li>- Poel: Petrol</li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="rider-info text-center mt-4">
-                     <h3 class="h4"><a href="#">Esther Howard</a></h3>
-                     <p>Talent Rider</p>
-                  </div>
-               </div>
-            </div> <!-- Rider Member End -->
-            <div class="col-lg-3 col-sm-6">
-               <div class="rider-man">
-                  <div class="rider-head rounded-3">
-                     <div class="rider-media position-relative">
-                        <img class="img-fluid rounded-3" src="images/ride3.png" alt="rider">
-                        <div class="rider-meta position-absolute  rounded-3 text-white">
-                           <h4>toyouta 458 mx</h4>
-                           <ul class="list-unstyled">
-                              <li>- Rating: 4.9</li>
-                              <li>- star rating</li>
-                              <li>- Category: Ford</li>
-                              <li>- Gear : Auto</li>
-                              <li>- Passenger: 03</li>
-                              <li>- Poel: Petrol</li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="rider-info text-center mt-4">
-                     <h3 class="h4"><a href="#">Esther Howard</a></h3>
-                     <p>Talent Rider</p>
-                  </div>
-               </div>
-            </div> <!-- Rider Member End -->
+ <section class="rider-sec sec-padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-xl-5 col-sm-9 mx-auto text-center">
+            <h2 class="sec-title">Our Team</h2>
+            <p>Meet the dedicated professionals behind Mega City Cab Service, committed to providing safe and reliable rides.</p>
          </div>
       </div>
-   </section>
+      <div class="row mt-5 pt-5">
+         <div class="col-lg-3 col-sm-6">
+            <div class="rider-man">
+               <div class="rider-head rounded-3">
+                  <div class="rider-media position-relative">
+                     <img src="images/review-cover.png" alt="Chamod Mullegama" style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px;">
+                     <div class="rider-meta position-absolute rounded-3 text-white">
+                        <h4>Founder & CEO</h4>
+                        <ul class="list-unstyled">
+                           <li>- Name: Chamod Mullegama</li>
+                           <li>- Experience: 10+ Years</li>
+                           <li>- Specialty: Business Strategy</li>
+                           <li>- Vision: Revolutionizing urban transport</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="rider-info text-center mt-4">
+                  <h3 class="h4"><a href="#">Chamod Mullegama</a></h3>
+                  <p>Founder & CEO</p>
+               </div>
+            </div>
+         </div> <!-- Team Member End -->
+
+         <div class="col-lg-3 col-sm-6">
+            <div class="rider-man">
+               <div class="rider-head rounded-3">
+                  <div class="rider-media position-relative">
+                     <img src="images/rider2.png" alt="Visitha Rajapaksha" style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px;">
+                     <div class="rider-meta position-absolute rounded-3 text-white">
+                        <h4>Operations Manager</h4>
+                        <ul class="list-unstyled">
+                           <li>- Name: Visitha Rajapaksha</li>
+                           <li>- Experience: 7+ Years</li>
+                           <li>- Specialty: Fleet Management</li>
+                           <li>- Focus: Ensuring smooth operations</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="rider-info text-center mt-4">
+                  <h3 class="h4"><a href="#">Visitha Rajapaksha</a></h3>
+                  <p>Operations Manager</p>
+               </div>
+            </div>
+         </div> <!-- Team Member End -->
+
+         <div class="col-lg-3 col-sm-6">
+            <div class="rider-man">
+               <div class="rider-head rounded-3">
+                  <div class="rider-media position-relative">
+                     <img src="images/rider4.png" alt="Lakshan Dissanayake" style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px;">
+                     <div class="rider-meta position-absolute rounded-3 text-white">
+                        <h4>Lead Driver</h4>
+                        <ul class="list-unstyled">
+                           <li>- Name: Lakshan Dissanayake</li>
+                           <li>- Experience: 5+ Years</li>
+                           <li>- Specialty: Long-Distance & VIP Rides</li>
+                           <li>- Focus: Passenger safety & comfort</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="rider-info text-center mt-4">
+                  <h3 class="h4"><a href="#">Lakshan Dissanayake</a></h3>
+                  <p>Lead Driver</p>
+               </div>
+            </div>
+         </div> <!-- Team Member End -->
+
+         <div class="col-lg-3 col-sm-6">
+            <div class="rider-man">
+               <div class="rider-head rounded-3">
+                  <div class="rider-media position-relative">
+                     <img src="images/ride3.png" alt="Yomal Thushara" style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px;">
+                     <div class="rider-meta position-absolute rounded-3 text-white">
+                        <h4>Customer Support Manager</h4>
+                        <ul class="list-unstyled">
+                           <li>- Name: Yomal Thushara</li>
+                           <li>- Experience: 6+ Years</li>
+                           <li>- Specialty: Customer Relations</li>
+                           <li>- Focus: Providing top-tier support</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="rider-info text-center mt-4">
+                  <h3 class="h4"><a href="#">Yomal Thushara</a></h3>
+                  <p>Customer Support Manager</p>
+               </div>
+            </div>
+         </div> <!-- Team Member End -->
+      </div>
+   </div>
+</section>
+ 
+  
+  
    <!-- Rider Section End -->
 
    <!-- Feature Section Start -->
-   <section class="feature-sec sec-padding">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-6">
-               <div class="feat-img">
-                  <img class="img-fluid" src="images/feat1.png" alt="Feature">
-               </div>
+ <section class="feature-sec sec-padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-6">
+            <div class="feat-img">
+               <img class="img-fluid" src="images/feat1.png" alt="Feature">
             </div>
-            <div class="col-lg-6">
-               <div class="feat-txt ps-lg-5 ms-lg-3 mt-5 mt-lg-0 ">
-                  <h2 class="sec-title mb-4">elevate your taxi experience with ride-sharing.</h2>
-                  <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis auctor elit sed vulputate
-                     mi sit. Auctor eu
-                     augue ut lectus arcu bibendum at varius vel.</p>
-                  <div class="row mt-5">
-                     <div class="col-lg-6 col-sm-6">
-                        <div class="card bg-light rounded-3 mb-3 mb-sm-0">
-                           <h4><i class="fa-solid fa-circle-check fa-lg text-primary me-3"></i>safety first</h4>
-                           <p class="mb-0">Gravida dictum fusce placerat ultricies integer quis auctor elit.</p>
-                        </div>
+         </div>
+         <div class="col-lg-6">
+            <div class="feat-txt ps-lg-5 ms-lg-3 mt-5 mt-lg-0 ">
+               <h2 class="sec-title mb-4">Enhance Your Travel Experience with Mega City Cab Service.</h2>
+               <p>Mega City Cab Service offers a seamless and reliable transportation experience. Whether you're commuting to work, heading to the airport, or exploring the city, our professional drivers ensure a comfortable and stress-free ride every time.</p>
+               <div class="row mt-5">
+                  <div class="col-lg-6 col-sm-6">
+                     <div class="card bg-light rounded-3 mb-3 mb-sm-0">
+                        <h4><i class="fa-solid fa-circle-check fa-lg text-primary me-3"></i>Reliable Rides</h4>
+                        <p class="mb-0">Experience punctual and efficient service with our dedicated team of drivers.</p>
                      </div>
-                     <div class="col-lg-6 col-sm-6">
-                        <div class="card bg-light rounded-3">
-                           <h4><i class="fa-solid fa-circle-check fa-lg text-primary me-3"></i>affordable prices</h4>
-                           <p class="mb-0">Gravida dictum fusce placerat ultricies integer quis auctor elit.</p>
-                        </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-6">
+                     <div class="card bg-light rounded-3">
+                        <h4><i class="fa-solid fa-circle-check fa-lg text-primary me-3"></i>Affordable Fares</h4>
+                        <p class="mb-0">Enjoy cost-effective travel solutions with transparent pricing  charges.</p>
                      </div>
                   </div>
                </div>
             </div>
          </div>
       </div>
-   </section>
+   </div>
+</section>
+ 
    <!-- Feature Section End -->
 
    <!-- Client Section Start -->
@@ -442,10 +428,9 @@
          <div class="row">
             <div class="col-lg-5 mb-5 mb-sm-0">
                <div class="client-intro">
-                  <h2 class="sec-title">Loved by thousands of rider and others people.</h2>
-                  <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis auctor elit sed vulputate
-                     mi sit. Auctor eu
-                     augue ut lectus arcu bibendum at varius vel.</p>
+                 <h2 class="sec-title">Trusted by Thousands of Happy Customers.</h2>
+<p>Mega City Cab Service is the top choice for safe, reliable, and comfortable rides. Our customers love the convenience, professionalism, and affordable pricing we offer every day.</p>
+                 
                   <a href="./review.jsp" class="btn btn-dark mt-4">leave a review <i class="fa fa-arrow-right"></i></a>
                </div>
             </div>
@@ -497,7 +482,10 @@
         <div class="rider-man">
             <div class="rider-head rounded-3">
                 <div class="rider-media position-relative">
-                    <img class="img-fluid rounded-3" src="${pageContext.request.contextPath}/${gallery.imagePath}" alt="Gallery Image">
+       <img class="img-fluid rounded-3" src="${pageContext.request.contextPath}/${gallery.imagePath}" 
+     alt="Gallery Image" 
+     style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px;">
+       
                     <div class="rider-meta position-absolute rounded-3 text-white">
                  
                         <p>${gallery.description}</p>
