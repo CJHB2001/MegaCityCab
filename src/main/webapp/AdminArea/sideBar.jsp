@@ -3,7 +3,7 @@
 
 <section id="sidebar">
   <a href="#" class="brand">
-    <i class='bx bxs-smile icon'></i> Mega City Cab
+  <i class='bx bxs-car icon'></i> Mega City Cab
   </a>
   <ul class="side-menu">
     <li>
@@ -33,7 +33,7 @@
     </li>
     <li>
       <a href="./cab.jsp">
-        <i class='bx bxs-car icon'></i> Cars
+        <i class='bx bxs-car icon'></i> Cabs
       </a>
     </li>
     <li>
@@ -56,6 +56,12 @@
         <i class='bx bxs-comment icon'></i> Customer Review
       </a>
     </li>
+ <li>
+  <a href="./newsletter.jsp">
+    <i class='bx bxs-news icon'></i> Newsletter
+  </a>
+</li>
+ 
     <li>
       <a href="./contact.jsp">
         <i class='bx bxs-envelope icon'></i> Customer Message

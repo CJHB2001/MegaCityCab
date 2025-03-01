@@ -20,7 +20,8 @@ request.setAttribute("vehicleList", vehicleList);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Management</title>
+
+       <title>Mega City Cab - Booking Management</title>
 
 </head>
 <body>
@@ -32,9 +33,10 @@ request.setAttribute("vehicleList", vehicleList);
         <main class="p-4">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1 class="h3">Booking Management</h1>
-          <button class="btn btn-primary" onclick="window.location.href='bookingReport.jsp'" >
-      <i class='bx bx-file'></i> View Booking Report
-</button>
+
+   <a href="bookingReport.jsp" class="btn btn-primary">
+            <i class='bx bx-file'></i> View Booking Report
+    </a>
             </div>
 
             <div class="card">
@@ -74,7 +76,7 @@ request.setAttribute("vehicleList", vehicleList);
                     </c:otherwise>
                 </c:choose>
             </td>
-            <td>Rs. ${booking.totalBill}</td>
+            <td>Rs. ${booking.totalBill}0</td>
            <td>
     <c:choose>
         <c:when test="${booking.tripStatus == 3}">
