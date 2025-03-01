@@ -23,7 +23,7 @@ request.setAttribute("vehicleList", vehicleList);
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>HTML5 Template</title>
+   <title>Mega City Cab - Cabs</title>
    
 </head>
 
@@ -137,7 +137,7 @@ request.setAttribute("vehicleList", vehicleList);
                                  
                                  <!-- Call To Action Buttons -->
                                  <div class="d-flex justify-content-end gap-2 mt-3">
-                                    <a href="single-car.html" class="btn btn-outline-primary">
+                                    <a href="#" class="btn btn-outline-primary">
                                        <i class="fa-solid fa-info-circle me-1"></i> Vehicle Details
                                     </a>
                                     <a href="./bookRide.jsp" class="btn btn-primary">

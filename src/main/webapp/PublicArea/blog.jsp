@@ -22,7 +22,7 @@ request.setAttribute("blogList", blogList);
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>HTML5 Template</title>
+   <title>Mega City Cab - Blog Post</title>
 </head>
 
 <body>
@@ -116,8 +116,7 @@ request.setAttribute("blogList", blogList);
                         <h3 class="widget-title">Social Share</h3>
                         <div class="social-share2">
                             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="#"><i class="fa-brands fa-skype"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
                             <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                             <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
                         </div>

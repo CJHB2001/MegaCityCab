@@ -28,7 +28,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Sign Up - HTML5 Template</title>
+     <title>Mega City Cab - Sign In</title>
     <style>
         /* Alert Styles */
         .alert {
