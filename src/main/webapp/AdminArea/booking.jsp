@@ -32,7 +32,9 @@ request.setAttribute("vehicleList", vehicleList);
         <main class="p-4">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1 class="h3">Booking Management</h1>
-            
+          <button class="btn btn-primary" onclick="window.location.href='bookingReport.jsp'">
+      <i class='bx bx-file'></i> View Booking Report
+</button>
             </div>
 
             <div class="card">
@@ -140,6 +142,7 @@ request.setAttribute("vehicleList", vehicleList);
                 <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteBookingModal${booking.id}">
                     <i class='bx bx-trash'></i> 
                 </button>
+ 
             </td>
         </tr>
                                     <!-- Edit Modal -->
