@@ -22,7 +22,7 @@ request.setAttribute("blogList", blogList);
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>HTML5 Template</title>
+   <title>Mega City Cab - Contact Us</title>
 </head>
 
 <body>

@@ -22,7 +22,7 @@ request.setAttribute("blogList", blogList);
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>HTML5 Template</title>
+   <title>Mega City Cab - About Us</title>
 </head>
 
 <body>
@@ -90,7 +90,7 @@ To provide safe, reliable, and affordable transportation with excellent customer
                            <h5>OUR VISION:
                            </h5>
                            <p>
-       To be the most trusted cab service in Sri Lanka, offering innovative and efficient transport solutions for all..
+       To be the most trusted cab service in Sri Lanka, offering innovative and efficient transport solutions for all.
                               </p>
                    
                         </div>

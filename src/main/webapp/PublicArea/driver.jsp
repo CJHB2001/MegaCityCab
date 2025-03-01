@@ -16,7 +16,7 @@ request.setAttribute("driverList", driverList);
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>HTML5 Template</title>
+   <title>Mega City Cab - Riders</title>
 </head>
 
 <body>

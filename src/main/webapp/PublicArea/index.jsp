@@ -29,7 +29,6 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>HTML5 Template</title>
 
 </head>
 
@@ -213,7 +212,7 @@
             </div>
             <h3>${service.serviceName}</h3>
             <p>${service.description}</p>
-            <a href="#" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
+            <a href="./service.jsp" class="btn btn-dark mt-3">View Details <i class="fa fa-arrow-right ms-2"></i></a>
         </div>
     </div>
 </c:forEach>

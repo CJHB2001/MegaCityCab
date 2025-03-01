@@ -7,7 +7,7 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>Book Your Ride</title>
+     <title>Mega City Cab - Booking</title>
    <!-- Add your CSS and JS links here -->
 </head>
 <body>
