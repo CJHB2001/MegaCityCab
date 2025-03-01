@@ -269,9 +269,14 @@ request.setAttribute("totalRevenue", totalRevenue);
             </table>
         </div>
 
-        <div class="print-button">
-            <button onclick="window.print()">Print Report</button>
-        </div>
+             <div class="button-container">
+    <div class="back-button">
+        <button onclick="window.history.back()">Back</button>
+    </div>
+    <div class="print-button">
+        <button onclick="window.print()">Print Report</button>
+    </div>
+</div>
     </div>
 </body>
 </html>

@@ -32,7 +32,9 @@
 
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1 class="h3">Customer Management</h1>
-            
+                      <button class="btn btn-primary" onclick="window.location.href='customerReport.jsp'">
+      <i class='bx bx-file'></i> View Booking Report
+</button>
     
             </div>
 
