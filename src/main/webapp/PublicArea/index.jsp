@@ -207,8 +207,7 @@
          <div class="row">
             <div class="col-xl-5 col-sm-9 mx-auto text-center">
                <h2 class="sec-title">our popular services</h2>
-               <p>Suspendisse ultrice gravida dictum fusce placerat ultricies integer quis auctor elit sed vulputate mi
-                  sit.</p>
+               <p>Reliable and comfortable cab service for city and long-distance travel</p>
             </div>
          </div>
          <div class="row pt-2 mt-5">

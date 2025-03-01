@@ -31,7 +31,7 @@
 
 <!-- Toastr Styles -->
 <style>
-    .toast-success { background-color: #F89406 !important; }
+    .toast-success { background-color: #51A351 !important; }
     .toast-error { background-color: #BD362F !important; }
     .toast-info { background-color: #2F96B4 !important; }
     .toast-warning { background-color: #F89406 !important; }

@@ -52,6 +52,6 @@ public class ContactServlet extends HttpServlet {
             session.setAttribute("alertMessage", "Error: " + e.getMessage());
             session.setAttribute("alertType", "danger");
         }
-        response.sendRedirect(request.getContextPath() + "/PublicArea/contact.jsp");
+        response.sendRedirect(request.getContextPath() + "/PublicArea/contactUs.jsp");
     }
 }
