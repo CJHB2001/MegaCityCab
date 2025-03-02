@@ -174,7 +174,7 @@ To provide safe, reliable, and affordable transportation with excellent customer
          </div>
          <br>
         <div class="row g-4">
-            <c:forEach var="driver" items="${driverList}" varStatus="status" begin="0" end="4">
+            <c:forEach var="driver" items="${driverList}" varStatus="status" begin="0" end="3">
                <div class="col-lg-3 col-sm-6">
                   <div class="rider-man rider2 position-relative">
                      <div class="rider-media">
@@ -245,7 +245,7 @@ Under his leadership, Mega City Cab Service offers 24/7 taxi service, airport tr
             </div>
         </div>
         <div class="row mt-5 pt-5">
-            <c:forEach var="blog" items="${blogList}" begin="0" end="3">
+            <c:forEach var="blog" items="${blogList}" begin="0" end="2">
                 <div class="col-xl-4 col-lg-4 col-sm-6">
                     <article class="single-entry rounded-3">
                         <div class="entry-thumb">
