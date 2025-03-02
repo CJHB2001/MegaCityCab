@@ -442,7 +442,7 @@
         <div class="single-quote rounded-3 graphic-bg-light">
             <div class="quote-head d-flex align-items-center mb-4">
                 <div class="quote-img">
-                    <img src="images/customer1.png" class="rounded-circle" alt="Client"> <!-- Default Image -->
+                    <img src="images/entry4.jpg" class="rounded-circle" alt="Client"> <!-- Default Image -->
                 </div>
                 <div class="quote-name ms-3">
                     <h3>${review.firstName} ${review.lastName}</h3>
