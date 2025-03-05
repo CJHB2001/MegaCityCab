@@ -23,6 +23,7 @@ request.setAttribute("vehicleList", vehicleList);
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="images/MegacabLogo.png">
    <title>Mega City Cab - Cabs</title>
    
 </head>

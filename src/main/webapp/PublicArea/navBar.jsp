@@ -13,7 +13,7 @@
    <link rel="shortcut icon" href="images/favicon.ico">
    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&family=Sora:wght@400;500;700&display=swap" rel="stylesheet">
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-   
+   <link rel="icon" type="image/x-icon" href="images/MegacabLogo.png">
    <!-- Font Awesome CSS -->
    <link rel="stylesheet" href="font-awesome/css/all.min.css">
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -36,7 +36,10 @@
       <jsp:include page="./toastr-config.jsp" />
       <nav class="navbar navbar-expand-lg">
          <div class="container rounded-4 bg-info">
-            <a class="navbar-brand" href="#"><img src="images/logo-alt.png" alt="Logo"></a>
+       <a class="navbar-brand" href="#" style="font-weight: bold; font-family: 'Arial', sans-serif; font-size: 26px; color: #000;">
+    <img src="" alt=""> Mega City Cab
+</a>
+       
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="toggle-inner"></span>
             </button>
