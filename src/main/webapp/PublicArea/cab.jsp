@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.List" %>
@@ -59,98 +58,64 @@ request.setAttribute("vehicleList", vehicleList);
       <div class="container">
          <div class="row">
             <div class="col-xl-12">
-               <div class="car-listings">
-                  <c:forEach var="vehicle" items="${vehicleList}" varStatus="loop">
-                     <article class="card mb-4 shadow-sm">
-                        <div class="row g-2">
-                           <div class="col-md-4">
-                              <img src="${pageContext.request.contextPath}/${vehicle.imagePath}" 
-                                   class="img-fluid rounded-start h-100 object-fit-cover" alt="${vehicle.brand} ${vehicle.vehicleType}">
-                           </div>
-                           <div class="col-md-8">
-                              <div class="card-body">
-                                 <h3 class="card-title fw-bold">
-                                    <a href="#" class="text-decoration-none text-dark">${vehicle.brand} - ${vehicle.vehicleType}</a>
-                                 </h3>
-                                 
-                                 <div class="row mt-3">
-                                    <div class="col-md-6">
-                                       <ul class="list-group list-group-flush">
-                                          <li class="list-group-item d-flex justify-content-between">
-                                             <span class="fw-semibold">Brand:</span> ${vehicle.brand}
-                                          </li>
-                                          <li class="list-group-item d-flex justify-content-between">
-                                             <span class="fw-semibold">Doors:</span> ${vehicle.doors} doors
-                                          </li>
-                                          <li class="list-group-item d-flex justify-content-between">
-                                             <span class="fw-semibold">Capacity:</span> ${vehicle.capacity} persons
-                                          </li>
-                                       </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                       <ul class="list-group list-group-flush">
-                                          <li class="list-group-item d-flex justify-content-between">
-                                             <span class="fw-semibold">Eng No:</span> ${vehicle.engineNumber}
-                                          </li>
-                                          <li class="list-group-item d-flex justify-content-between">
-                                             <span class="fw-semibold">Fuel:</span> ${vehicle.vehicleFuelType}
-                                          </li>
-                                          <li class="list-group-item d-flex justify-content-between">
-                                             <span class="fw-semibold">Color:</span> ${vehicle.color}
-                                          </li>
-                                       </ul>
-                                    </div>
-                                 </div>
-                                 
-                                 <!-- Driver Info -->
-                                 <div class="border-top border-bottom py-3 my-3">
-                                    <div class="row align-items-center">
-                                       <div class="col-md-7">
-                                          <div class="d-flex align-items-center">
-                                             <div class="position-relative">
-                                                <img src="${pageContext.request.contextPath}/${vehicle.driverProfilePhoto}" 
-                                                     alt="Driver" width="60" height="60" class="rounded-circle border">
-                                                <span class="position-absolute bottom-0 end-0 badge bg-success rounded-circle">
-                                                   <i class="fa-solid fa-check"></i>
-                                                </span>
-                                             </div>
-                                             <div class="ms-3">
-                                                <h5 class="fw-bold mb-0">${vehicle.driverName}</h5>
-                                                <span class="text-muted fs-6">${vehicle.driverExperience} years with RideMates</span>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-5">
-                                          <h5 class="fw-bold mb-2">Ratings:</h5>
-                                          <div class="d-flex align-items-center">
-                                             <div class="text-warning me-2">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                             </div>
-                                             <span class="text-muted">(4.9)</span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 
-                                 <!-- Call To Action Buttons -->
-                                 <div class="d-flex justify-content-end gap-2 mt-3">
-                                    <a href="#" class="btn btn-outline-primary">
-                                       <i class="fa-solid fa-info-circle me-1"></i> Vehicle Details
-                                    </a>
-                                    <a href="./bookRide.jsp" class="btn btn-primary">
-                                       <i class="fa-solid fa-check-circle me-1"></i> Confirm Ride
-                                    </a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </article>
-                  </c:forEach>
-                  
+               <div class="car-listings">                
+				  <c:forEach var="vehicle" items="${vehicleList}" varStatus="loop">
+				   <article class="car-entry d-md-flex border p-3">
+				     <div class="col-md-4">
+				        <img src="${pageContext.request.contextPath}/${vehicle.imagePath}" 
+				             class="img-fluid rounded-start h-100 object-fit-cover" alt="${vehicle.brand} ${vehicle.vehicleType}">
+				       </div>
+				      <div class="car-content">
+				         <h3 class="car-title text-no-wrap fw-bold">
+				            <a href="#">${vehicle.brand} - ${vehicle.vehicleType}</a>
+				         </h3>
+				         <ul class="car-specfication">
+				            <li><span>Brand</span>${vehicle.brand}</li>
+				            <li><span>Doors</span>${vehicle.doors} doors</li>
+				            <li><span>Capacity</span>${vehicle.capacity} persons</li>
+				            <li><span>Eng No</span>${vehicle.engineNumber}</li>
+				            <li><span>Fuel</span>${vehicle.vehicleFuelType}</li>
+				            <li><span>Color</span>${vehicle.color}</li>
+				         </ul>
+				         <div class="rider-info d-sm-flex my-4">
+				            <div class="d-flex">
+				               <div class="avatar position-relative">
+				                  <img src="${pageContext.request.contextPath}/${vehicle.driverProfilePhoto}" 
+				                       class="rounded-circle" alt="Driver">
+				                  <div class="verified position-absolute">
+				                     <i class="fa-solid fa-circle-check"></i>
+				                  </div>
+				               </div>
+				               <div class="avatar-info ms-3">
+				                  <h4 class="fw-bold mb-0 h5">${vehicle.driverName}</h4>
+				                  <span class="text-muted">${vehicle.driverExperience} years with RideMates</span>
+				               </div>
+				            </div>
+				            <div class="ratings ms-sm-5">
+				               <h4 class="fw-bold mb-0 h5">Ratings:</h4>
+				               <div class="d-flex">
+				                  <div class="rate">
+				                     <i class="fa-solid fa-star"></i>
+				                     <i class="fa-solid fa-star"></i>
+				                     <i class="fa-solid fa-star"></i>
+				                     <i class="fa-solid fa-star"></i>
+				                     <i class="fa-solid fa-star"></i>
+				                  </div>
+				                  <div class="rate-points text-muted">
+				                     (4.9)
+				                  </div>
+				               </div>
+				            </div> <!-- Ratings End -->
+				         </div>
+				         <div class="car-cta mt-3">
+				            <a href="#" class="btn">
+				               Taxi Details
+				            </a>
+				            <a href="./bookRide.jsp" class="btn btn-primary">Confirm Ride</a>
+				         </div>
+				      </div>
+				   </article> <!-- Single Car End -->
+				</c:forEach>
                  <div class="pager mt-5">
                      <a href="#" class="prev-page"><i class="fa fa-angle-left"></i></a>
                      <span aria-current="page" class="page-numbers current">1</span>
