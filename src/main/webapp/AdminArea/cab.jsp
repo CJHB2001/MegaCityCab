@@ -80,7 +80,7 @@ request.setAttribute("vehicleList", vehicleList);
                                         <td>${vehicle.vehicleFuelType}</td>
                                         <td>${vehicle.doors}</td>
                                         <td>${vehicle.capacity}</td>
-
+                                        <td>
                                             <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editVehicleModal${vehicle.id}">
                                                 <i class='bx bx-edit'></i>
                                             </button>

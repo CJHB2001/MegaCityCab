@@ -10,10 +10,10 @@ public class Vehicle {
     private String vehicleFuelType;
     private int doors;
     private int capacity;
-    private int driverId; // Driver ID
-    private String driverName; // Driver Name
-    private String driverExperience; // Driver Experience
-    private String driverProfilePhoto; // Driver Profile Photo
+    private int driverId; 
+    private String driverName; 
+    private String driverExperience; 
+    private String driverProfilePhoto; 
     private String imagePath;
 
     // Getters and Setters

@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
             switch (authResult) {
                 case UserService.AUTH_SUCCESS:
                     User user = userService.getUserByEmail(email);
-                    session.setAttribute("user", user); // Store user object in session
+                    session.setAttribute("user", user); 
                     if (userRole == UserRole.ADMIN) {
                         response.sendRedirect(request.getContextPath() + "/AdminArea/dashboard.jsp");
                     } else if (userRole == UserRole.DRIVER) {
@@ -45,25 +45,24 @@ public class LoginServlet extends HttpServlet {
                     break;
                 case UserService.INVALID_EMAIL:
                     session.setAttribute("error", "Invalid email");
-                    response.sendRedirect(request.getContextPath() + "/login.jsp");
+                    response.sendRedirect(request.getContextPath() + "/AdminArea/login.jsp");
                     break;
                 case UserService.INVALID_PASSWORD:
                     session.setAttribute("error", "Invalid password");
-                    response.sendRedirect(request.getContextPath() + "/login.jsp");
+                    response.sendRedirect(request.getContextPath() + "/AdminArea/login.jsp");
                     break;
                 case UserService.INVALID_ROLE:
                     session.setAttribute("error", "Invalid role");
-                    response.sendRedirect(request.getContextPath() + "/login.jsp");
+                    response.sendRedirect(request.getContextPath() + "/AdminArea/login.jsp");
                     break;
                 default:
                     session.setAttribute("error", "An error occurred during authentication");
-                    response.sendRedirect(request.getContextPath() + "/login.jsp");
+                    response.sendRedirect(request.getContextPath() + "/AdminArea/login.jsp");
             }
         } catch (IllegalArgumentException e) {
-            // Handle invalid role value
             HttpSession session = request.getSession();
             session.setAttribute("error", "Invalid role selected");
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            response.sendRedirect(request.getContextPath() + "/AdminArea/login.jsp");
         } catch (SQLException e) {
             throw new ServletException("Database error occurred", e);
         }

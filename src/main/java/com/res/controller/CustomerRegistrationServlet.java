@@ -95,19 +95,17 @@ public class CustomerRegistrationServlet extends HttpServlet {
             // Generate a registration number
             String registrationNumber = customerService.generateRegistrationNumber();
 
-            // Create a new customer
             Customer customer = new Customer();
             customer.setFirstName(firstName);
             customer.setLastName(lastName);
             customer.setPhone(phone);
             customer.setEmail(email);
-            customer.setPassword(password); // In a real application, hash the password
+            customer.setPassword(password); 
             customer.setAddressLine1(addressLine1);
             customer.setAddressLine2(addressLine2);
             customer.setNicNumber(nicNumber);
             customer.setRegistrationNumber(registrationNumber);
 
-            // Add the customer to the database
             boolean isSuccess = customerService.addCustomer(customer);
             if (isSuccess) {
                 session.setAttribute("alertMessage", "Registration successful! Your registration number is:" + registrationNumber);

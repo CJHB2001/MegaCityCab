@@ -97,7 +97,7 @@ public class CustomerDAO {
                 }
             }
         }
-        return null; // Return null if no customer is found
+        return null; 
     }
     
     public List<Customer> getAllCustomers() throws SQLException {

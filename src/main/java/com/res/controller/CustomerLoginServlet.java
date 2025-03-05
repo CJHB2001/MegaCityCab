@@ -39,9 +39,9 @@ public class CustomerLoginServlet extends HttpServlet {
             Customer customer = customerService.validateCustomer(email, password);
             if (customer != null) {
                 // Login successful
-                session.setAttribute("customer", customer); // Store customer object in session
-                session.removeAttribute("error"); // Clear any previous error
-                response.sendRedirect(request.getContextPath() + "/PublicArea/index.jsp"); // Redirect to home page
+                session.setAttribute("customer", customer); 
+                session.removeAttribute("error"); 
+                response.sendRedirect(request.getContextPath() + "/PublicArea/index.jsp"); 
             } else {
                 // Login failed
                 session.setAttribute("error", "Invalid email or password.");
