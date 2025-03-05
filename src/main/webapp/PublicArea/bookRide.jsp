@@ -124,9 +124,7 @@
    <!-- Footer Start -->
    <jsp:include page="./footer.jsp" />
    <!-- Footer End -->
-
    <script>
-      // Bootstrap validation
       (function () {
          'use strict';
          var forms = document.querySelectorAll('.needs-validation');
