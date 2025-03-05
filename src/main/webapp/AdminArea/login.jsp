@@ -9,7 +9,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Panel</title>
+  <title>Mega City Cab - Login Panel</title>
   <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
@@ -25,10 +25,11 @@
         <% } %>
         <input type="email" name="email" placeholder="Enter Email" required>
         <input type="password" name="password" placeholder="Enter Password" required>
-        <select name="role" required>
-          <option value="admin">Admin</option>
-          <option value="driver">Driver</option>
-        </select>
+       <select name="role" required>
+        <option value="ADMIN">Admin</option>
+        <option value="DRIVER">Driver</option>
+
+    </select>
         <button type="submit">LOGIN</button>
       </form>
     </div>

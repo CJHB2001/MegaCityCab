@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
            <jsp:include page="./toastr-config.jsp" />
-    <title>Mega City Cab</title>
+    <title>Mega City Cab - Admin Dashboard</title>
 </head>
 <body>
     <nav>
@@ -30,13 +30,12 @@
         <div class="profile">
 
             <c:if test="${not empty sessionScope.user}">
-                <span>Welcome, ${sessionScope.user.email}</span>
+                <span>Admin - ${sessionScope.user.email}</span>
             </c:if>
    
             <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
             <ul class="profile-link">
-                <li><a href="#"><i class='bx bxs-user-circle icon'></i> Profile</a></li>
-                <li><a href="#"><i class='bx bxs-cog'></i> Settings</a></li>
+             
                <li>
    <li>
     <a href="#" onclick="confirmLogout()">
@@ -44,7 +43,7 @@
     </a>
 </li>
     
-</li>
+
             </ul>
         </div>
         <!-- Display Admin Email on the Right Side -->
