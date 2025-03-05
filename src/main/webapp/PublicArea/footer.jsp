@@ -6,7 +6,8 @@
                   <div class="d-sm-flex justify-content-between flex-sm-wrap">
                      <div class="widget about-widget">
                         <div class="f-logo mb-5">
-                           <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+                           <a href="./index.jsp"><img src="images/MegacabLogo.png"  alt="Logo" style="width: 150px; height: auto;"></a>
+                    
                         </div>
                       <p>Reliable and affordable cab services at your fingertips. Mega City Cab ensures safe, comfortable, and timely rides across the city, 24/7. Book your ride now and travel with ease!</p>
                       

@@ -7,6 +7,7 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="images/MegacabLogo.png">
      <title>Mega City Cab - Booking</title>
 </head>
 <body>
@@ -72,7 +73,6 @@
                            <option value="2">2</option>
                            <option value="3">3</option>
                            <option value="4">4</option>
-                           <option value="5">5</option>
                            <option value="5+">5+</option>
                         </select>
                      </div>
@@ -124,9 +124,7 @@
    <!-- Footer Start -->
    <jsp:include page="./footer.jsp" />
    <!-- Footer End -->
-
    <script>
-      // Bootstrap validation
       (function () {
          'use strict';
          var forms = document.querySelectorAll('.needs-validation');

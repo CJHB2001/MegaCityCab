@@ -72,21 +72,21 @@ public class BookingDAO {
                 booking.setMessage(rs.getString("message"));
                 booking.setBookingStatus(rs.getInt("booking_status"));
                 booking.setCarId(rs.getInt("car_id"));
-                booking.setVehicleNumber(rs.getString("vehicle_number")); // Vehicle number
-                booking.setVehicleImagePath(rs.getString("vehicle_image")); // Vehicle image
-                booking.setVehicleBrand(rs.getString("brand")); // Vehicle brand
-                booking.setVehicleColor(rs.getString("color")); // Vehicle color
-                booking.setVehicleFuelType(rs.getString("vehicle_fuel_type")); // Vehicle fuel type
-                booking.setVehicleDoors(rs.getInt("doors")); // Vehicle doors
-                booking.setVehicleCapacity(rs.getInt("capacity")); // Vehicle capacity
-                booking.setDriverId(rs.getInt("driver_id")); // Driver ID
-                booking.setDriverName(rs.getString("driver_name")); // Driver name
-                booking.setDriverImagePath(rs.getString("driver_image")); // Driver image
-                booking.setDriverAge(rs.getInt("driver_age")); // Driver age
-                booking.setDriverExperience(rs.getString("driver_experience")); // Driver experience
-                booking.setDriverLicenseId(rs.getString("driver_license_id")); // Driver license ID
-                booking.setDriverGender(rs.getString("driver_gender")); // Driver gender
-                booking.setTripStatus(rs.getInt("trip_status")); // Driver gender
+                booking.setVehicleNumber(rs.getString("vehicle_number"));
+                booking.setVehicleImagePath(rs.getString("vehicle_image"));
+                booking.setVehicleBrand(rs.getString("brand"));
+                booking.setVehicleColor(rs.getString("color"));
+                booking.setVehicleFuelType(rs.getString("vehicle_fuel_type"));
+                booking.setVehicleDoors(rs.getInt("doors"));
+                booking.setVehicleCapacity(rs.getInt("capacity"));
+                booking.setDriverId(rs.getInt("driver_id"));
+                booking.setDriverName(rs.getString("driver_name"));
+                booking.setDriverImagePath(rs.getString("driver_image"));
+                booking.setDriverAge(rs.getInt("driver_age"));
+                booking.setDriverExperience(rs.getString("driver_experience"));
+                booking.setDriverLicenseId(rs.getString("driver_license_id"));
+                booking.setDriverGender(rs.getString("driver_gender"));
+                booking.setTripStatus(rs.getInt("trip_status"));
                 booking.setPaymentStatus(rs.getInt("payment_status"));
                 bookingList.add(booking);
             }
@@ -116,10 +116,8 @@ public class BookingDAO {
     public void updateTripStatus(int bookingId, int tripStatus) throws SQLException {
         String sql;
         if (tripStatus == 3) {
-            // If the trip status is set to "Completed", update both trip_status and payment_status
             sql = "UPDATE booking SET trip_status = ?, payment_status = 1 WHERE id = ?";
         } else {
-            // Otherwise, only update the trip_status
             sql = "UPDATE booking SET trip_status = ? WHERE id = ?";
         }
 
@@ -171,9 +169,7 @@ public class BookingDAO {
                     booking.setBookingStatus(rs.getInt("booking_status"));
                     booking.setCarId(rs.getInt("car_id"));
                     booking.setTripStatus(rs.getInt("trip_status"));
-                    booking.setPaymentStatus(rs.getInt("payment_status"));
-                    
-                    // Set driver name and vehicle number
+                    booking.setPaymentStatus(rs.getInt("payment_status"));                
                     booking.setDriverName(rs.getString("driver_name"));
                     booking.setVehicleNumber(rs.getString("vehicle_number"));
                     
