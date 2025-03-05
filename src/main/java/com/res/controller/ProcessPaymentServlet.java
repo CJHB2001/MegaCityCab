@@ -20,13 +20,8 @@ public class ProcessPaymentServlet extends HttpServlet {
         int bookingId = Integer.parseInt(request.getParameter("bookingId"));
 
         try {
-            // Update payment status to 1 (Paid)
             bookingDAO.updatePaymentStatus(bookingId, 1);
-
-            // Set a session attribute to indicate successful payment
             session.setAttribute("paymentSuccess", true);
-
-            // Redirect back to the payment page
             response.sendRedirect(request.getContextPath() + "/PublicArea/payment.jsp");
         } catch (SQLException e) {
             session.setAttribute("paymentSuccess", false);

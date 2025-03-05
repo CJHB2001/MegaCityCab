@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
             switch (authResult) {
                 case UserService.AUTH_SUCCESS:
                     User user = userService.getUserByEmail(email);
-                    session.setAttribute("user", user); // Store user object in session
+                    session.setAttribute("user", user); 
                     if (userRole == UserRole.ADMIN) {
                         response.sendRedirect(request.getContextPath() + "/AdminArea/dashboard.jsp");
                     } else if (userRole == UserRole.DRIVER) {
@@ -60,7 +60,6 @@ public class LoginServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath() + "/AdminArea/login.jsp");
             }
         } catch (IllegalArgumentException e) {
-            // Handle invalid role value
             HttpSession session = request.getSession();
             session.setAttribute("error", "Invalid role selected");
             response.sendRedirect(request.getContextPath() + "/AdminArea/login.jsp");

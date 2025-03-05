@@ -49,7 +49,7 @@ request.setAttribute("driverList", driverList);
                                     <th>Age</th>
                                     <th>Experience (Years)</th>
                                     <th>License ID</th>
-                                    <th>Gender</th>
+                                  
                                     <th>Photo</th>
                                     <th>Actions</th>
                                 </tr>
@@ -63,7 +63,7 @@ request.setAttribute("driverList", driverList);
                                         <td>${driver.age}</td>
                                         <td>${driver.experience}</td>
                                         <td>${driver.licenseId}</td>
-                                        <td>${driver.gender}</td>
+                             
                                         <td>
                                             <c:choose>
                                                 <c:when test="${not empty driver.profilePhoto}">

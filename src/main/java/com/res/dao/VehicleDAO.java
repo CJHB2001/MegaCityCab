@@ -29,7 +29,7 @@ public class VehicleDAO {
     public List<Vehicle> getAllVehicles() throws SQLException {
         List<Vehicle> vehicleList = new ArrayList<>();
         String sql = "SELECT v.*, u.name AS driver_name, u.experience, u.profile_photo FROM vehicle v " +
-                     "JOIN users u ON v.driver_id = u.id"; // Join with users table
+                     "JOIN users u ON v.driver_id = u.id"; 
         try (Connection conn = DatabaseUtil.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
@@ -45,9 +45,9 @@ public class VehicleDAO {
                 vehicle.setDoors(rs.getInt("doors"));
                 vehicle.setCapacity(rs.getInt("capacity"));
                 vehicle.setDriverId(rs.getInt("driver_id"));
-                vehicle.setDriverName(rs.getString("driver_name")); // Fetch driver name from users table
-                vehicle.setDriverExperience(rs.getString("experience")); // Fetch driver experience
-                vehicle.setDriverProfilePhoto(rs.getString("profile_photo")); // Fetch driver profile photo
+                vehicle.setDriverName(rs.getString("driver_name")); 
+                vehicle.setDriverExperience(rs.getString("experience")); 
+                vehicle.setDriverProfilePhoto(rs.getString("profile_photo"));
                 vehicle.setImagePath(rs.getString("image_path"));
                 vehicleList.add(vehicle);
             }

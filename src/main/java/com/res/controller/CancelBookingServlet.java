@@ -24,7 +24,6 @@ public class CancelBookingServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         try {
-            // Update booking status to 3 (cancelled)
             bookingDAO.updateBookingStatus(bookingId, 3);
             session.setAttribute("alertMessage", "Booking cancel successfully!");
             session.setAttribute("alertType", "success");

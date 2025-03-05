@@ -70,7 +70,7 @@ public class BlogServlet extends HttpServlet {
         if ("update".equals(action)) {
             int id = Integer.parseInt(request.getParameter("id"));
             String title = request.getParameter("title");
-            Date date = new Date(); // Use the current date or parse from request
+            Date date = new Date(); 
             String summary = request.getParameter("summary");
 
             try {

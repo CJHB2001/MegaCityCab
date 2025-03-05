@@ -5,8 +5,7 @@ public class User {
     private String email;
     private String password;
     private UserRole role;  // Changed from String to UserRole enum
-    private String profilePhoto;  // Added profile photo field
-    // Driver fields
+    private String profilePhoto;  
     private String name;
     private int age;
     private String experience;
@@ -48,7 +47,6 @@ public class User {
         this.password = password;
     }
     
-    // Updated role getter and setter to use enum
     public UserRole getRole() {
         return role;
     }

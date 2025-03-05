@@ -19,10 +19,9 @@ public class BillServlet extends HttpServlet {
         int bookingId = Integer.parseInt(request.getParameter("bookingId"));
 
         try {
-            // Fetch the booking details
             Booking booking = bookingService.getBookingById(bookingId);
 
-            // Print the booking details to the console
+
             if (booking != null) {
                 System.out.println("Booking ID: " + booking.getId());
                 System.out.println("Customer Name: " + booking.getName());
@@ -37,8 +36,6 @@ public class BillServlet extends HttpServlet {
             } else {
                 System.out.println("No booking found with ID: " + bookingId);
             }
-
-            // Optionally, you can forward the request to a JSP page to display the bill
             request.setAttribute("booking", booking);
             request.getRequestDispatcher("/PublicArea/orderBill.jsp").forward(request, response);
 

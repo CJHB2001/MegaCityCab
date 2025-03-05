@@ -22,9 +22,9 @@ import service.UserService;
 
 @WebServlet("/driver")
 @MultipartConfig(
-    fileSizeThreshold = 1024 * 1024, // 1 MB
-    maxFileSize = 1024 * 1024 * 5,   // 5 MB
-    maxRequestSize = 1024 * 1024 * 10 // 10 MB
+    fileSizeThreshold = 1024 * 1024, 
+    maxFileSize = 1024 * 1024 * 5,  
+    maxRequestSize = 1024 * 1024 * 10 
 )
 public class DriverServlet extends HttpServlet {
     private UserService userService = new UserService();
@@ -115,7 +115,6 @@ public class DriverServlet extends HttpServlet {
             }
             response.sendRedirect(request.getContextPath() + "/AdminArea/driver.jsp");
         } else if ("add".equals(action)) {
-            // Adding a new driver
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String name = request.getParameter("name");
@@ -125,7 +124,6 @@ public class DriverServlet extends HttpServlet {
             String gender = request.getParameter("gender");
 
             try {
-                // Check if the email already exists
                 if (userService.isEmailExists(email)) {
                     session.setAttribute("alertMessage", "Error: Email already exists!");
                     session.setAttribute("alertType", "danger");
@@ -136,14 +134,13 @@ public class DriverServlet extends HttpServlet {
                 User driver = new User();
                 driver.setEmail(email);
                 driver.setPassword(password);
-                driver.setRole(UserRole.DRIVER); // Use the enum
+                driver.setRole(UserRole.DRIVER); 
                 driver.setName(name);
                 driver.setAge(age);
                 driver.setExperience(experience);
                 driver.setLicenseId(licenseId);
                 driver.setGender(gender);
 
-                // Handle profile photo upload
                 Part filePart = request.getPart("profilePhoto");
                 if (filePart != null && filePart.getSize() > 0) {
                     String fileName = getUniqueFileName(getFileName(filePart));
@@ -151,7 +148,6 @@ public class DriverServlet extends HttpServlet {
                     filePart.write(uploadPath + File.separator + fileName);
                     driver.setProfilePhoto(filePath);
                 } else {
-                    // Set default profile picture path
                     driver.setProfilePhoto("assets/images/default-profile.png");
                 }
 

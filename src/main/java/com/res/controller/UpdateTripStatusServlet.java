@@ -19,17 +19,13 @@ public class UpdateTripStatusServlet extends HttpServlet {
         BookingDAO bookingDAO = new BookingDAO();
         try {
             bookingDAO.updateTripStatus(bookingId, tripStatus);
-
-            // Set success message
             session.setAttribute("alertMessage", "Trip Status Changed Successfully!");
             session.setAttribute("alertType", "success");
         } catch (Exception e) {
             e.printStackTrace();
-            // Set error message
             session.setAttribute("alertMessage", "Failed to Update Trip Status!");
             session.setAttribute("alertType", "error");
         }
-        // Redirect back to the rides page
         response.sendRedirect(request.getContextPath() + "/DriverArea/rides.jsp");
     }
 }

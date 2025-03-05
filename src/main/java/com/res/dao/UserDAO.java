@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO {
-    // Modified authenticate method to use UserRole enum
+  
     public int authenticate(String email, String password, String roleValue) throws SQLException {
         String sql = "SELECT password, role FROM users WHERE email = ?";
         try (Connection conn = DatabaseUtil.getConnection();
@@ -42,7 +42,6 @@ public class UserDAO {
         }
     }
 
-    // Updated getUserByEmail to include profile photo and UserRole enum
     public User getUserByEmail(String email) throws SQLException {
         String sql = "SELECT * FROM users WHERE email = ?";
         try (Connection conn = DatabaseUtil.getConnection();
@@ -69,14 +68,14 @@ public class UserDAO {
         return null;
     }
     
-    // Updated addDriver to include profile photo and UserRole enum
+
     public void addDriver(User driver) throws SQLException {
         String sql = "INSERT INTO users (email, password, role, name, age, experience, license_id, gender, profile_photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, driver.getEmail());
             pstmt.setString(2, driver.getPassword());
-            pstmt.setString(3, UserRole.DRIVER.getValue()); // Always use driver role
+            pstmt.setString(3, UserRole.DRIVER.getValue()); 
             pstmt.setString(4, driver.getName());
             pstmt.setInt(5, driver.getAge());
             pstmt.setString(6, driver.getExperience());
@@ -87,7 +86,6 @@ public class UserDAO {
         }
     }
     
-    // Updated getAllDrivers to include profile photo and UserRole enum
     public List<User> getAllDrivers() throws SQLException {
         List<User> driverList = new ArrayList<>();
         String sql = "SELECT * FROM users WHERE role = ?";
@@ -115,7 +113,6 @@ public class UserDAO {
         return driverList;
     }
     
-    // Updated getDriverById to include profile photo and UserRole enum
     public User getDriverById(int id) throws SQLException {
         String sql = "SELECT * FROM users WHERE id = ? AND role = ?";
         try (Connection conn = DatabaseUtil.getConnection();
@@ -143,7 +140,6 @@ public class UserDAO {
         return null;
     }
     
-    // Updated updateDriver to include profile photo
     public void updateDriver(User driver) throws SQLException {
         String sql = "UPDATE users SET email = ?, password = ?, name = ?, age = ?, experience = ?, license_id = ?, gender = ?, profile_photo = ? WHERE id = ? AND role = ?";
         try (Connection conn = DatabaseUtil.getConnection();
