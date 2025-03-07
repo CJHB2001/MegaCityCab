@@ -8,11 +8,11 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-           <jsp:include page="./toastr-config.jsp" />
     <title>Mega City Cab - Admin Dashboard</title>
 </head>
 <body>
     <nav>
+        <jsp:include page="./toastr-config.jsp" />
         <i class='bx bx-menu toggle-sidebar'></i>
         <form action="#">
             <div class="form-group">

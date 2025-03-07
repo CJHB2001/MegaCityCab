@@ -23,7 +23,7 @@ import service.GalleryService;
                  maxFileSize = 1024 * 1024 * 5,
                  maxRequestSize = 1024 * 1024 * 5 * 5)
 public class GalleryServlet extends HttpServlet {
-    private GalleryService galleryService = new GalleryService();
+    GalleryService galleryService = new GalleryService();
     private static final String UPLOAD_DIRECTORY = "gallery_images";
 
     @Override
@@ -127,4 +127,6 @@ public class GalleryServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/AdminArea/gallery.jsp");
         }
     }
+
+	
 }
