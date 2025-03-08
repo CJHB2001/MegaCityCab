@@ -25,6 +25,9 @@ request.setAttribute("vehicleList", vehicleList);
 
 </head>
 <body>
+<c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
     <jsp:include page="./toastr-config.jsp" />
     <jsp:include page="./sideBar.jsp" />
 

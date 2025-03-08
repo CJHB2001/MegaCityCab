@@ -19,6 +19,9 @@ List<Gallery> galleryList = galleryDAO.getAllGalleries();
 
 </head>
 <body>
+<c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
 
        <jsp:include page="./toastr-config.jsp" />
        <% 

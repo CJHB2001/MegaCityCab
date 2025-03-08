@@ -18,6 +18,9 @@
     <title>Mega City Cab - Blog Management</title>
 </head>
 <body>
+<c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
     <jsp:include page="./sideBar.jsp" />
     <section id="content">
         <jsp:include page="./navBar.jsp" />

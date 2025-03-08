@@ -22,12 +22,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Management</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
+    <title>Mega City Cab - Driver Compelete Booking</title>
 </head>
 <body>
-   <c:if test="${empty sessionScope.user}">
-        <c:redirect url="/AdminArea/login.jsp" />
-    </c:if>
+     <c:if test="${empty sessionScope.user || sessionScope.user.role != 'DRIVER'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
 
     <jsp:include page="./toastr-config.jsp" />
     <jsp:include page="./sideBar.jsp" />
@@ -39,7 +40,6 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1 class="h3">Completed Bookings</h1>
             </div>
-
             <!-- Success/Error Messages -->
             <c:if test="${not empty sessionScope.alertMessage}">
                 <div class="alert alert-${sessionScope.alertType}">
@@ -55,7 +55,7 @@
                         <table class="table">
                             <thead class="table-dark">
                                 <tr>
-                                    <th>Customer ID</th>
+                                    <th>Customer Reg Number</th>
                                     <th>Customer Name</th>
                                     <th>From</th>
                                     <th>To</th>
@@ -63,15 +63,14 @@
                                     <th>Ride Time</th>
                                     <th>Phone Number</th>
                                     <th>Total Bill</th>
-                                    <th>Trip Status</th>
-                            
+                                    <th>Trip Status</th>                            
                                 </tr>
                             </thead>
                             <tbody>
                                 <c:forEach var="booking" items="${bookingList}">
                                     <c:if test="${booking.driverId == sessionScope.user.id && booking.bookingStatus == 1 && booking.tripStatus == 3}">
                                         <tr>
-                                            <td>${booking.customerId}</td>
+                                            <td>${booking.registrationNumber}</td>
                                             <td>${booking.name}</td>
                                             <td>${booking.pickUpPoint}</td>
                                             <td>${booking.dropOffPoint}</td>

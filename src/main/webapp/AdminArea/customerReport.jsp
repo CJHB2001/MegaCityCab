@@ -21,6 +21,9 @@ request.setAttribute("customerList", customerList);
 
 </head>
 <body>
+<c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
     <div class="report-container">
         <div class="report-header">
             <h1>Customer Report</h1>

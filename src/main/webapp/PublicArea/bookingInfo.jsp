@@ -138,7 +138,7 @@ request.setAttribute("vehicleList", vehicleList);
          <span class="badge bg-primary text-white">Started</span>
       </c:when>
       <c:when test="${booking.tripStatus == 3}">
-         <span class="badge bg-danger text-white">Completed</span>
+         <span class="badge bg-success text-white">Completed</span>
       </c:when>
    </c:choose>
 </li>

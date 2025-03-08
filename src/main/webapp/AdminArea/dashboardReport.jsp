@@ -337,6 +337,9 @@
     </style>
 </head>
 <body>
+<c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
     <div class="report-container">
         <div class="report-header">
             <h1>Mega city cab - Administrative Report</h1>
