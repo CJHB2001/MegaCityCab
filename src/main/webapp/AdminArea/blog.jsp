@@ -15,9 +15,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tiny.cloud/1/2k4jaruxjz8btnyxbloucip4rsqxpuuxs3y5ra1qyb7hv6cb/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+         <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
     <title>Mega City Cab - Blog Management</title>
 </head>
 <body>
+<c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
     <jsp:include page="./sideBar.jsp" />
     <section id="content">
         <jsp:include page="./navBar.jsp" />

@@ -21,17 +21,17 @@ request.setAttribute("vehicleList", vehicleList);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+     <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
    
-       <title>Mega City Cab - Vehicle Management</title>
+       <title>Mega City Cab - Admin Vehicle Management</title>
 
 </head>
 <body>
 
     <!-- Session Check -->
-    <c:if test="${empty sessionScope.user}">
-        <c:redirect url="/AdminArea/login.jsp" />
-    </c:if>
+  <c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
 
  
     <jsp:include page="./toastr-config.jsp" />

@@ -101,9 +101,13 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+      <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
     <title>Admin Dashboard</title>
 </head>
 <body>
+<c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
     <c:if test="${empty sessionScope.user}">
         <c:redirect url="/AdminArea/login.jsp" />
     </c:if>

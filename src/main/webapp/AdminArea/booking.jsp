@@ -20,11 +20,14 @@ request.setAttribute("vehicleList", vehicleList);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-       <title>Mega City Cab - Booking Management</title>
+     <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
+       <title>Mega City Cab -Admin Booking Management</title>
 
 </head>
 <body>
+<c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
     <jsp:include page="./toastr-config.jsp" />
     <jsp:include page="./sideBar.jsp" />
 
@@ -45,7 +48,7 @@ request.setAttribute("vehicleList", vehicleList);
 <table class="table">
     <thead class="table-dark">
     <tr>
-        <th>Customer ID</th>
+        <th>Customer Reg Number</th>
                <th>Booking ID</th>
         <th>Customer Name</th>
         <th>Vehicle Type</th>
@@ -54,14 +57,14 @@ request.setAttribute("vehicleList", vehicleList);
         <th>Booking Status</th>
                  <th>Payment Status</th>
         <th>Change Status</th>
-        <th>Assign Car</th>
+        <th>Assign Cab</th>
         <th>Actions</th>
     </tr>
 </thead>
 <tbody>
     <c:forEach var="booking" items="${bookingList}">
         <tr>
-            <td>${booking.customerId}</td>
+            <td>${booking.registrationNumber}</td>
                  <td>${booking.id}</td>
             
             <td>${booking.name}</td>
@@ -129,11 +132,11 @@ request.setAttribute("vehicleList", vehicleList);
                     <c:when test="${booking.carId == 0}">
                         <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#assignCarModal${booking.id}" 
                                 <c:if test="${booking.bookingStatus == 3}">disabled</c:if>>
-                            <i class='bx bx-car'></i> Assign Car
+                            <i class='bx bx-car'></i> Assign Cab
                         </button>
                     </c:when>
                     <c:otherwise>
-                        <span class="text-success">Car Assigned</span>
+                        <span class="text-success">Cab Assigned</span>
                     </c:otherwise>
                 </c:choose>
             </td>

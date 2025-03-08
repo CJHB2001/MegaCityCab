@@ -16,11 +16,15 @@ request.setAttribute("customerList", customerList);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
     <title>Customer Report</title>
       <link rel="stylesheet" href="./css/report.css">
 
 </head>
 <body>
+<c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
     <div class="report-container">
         <div class="report-header">
             <h1>Customer Report</h1>

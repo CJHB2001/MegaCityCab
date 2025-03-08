@@ -49,10 +49,14 @@ request.setAttribute("totalRevenue", totalRevenue);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Report</title>
+         <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
        <link rel="stylesheet" href="./css/report.css">
 
 </head>
 <body>
+<c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
     <div class="report-container">
         <div class="report-header">
             <h1>Booking Report</h1>
