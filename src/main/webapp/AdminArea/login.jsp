@@ -9,7 +9,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="icon" type="image/x-icon" href="images/MegacabLogo.png">
+    <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
   <title>Mega City Cab - Login Panel</title>
   <link rel="stylesheet" href="./css/login.css">
 </head>

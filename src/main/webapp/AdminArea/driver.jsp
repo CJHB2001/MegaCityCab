@@ -18,9 +18,9 @@ request.setAttribute("driverList", driverList);
             <title>Mega City Cab - Driver Management</title>
 </head>
 <body>
-   <c:if test="${empty sessionScope.user}">
-        <c:redirect url="/AdminArea/login.jsp" />
-    </c:if>
+<c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
 	
     <jsp:include page="./toastr-config.jsp" />
 

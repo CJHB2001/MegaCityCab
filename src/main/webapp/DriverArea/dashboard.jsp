@@ -61,14 +61,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    
+    <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoDriver.png">
     <link rel="stylesheet" href="style.css">
-    <title>Driver Dashboard</title>
+    <title>Mega City Cab - Driver Dashboard</title>
 </head>
 <body>
-    <c:if test="${empty sessionScope.user}">
-        <c:redirect url="/AdminArea/login.jsp" />
-    </c:if>
+  <c:if test="${empty sessionScope.user || sessionScope.user.role != 'DRIVER'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
     
     <!-- SIDEBAR -->
     <jsp:include page="./sideBar.jsp" />
@@ -121,7 +121,7 @@
                 <div class="card">
                     <div class="head">
                         <div>
-                            <h2>Rs. ${totalEarnings}</h2>
+                            <h2>Rs. ${totalEarnings}0</h2>
                             <p>Total Earnings</p>
                         </div>
                         <i class='bx bx-money icon'></i>
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <<table class="table">
+                        <table class="table">
                             <thead class="table-dark">
                                 <tr>
                                     <th> Name</th>
