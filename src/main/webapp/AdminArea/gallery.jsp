@@ -14,7 +14,8 @@ List<Gallery> galleryList = galleryDAO.getAllGalleries();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mega City Cab - Gallery Management</title>
+         <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
+    <title>Mega City Cab - Admin Gallery Management</title>
 
 
 </head>

@@ -16,10 +16,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Management</title>
+         <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
+
     <title>Mega City Cab - Customer Review Management</title>
 </head>
 <body>
+<c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
 
     <jsp:include page="./toastr-config.jsp" />
     <% 

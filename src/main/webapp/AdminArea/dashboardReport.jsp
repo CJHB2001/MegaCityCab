@@ -128,6 +128,7 @@
     <title>Administrative Report</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+         <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
         /* Custom CSS for report */

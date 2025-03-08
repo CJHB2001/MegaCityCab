@@ -21,9 +21,9 @@ request.setAttribute("vehicleList", vehicleList);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+     <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
    
-       <title>Mega City Cab - Vehicle Management</title>
+       <title>Mega City Cab - Admin Vehicle Management</title>
 
 </head>
 <body>

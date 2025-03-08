@@ -49,6 +49,7 @@ request.setAttribute("totalRevenue", totalRevenue);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Report</title>
+         <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
        <link rel="stylesheet" href="./css/report.css">
 
 </head>
