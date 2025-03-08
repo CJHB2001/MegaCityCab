@@ -11,6 +11,7 @@
     <title>Mega City Cab - Admin Dashboard</title>
 </head>
 <body>
+
     <nav>
         <jsp:include page="./toastr-config.jsp" />
         <i class='bx bx-menu toggle-sidebar'></i>

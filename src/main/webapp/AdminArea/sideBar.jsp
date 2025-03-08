@@ -11,11 +11,7 @@
         <i class='bx bxs-dashboard icon'></i> Dashboard
       </a>
     </li>
-    <li>
-      <a href="./employee_index.jsp">
-        <i class='bx bxs-widget icon'></i> Widgets
-      </a>
-    </li>
+  
     <li>
       <a href="./booking.jsp">
         <i class='bx bxs-calendar-check icon'></i> Customer Bookings
