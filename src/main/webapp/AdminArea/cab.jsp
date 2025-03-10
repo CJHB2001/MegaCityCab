@@ -109,7 +109,7 @@ request.setAttribute("vehicleList", vehicleList);
                                                                     <option value="">Select Vehicle Type</option>
                                                                     <option value="Car" ${vehicle.vehicleType == 'Car' ? 'selected' : ''}>Car</option>
                                                                     <option value="Van" ${vehicle.vehicleType == 'Van' ? 'selected' : ''}>Van</option>
-                                                                    <option value="Lorry" ${vehicle.vehicleType == 'Lorry' ? 'selected' : ''}>Lorry</option>
+                                                                    <option value="Lorry" ${vehicle.vehicleType == 'jeep' ? 'selected' : ''}>jeep</option>
                                                                     <option value="Tuk Tuk" ${vehicle.vehicleType == 'Tuk Tuk' ? 'selected' : ''}>Tuk Tuk</option>
                                                                 </select>
                                                             </div>
