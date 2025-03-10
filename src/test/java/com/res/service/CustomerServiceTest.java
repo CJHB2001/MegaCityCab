@@ -29,7 +29,7 @@ public class CustomerServiceTest {
         testCustomer.setPassword("servicepass");
         testCustomer.setAddressLine1("Service Address");
         testCustomer.setNicNumber("999999789V");
-        testCustomer.setRegistrationNumber(customerDAO.generateRegistrationNumber()); // Use customerDAO
+        testCustomer.setRegistrationNumber(customerDAO.generateRegistrationNumber()); 
 
         customerService.addCustomer(testCustomer);
     }

@@ -34,7 +34,7 @@ public class BookingServiceTest {
         testBooking.setVehicleType("SUV");
         testBooking.setDistanceKm(15.5f);
         testBooking.setTotalBill(45.75f);
-        testBooking.setRegistrationNumber("REG12345"); // Replace with actual logic if needed
+        testBooking.setRegistrationNumber("REG12345"); 
         testBooking.setRideDate(new Date(System.currentTimeMillis()));
         testBooking.setRideTime(new Time(System.currentTimeMillis()));
         

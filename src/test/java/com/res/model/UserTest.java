@@ -11,7 +11,7 @@ public class UserTest {
 
     @BeforeEach
     void setUp() {
-        testRole = UserRole.DRIVER; // Assuming UserRole.DRIVER exists
+        testRole = UserRole.DRIVER; 
         user = new User(
             "test@example.com", 
             "password123", 
@@ -67,10 +67,7 @@ public class UserTest {
 
     @Test
     void testRoleStringConversion() {
-        // Test converting role enum to string value
-        assertEquals("driver", user.getRoleValue()); // Assuming UserRole.DRIVER.getValue() returns "driver"
-
-        // Test setting role from a valid string
+        assertEquals("driver", user.getRoleValue()); 
         user.setRoleFromString("admin");
         assertEquals(UserRole.ADMIN, user.getRole());
         assertEquals("admin", user.getRoleValue());

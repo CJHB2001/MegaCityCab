@@ -44,8 +44,7 @@ public class UserServiceTest {
             userService.deleteDriver(testDriverId);
         }
     }
-
-   
+ 
     @Test
     void testAddDriver() throws SQLException {
         List<User> drivers = userService.getAllDrivers();
@@ -53,8 +52,6 @@ public class UserServiceTest {
             d.getEmail().equals("testdriver@example.com")
         ));
     }
-
-
 
     @Test
     void testGetDriverById() throws SQLException {
