@@ -38,6 +38,7 @@ public class LoginServlet extends HttpServlet {
                     if (userRole == UserRole.ADMIN) {
                         response.sendRedirect(request.getContextPath() + "/AdminArea/dashboard.jsp");
                     } else if (userRole == UserRole.DRIVER) {
+                    	
                         response.sendRedirect(request.getContextPath() + "/DriverArea/dashboard.jsp");
                     } else if (userRole == UserRole.CUSTOMER) {
                         response.sendRedirect(request.getContextPath() + "/CustomerArea/dashboard.jsp");
