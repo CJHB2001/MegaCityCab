@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.res.dao.CustomerDAO;
 import com.res.model.Customer;
-import com.res.model.Employee;
+
 
 public class CustomerService {
     private CustomerDAO customerDAO = new CustomerDAO();

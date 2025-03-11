@@ -27,7 +27,7 @@
       <scope>test</scope>
     </dependency>
     
-    <!-- JSTL -->
+        <!-- JSTL -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -41,19 +41,10 @@
 			<version>8.0.23</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
-		</dependency>
-
-		<!-- Mockito Dependency -->
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>5.6.0</version>
-			<scope>test</scope>
 		</dependency>
 
 		<!-- JUnit 5 Dependency -->
