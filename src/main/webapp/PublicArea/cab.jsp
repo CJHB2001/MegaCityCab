@@ -39,11 +39,11 @@ request.setAttribute("vehicleList", vehicleList);
          <div class="row">
             <div class="col-lg-12">
                <div class="promo-wrap text-center">
-                  <h2 class="fw-bold text-white text-uppercase">Car Listing</h2>
+                  <h2 class="fw-bold text-white text-uppercase">Cab Listing</h2>
                   <nav aria-label="breadcrumb w-75 mx-auto">
                      <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Car Listing</li>
+                        <li class="breadcrumb-item active" aria-current="page">Cab Listing</li>
                      </ol>
                   </nav>
                </div>
@@ -88,7 +88,7 @@ request.setAttribute("vehicleList", vehicleList);
 				               </div>
 				               <div class="avatar-info ms-3">
 				                  <h4 class="fw-bold mb-0 h5">${vehicle.driverName}</h4>
-				                  <span class="text-muted">${vehicle.driverExperience} years with RideMates</span>
+				                  <span class="text-muted">${vehicle.driverExperience} years with MegaCityCab</span>
 				               </div>
 				            </div>
 				            <div class="ratings ms-sm-5">

@@ -69,10 +69,10 @@ public class CustomerDAO {
              ResultSet rs = stmt.executeQuery(sql)) {
             if (rs.next()) {
                 int maxId = rs.getInt(1);
-                return "CUST" + String.format("%05d", maxId + 1); // Example: CUST00001
+                return "CUST" + String.format("%05d", maxId + 1); 
             }
         }
-        return "CUST00001"; // Default if no customers exist
+        return "CUST00001";
     }
     public Customer getCustomerByEmailAndPassword(String email, String password) throws SQLException {
         String sql = "SELECT * FROM customers WHERE email = ? AND password = ?";

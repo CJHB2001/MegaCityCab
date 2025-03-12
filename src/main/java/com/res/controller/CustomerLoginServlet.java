@@ -38,12 +38,12 @@ public class CustomerLoginServlet extends HttpServlet {
         try {
             Customer customer = customerService.validateCustomer(email, password);
             if (customer != null) {
-                // Login successful
+    
                 session.setAttribute("customer", customer); 
                 session.removeAttribute("error"); 
                 response.sendRedirect(request.getContextPath() + "/PublicArea/index.jsp"); 
             } else {
-                // Login failed
+        
                 session.setAttribute("error", "Invalid email or password.");
                 response.sendRedirect(request.getContextPath() + "/PublicArea/signIn.jsp");
             }

@@ -162,7 +162,7 @@ public class DriverServlet extends HttpServlet {
         }
     }
     
-    // Helper method to get file name from HTTP header
+
     private String getFileName(Part part) {
         String contentDisp = part.getHeader("content-disposition");
         String[] items = contentDisp.split(";");
@@ -174,7 +174,7 @@ public class DriverServlet extends HttpServlet {
         return "unknown";
     }
     
-    // Helper method to generate unique file name
+
     private String getUniqueFileName(String originalFileName) {
         String extension = "";
         if (originalFileName.contains(".")) {

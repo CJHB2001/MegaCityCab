@@ -32,6 +32,7 @@ public class ContactDAO {
                 contact.setPhone(rs.getString("phone"));
                 contact.setEmail(rs.getString("email"));
                 contact.setMessage(rs.getString("message"));
+                contact.setReplied(rs.getBoolean("replied"));
                 contactList.add(contact);
             }
         }
@@ -40,6 +41,15 @@ public class ContactDAO {
     
     public void deleteContact(int contactId) throws SQLException {
         String sql = "DELETE FROM contacts WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, contactId);
+            pstmt.executeUpdate();
+        }
+    }
+    
+    public void markAsReplied(int contactId) throws SQLException {
+        String sql = "UPDATE contacts SET replied = true WHERE id = ?";
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, contactId);
