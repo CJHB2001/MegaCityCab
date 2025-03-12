@@ -25,7 +25,9 @@ request.setAttribute("vehicleList", vehicleList);
    <title>Mega City Cab - My Bookings</title>
 </head>
 <body>
-
+ <c:if test="${empty sessionScope.customer}">
+        <c:redirect url="/PublicArea/signIn.jsp" />
+    </c:if>
    <!-- Header Start -->
    <jsp:include page="./navBar.jsp" />
    <!-- Header End -->

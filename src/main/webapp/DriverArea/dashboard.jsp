@@ -11,42 +11,42 @@
 	VehicleDAO vehicleDAO = new VehicleDAO();
 	List<Vehicle> vehicleList = vehicleDAO.getAllVehicles();
 	request.setAttribute("vehicleList", vehicleList);
-    // Fetch all bookings
+
     BookingDAO bookingDAO = new BookingDAO();
     List<Booking> bookingList = bookingDAO.getAllBookings();
     request.setAttribute("bookingList", bookingList);
-    // Get current user ID from session
+
     int currentUserId = 0;
     if (session.getAttribute("user") != null) {
-        // Assuming user object has getId() method
+
         currentUserId = ((com.res.model.User)session.getAttribute("user")).getId();
     }
     
-    // Initialize counters
+
     int completedRides = 0;
     int dueRides = 0;
     float totalEarnings = 0;
     
-    // Calculate statistics for current driver
+
     for (Booking booking : bookingList) {
         if (booking.getDriverId() == currentUserId && booking.getBookingStatus() == 1) {
             if (booking.getTripStatus() == 3) {
-                // Completed rides
+
                 completedRides++;
                 totalEarnings += booking.getTotalBill();
             } else {
-                // Due/Pending rides (Not Started or Started but not Completed)
+    
                 dueRides++;
             }
         }
     }
     
-    // Calculate percentages
+
     int totalRides = completedRides + dueRides;
     int completedPercentage = (totalRides > 0) ? (completedRides * 100 / totalRides) : 0;
     int duePercentage = (totalRides > 0) ? (dueRides * 100 / totalRides) : 0;
     
-    // Set attributes for use in JSP
+
     request.setAttribute("completedRides", completedRides);
     request.setAttribute("dueRides", dueRides);
     request.setAttribute("totalEarnings", totalEarnings);

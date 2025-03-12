@@ -6,6 +6,7 @@ public class Contact {
     private String phone;
     private String email;
     private String message;
+    private boolean replied;
 
     // Constructors
     public Contact() {}
@@ -15,6 +16,7 @@ public class Contact {
         this.phone = phone;
         this.email = email;
         this.message = message;
+        this.replied = false;
     }
 
     // Getters and Setters
@@ -32,4 +34,7 @@ public class Contact {
 
     public String getMessage() { return message; }
     public void setMessage(String message) { this.message = message; }
+    
+    public boolean isReplied() { return replied; }
+    public void setReplied(boolean replied) { this.replied = replied; }
 }

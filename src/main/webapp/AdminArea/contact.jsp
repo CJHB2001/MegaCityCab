@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
+  <link rel="icon" type="image/x-icon" href="./assets/images/LogoAdmin.png">
     <title>Mega City Cab - Admin Coustomer Massage Management</title>
 </head>
 <body>
@@ -52,6 +52,7 @@
                                     <th>Phone</th>
                                     <th>Email</th>
                                     <th>Message</th>
+                                    <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -64,11 +65,56 @@
                                         <td>${contact.email}</td>
                                         <td>${contact.message}</td>
                                         <td>
+                                            <c:choose>
+                                                <c:when test="${contact.replied}">
+                                                    <span class="badge bg-success">Replied</span>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <span class="badge bg-warning">Pending</span>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
+                                        <td>
+                                            <c:if test="${!contact.replied}">
+                                                <button class="btn btn-sm btn-outline-primary me-1" data-bs-toggle="modal" data-bs-target="#replyContactModal${contact.id}">
+                                                    <i class='bx bx-reply'></i>
+                                                </button>
+                                            </c:if>
                                             <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteContactModal${contact.id}">
                                                 <i class='bx bx-trash'></i>
                                             </button>
                                         </td>
                                     </tr>
+
+                                    <!-- Reply Modal -->
+                                    <div class="modal fade" id="replyContactModal${contact.id}" tabindex="-1" aria-labelledby="replyContactModalLabel${contact.id}" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="replyContactModalLabel${contact.id}">Reply to ${contact.fullName}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <form action="${pageContext.request.contextPath}/contact" method="post">
+                                                    <input type="hidden" name="action" value="reply">
+                                                    <input type="hidden" name="id" value="${contact.id}">
+                                                    <div class="modal-body">
+                                                        <div class="mb-3">
+                                                            <label for="replySubject${contact.id}" class="form-label">Subject</label>
+                                                            <input type="text" class="form-control" id="replySubject${contact.id}" name="subject" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="replyMessage${contact.id}" class="form-label">Message</label>
+                                                            <textarea class="form-control" id="replyMessage${contact.id}" name="replyMessage" rows="5" required></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="submit" class="btn btn-primary">Send Reply</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <!-- Delete Modal -->
                                     <div class="modal fade" id="deleteContactModal${contact.id}" tabindex="-1" aria-labelledby="deleteContactModalLabel${contact.id}" aria-hidden="true">

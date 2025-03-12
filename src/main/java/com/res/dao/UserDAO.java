@@ -174,7 +174,7 @@ public class UserDAO {
             pstmt.setString(1, email);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    return rs.getInt(1) > 0; // Returns true if email exists
+                    return rs.getInt(1) > 0; 
                 }
             }
         }

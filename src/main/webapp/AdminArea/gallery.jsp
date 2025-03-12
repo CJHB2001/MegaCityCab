@@ -7,14 +7,14 @@
 <%
 GalleryDAO galleryDAO = new GalleryDAO();
 List<Gallery> galleryList = galleryDAO.getAllGalleries();
-    request.setAttribute("galleryList", galleryList);
+request.setAttribute("galleryList", galleryList);
 %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoAdmin.png">
+  <link rel="icon" type="image/x-icon" href="./assets/images/LogoAdmin.png">
     <title>Mega City Cab - Admin Gallery Management</title>
 
 
@@ -25,8 +25,7 @@ List<Gallery> galleryList = galleryDAO.getAllGalleries();
 </c:if>
 
        <jsp:include page="./toastr-config.jsp" />
-       <% 
-                // Clear the session attributes after displaying
+           <% 
                 session.removeAttribute("alertMessage");
                 session.removeAttribute("alertType");
             %>
