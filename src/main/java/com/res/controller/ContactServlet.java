@@ -36,22 +36,39 @@ public class ContactServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String fullName = request.getParameter("fullName");
-        String phone = request.getParameter("phone");
-        String email = request.getParameter("email");
-        String message = request.getParameter("message");
-
-        Contact contact = new Contact(fullName, phone, email, message);
+        String action = request.getParameter("action");
         HttpSession session = request.getSession();
 
-        try {
-            contactService.addContact(contact);
-            session.setAttribute("alertMessage", "Your message has been sent successfully!");
-            session.setAttribute("alertType", "success");
-        } catch (SQLException e) {
-            session.setAttribute("alertMessage", "Error: " + e.getMessage());
-            session.setAttribute("alertType", "danger");
+        if ("reply".equals(action)) {
+            int contactId = Integer.parseInt(request.getParameter("id"));
+            try {
+                // Mark the message as replied
+                contactService.markAsReplied(contactId);
+                session.setAttribute("alertMessage", "Reply sent successfully!");
+                session.setAttribute("alertType", "success");
+            } catch (SQLException e) {
+                session.setAttribute("alertMessage", "Error: " + e.getMessage());
+                session.setAttribute("alertType", "danger");
+            }
+            response.sendRedirect(request.getContextPath() + "/AdminArea/contact.jsp");
+        } else {
+            // Handle regular contact form submission
+            String fullName = request.getParameter("fullName");
+            String phone = request.getParameter("phone");
+            String email = request.getParameter("email");
+            String message = request.getParameter("message");
+
+            Contact contact = new Contact(fullName, phone, email, message);
+            
+            try {
+                contactService.addContact(contact);
+                session.setAttribute("alertMessage", "Your message has been sent successfully!");
+                session.setAttribute("alertType", "success");
+            } catch (SQLException e) {
+                session.setAttribute("alertMessage", "Error: " + e.getMessage());
+                session.setAttribute("alertType", "danger");
+            }
+            response.sendRedirect(request.getContextPath() + "/PublicArea/contactUs.jsp");
         }
-        response.sendRedirect(request.getContextPath() + "/PublicArea/contactUs.jsp");
     }
 }

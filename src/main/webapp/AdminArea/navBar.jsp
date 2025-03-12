@@ -12,6 +12,7 @@
     <title>Mega City Cab - Admin Dashboard</title>
 </head>
 <body>
+
     <nav>
         <i class='bx bx-menu toggle-sidebar'></i>
         <form action="#">

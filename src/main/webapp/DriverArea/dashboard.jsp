@@ -11,42 +11,42 @@
 	VehicleDAO vehicleDAO = new VehicleDAO();
 	List<Vehicle> vehicleList = vehicleDAO.getAllVehicles();
 	request.setAttribute("vehicleList", vehicleList);
-    // Fetch all bookings
+
     BookingDAO bookingDAO = new BookingDAO();
     List<Booking> bookingList = bookingDAO.getAllBookings();
     request.setAttribute("bookingList", bookingList);
-    // Get current user ID from session
+
     int currentUserId = 0;
     if (session.getAttribute("user") != null) {
-        // Assuming user object has getId() method
+
         currentUserId = ((com.res.model.User)session.getAttribute("user")).getId();
     }
     
-    // Initialize counters
+
     int completedRides = 0;
     int dueRides = 0;
     float totalEarnings = 0;
     
-    // Calculate statistics for current driver
+
     for (Booking booking : bookingList) {
         if (booking.getDriverId() == currentUserId && booking.getBookingStatus() == 1) {
             if (booking.getTripStatus() == 3) {
-                // Completed rides
+
                 completedRides++;
                 totalEarnings += booking.getTotalBill();
             } else {
-                // Due/Pending rides (Not Started or Started but not Completed)
+    
                 dueRides++;
             }
         }
     }
     
-    // Calculate percentages
+
     int totalRides = completedRides + dueRides;
     int completedPercentage = (totalRides > 0) ? (completedRides * 100 / totalRides) : 0;
     int duePercentage = (totalRides > 0) ? (dueRides * 100 / totalRides) : 0;
     
-    // Set attributes for use in JSP
+
     request.setAttribute("completedRides", completedRides);
     request.setAttribute("dueRides", dueRides);
     request.setAttribute("totalEarnings", totalEarnings);
@@ -61,14 +61,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    
+    <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoDriver.png">
     <link rel="stylesheet" href="style.css">
-    <title>Driver Dashboard</title>
+    <title>Mega City Cab - Driver Dashboard</title>
 </head>
 <body>
-    <c:if test="${empty sessionScope.user}">
-        <c:redirect url="/AdminArea/login.jsp" />
-    </c:if>
+  <c:if test="${empty sessionScope.user || sessionScope.user.role != 'DRIVER'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
     
     <!-- SIDEBAR -->
     <jsp:include page="./sideBar.jsp" />
@@ -121,7 +121,7 @@
                 <div class="card">
                     <div class="head">
                         <div>
-                            <h2>Rs. ${totalEarnings}</h2>
+                            <h2>Rs. ${totalEarnings}0</h2>
                             <p>Total Earnings</p>
                         </div>
                         <i class='bx bx-money icon'></i>
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <<table class="table">
+                        <table class="table">
                             <thead class="table-dark">
                                 <tr>
                                     <th> Name</th>

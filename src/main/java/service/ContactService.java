@@ -19,4 +19,8 @@ public class ContactService {
     public void deleteContact(int contactId) throws SQLException {
         contactDAO.deleteContact(contactId);
     }
+    
+    public void markAsReplied(int contactId) throws SQLException {
+        contactDAO.markAsReplied(contactId);
+    }
 }

@@ -25,7 +25,9 @@ request.setAttribute("vehicleList", vehicleList);
    <title>Mega City Cab - My Bookings</title>
 </head>
 <body>
-
+ <c:if test="${empty sessionScope.customer}">
+        <c:redirect url="/PublicArea/signIn.jsp" />
+    </c:if>
    <!-- Header Start -->
    <jsp:include page="./navBar.jsp" />
    <!-- Header End -->
@@ -138,7 +140,7 @@ request.setAttribute("vehicleList", vehicleList);
          <span class="badge bg-primary text-white">Started</span>
       </c:when>
       <c:when test="${booking.tripStatus == 3}">
-         <span class="badge bg-danger text-white">Completed</span>
+         <span class="badge bg-success text-white">Completed</span>
       </c:when>
    </c:choose>
 </li>

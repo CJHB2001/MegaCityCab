@@ -89,9 +89,9 @@ public class BookingServlet extends HttpServlet {
                 String vehicleType = request.getParameter("vehicleType");
                 float distanceKm = Float.parseFloat(request.getParameter("distanceKm"));
 
-                // Clean the totalBill input by removing "LKR " prefix
+            
                 String totalBillInput = request.getParameter("totalBill");
-                float totalBill = Float.parseFloat(totalBillInput.replace("LKR ", "")); // Remove "LKR " before parsing
+                float totalBill = Float.parseFloat(totalBillInput.replace("LKR ", "")); 
 
                 Date rideDate = Date.valueOf(request.getParameter("rideDate"));
 
@@ -99,12 +99,9 @@ public class BookingServlet extends HttpServlet {
                 String rideTimeInput = request.getParameter("rideTime");
                 Time rideTime = null;
                 if (rideTimeInput != null && !rideTimeInput.isEmpty()) {
-                    // Ensure the rideTime input is in the correct format (HH:mm:ss)
                     if (!rideTimeInput.contains(":")) {
-                        // If the input is in a different format (e.g., "1430"), convert it to "HH:mm:ss"
                         rideTimeInput = rideTimeInput.substring(0, 2) + ":" + rideTimeInput.substring(2, 4) + ":00";
                     } else if (rideTimeInput.length() == 5) {
-                        // If the input is in "HH:mm" format, append ":00" to make it "HH:mm:ss"
                         rideTimeInput += ":00";
                     }
                     rideTime = Time.valueOf(rideTimeInput);
@@ -127,7 +124,7 @@ public class BookingServlet extends HttpServlet {
                 booking.setRideDate(rideDate);
                 booking.setRideTime(rideTime);
                 booking.setMessage(message);
-                booking.setBookingStatus(0); // Default status is pending
+                booking.setBookingStatus(0); 
 
                 bookingService.addBooking(booking);
                 session.setAttribute("alertMessage", "Your booking was successful. Our team will confirm your booking as soon as possible. Stay with us.");

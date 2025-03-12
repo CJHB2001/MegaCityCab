@@ -22,7 +22,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Management</title>
+        <link rel="icon" type="image/x-icon" href="./assets/images/MegacabLogoDriver.png">
+         <title>Mega City Cab - Driver Booking Management</title>
 </head>
 <body>
    <c:if test="${empty sessionScope.user}">
@@ -55,7 +56,7 @@
                         <table class="table">
                             <thead class="table-dark">
                                 <tr>
-                                    <th>Customer ID</th>
+                                    <th>Customer Reg Number</th>
                                     <th>Customer Name</th>
                                     <th>From</th>
                                     <th>To</th>
@@ -72,7 +73,7 @@
                                 <c:forEach var="booking" items="${bookingList}">
                                     <c:if test="${booking.driverId == sessionScope.user.id && booking.bookingStatus == 1 && booking.tripStatus != 3}">
                                         <tr>
-                                            <td>${booking.customerId}</td>
+                                              <td>${booking.registrationNumber}</td>
                                             <td>${booking.name}</td>
                                             <td>${booking.pickUpPoint}</td>
                                             <td>${booking.dropOffPoint}</td>

@@ -21,17 +21,17 @@ request.setAttribute("vehicleList", vehicleList);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="icon" type="image/x-icon" href="./assets/images/LogoAdmin.png">
    
-       <title>Mega City Cab - Vehicle Management</title>
+       <title>Mega City Cab - Admin Vehicle Management</title>
 
 </head>
 <body>
 
     <!-- Session Check -->
-    <c:if test="${empty sessionScope.user}">
-        <c:redirect url="/AdminArea/login.jsp" />
-    </c:if>
+  <c:if test="${empty sessionScope.user || sessionScope.user.role != 'ADMIN'}">
+    <c:redirect url="/AdminArea/login.jsp" />
+</c:if>
 
  
     <jsp:include page="./toastr-config.jsp" />
@@ -63,7 +63,7 @@ request.setAttribute("vehicleList", vehicleList);
                                     <th>Brand</th>
                                     <th>Driver Name</th>
                                     <th>Fuel Type</th>
-                                    <th>Doors</th>
+                                    <th>Cab Image</th>
                                     <th>Capacity</th>
                                     <th>Actions</th>
                                 </tr>
@@ -78,7 +78,17 @@ request.setAttribute("vehicleList", vehicleList);
                                         <td>${vehicle.brand}</td>
                                         <td>${vehicle.driverName}</td>
                                         <td>${vehicle.vehicleFuelType}</td>
-                                        <td>${vehicle.doors}</td>
+                             
+                                         <td>
+                                            <c:choose>
+                                                <c:when test="${not empty vehicle.imagePath}">
+                                                    <img src="${pageContext.request.contextPath}/${vehicle.imagePath}" alt="Driver Photo" width="50" height="50" class="rounded-circle">
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <img src="${pageContext.request.contextPath}/assets/images/default_avatar.png" alt="Default Photo" width="50" height="50" class="rounded-circle">
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
                                         <td>${vehicle.capacity}</td>
                                         <td>
                                             <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editVehicleModal${vehicle.id}">
@@ -109,7 +119,7 @@ request.setAttribute("vehicleList", vehicleList);
                                                                     <option value="">Select Vehicle Type</option>
                                                                     <option value="Car" ${vehicle.vehicleType == 'Car' ? 'selected' : ''}>Car</option>
                                                                     <option value="Van" ${vehicle.vehicleType == 'Van' ? 'selected' : ''}>Van</option>
-                                                                    <option value="Lorry" ${vehicle.vehicleType == 'Lorry' ? 'selected' : ''}>Lorry</option>
+                                                                    <option value="Lorry" ${vehicle.vehicleType == 'jeep' ? 'selected' : ''}>jeep</option>
                                                                     <option value="Tuk Tuk" ${vehicle.vehicleType == 'Tuk Tuk' ? 'selected' : ''}>Tuk Tuk</option>
                                                                 </select>
                                                             </div>
