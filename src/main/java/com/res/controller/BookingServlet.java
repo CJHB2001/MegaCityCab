@@ -58,10 +58,16 @@ public class BookingServlet extends HttpServlet {
         } else if ("assignCar".equals(action)) {
             // Handle assign car to booking
             try {
-                int bookingId = Integer.parseInt(request.getParameter("id"));
-                int carId = Integer.parseInt(request.getParameter("carId"));
-                bookingService.assignCarToBooking(bookingId, carId);
-                session.setAttribute("alertMessage", "Car assigned to booking successfully!");
+            	   float discount = 0;
+            	   int bookingId = Integer.parseInt(request.getParameter("id"));
+                   int carId = Integer.parseInt(request.getParameter("carId"));
+                   float originalAmount = Float.parseFloat(request.getParameter("originalAmount"));
+                   discount = Float.parseFloat(request.getParameter("discount"));
+                   float newTotalBill = originalAmount * (1 - discount / 100);
+                   
+                   bookingService.assignCarToBooking(bookingId, carId, newTotalBill, discount);
+                   
+                   session.setAttribute("alertMessage", "Car assigned and total bill updated successfully!");
                 session.setAttribute("alertType", "success");
             } catch (SQLException e) {
                 session.setAttribute("alertMessage", "Error: " + e.getMessage());

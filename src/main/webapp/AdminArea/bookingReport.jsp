@@ -110,6 +110,7 @@ request.setAttribute("totalRevenue", totalRevenue);
                         <th>Vehicle Type</th>
                         <th>Vehicle Number</th>
                         <th>Driver Name</th>
+                               <th>Discount</th>
              
                         <th>Total Bill</th>
                     </tr>
@@ -129,7 +130,7 @@ request.setAttribute("totalRevenue", totalRevenue);
                                 <td>${booking.vehicleType}</td>
                                 <td>${booking.vehicleNumber}</td>
                                 <td>${booking.driverName}</td>
-                              
+                                <td>${booking.discount}0%</td>
                                 <td>Rs. ${booking.totalBill}</td>
                             </tr>
                         </c:if>
@@ -155,7 +156,7 @@ request.setAttribute("totalRevenue", totalRevenue);
                         <th>Vehicle Type</th>
                         <th>Vehicle Number</th>
                         <th>Driver Name</th>
-             
+                    <th>Discount</th>
                         <th>Total Bill</th>
                     </tr>
                 </thead>
@@ -174,7 +175,7 @@ request.setAttribute("totalRevenue", totalRevenue);
                                 <td>${booking.vehicleType}</td>
                                 <td>${booking.vehicleNumber}</td>
                                 <td>${booking.driverName}</td>
-                         
+                                                     <td>${booking.discount}0%</td>
                                 <td>Rs. ${booking.totalBill}</td>
                             </tr>
                         </c:if>
@@ -200,7 +201,7 @@ request.setAttribute("totalRevenue", totalRevenue);
                         <th>Vehicle Type</th>
                         <th>Vehicle Number</th>
                         <th>Driver Name</th>
-                 
+                        <th>Discount</th>
                         <th>Total Bill</th>
                     </tr>
                 </thead>
@@ -219,7 +220,7 @@ request.setAttribute("totalRevenue", totalRevenue);
                                 <td>${booking.vehicleType}</td>
                                 <td>${booking.vehicleNumber}</td>
                                 <td>${booking.driverName}</td>
-                   
+                                       <td>${booking.discount}0%</td>
                                 <td>Rs. ${booking.totalBill}</td>
                             </tr>
                         </c:if>
@@ -245,7 +246,7 @@ request.setAttribute("totalRevenue", totalRevenue);
                         <th>Vehicle Type</th>
                         <th>Vehicle Number</th>
                         <th>Driver Name</th>
-                
+                       <th>Discount</th>
                         <th>Total Bill</th>
                     </tr>
                 </thead>
@@ -264,7 +265,7 @@ request.setAttribute("totalRevenue", totalRevenue);
                                 <td>${booking.vehicleType}</td>
                                 <td>${booking.vehicleNumber}</td>
                                 <td>${booking.driverName}</td>
-                   
+                                      <td>${booking.discount}0%</td>
                                 <td>Rs. ${booking.totalBill}</td>
                             </tr>
                         </c:if>
