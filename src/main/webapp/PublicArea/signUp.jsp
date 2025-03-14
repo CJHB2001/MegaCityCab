@@ -54,7 +54,6 @@
     background-color: #f8d7da !important;
     border-color: #f5c6cb;
 
-/* Make it more visible */
 }
  
         
@@ -208,7 +207,7 @@
             });
         });
         
-        // Clear session attributes after alert is shown
+
         <% 
             if (session.getAttribute("error") != null) {
                 session.removeAttribute("error");
@@ -219,7 +218,7 @@
         %>
     </script>
       <script>
-        // Bootstrap validation
+
         (function () {
             'use strict';
             var forms = document.querySelectorAll('.needs-validation');
