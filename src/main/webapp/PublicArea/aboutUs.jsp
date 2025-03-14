@@ -62,8 +62,10 @@ request.setAttribute("blogList", blogList);
                <div class="choose-media position-relative pe-sm-5">
                   <img class="img-fluid" src="images/about.jpg" alt="Car">
                   <div class="popup-box">
-                     <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=Lc0CXDwW2a0"><i
-                           class="fa-solid fa-play"></i></a>
+                 <a class="venobox" data-vbtype="video" href="https://youtu.be/-rdGgjhOE8U" target="_blank">
+    <i class="fa-solid fa-play"></i>
+</a>
+                 
                   </div>
                </div>
             </div>

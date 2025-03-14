@@ -88,6 +88,7 @@ public class BookingDAO {
                 booking.setDriverGender(rs.getString("driver_gender"));
                 booking.setTripStatus(rs.getInt("trip_status"));
                 booking.setPaymentStatus(rs.getInt("payment_status"));
+                booking.setDiscount(rs.getDouble("discount"));
                 bookingList.add(booking);
             }
         }
@@ -172,6 +173,7 @@ public class BookingDAO {
                     booking.setPaymentStatus(rs.getInt("payment_status"));                
                     booking.setDriverName(rs.getString("driver_name"));
                     booking.setVehicleNumber(rs.getString("vehicle_number"));
+                    booking.setDiscount(rs.getDouble("discount"));
                     
                     return booking;
                 }
@@ -180,4 +182,15 @@ public class BookingDAO {
         return null;
     }
     
+    public void assignCarToBooking(int bookingId, int carId, float newTotalBill, double discount) throws SQLException {
+        String sql = "UPDATE booking SET car_id = ?, total_bill = ?, discount = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, carId);
+            pstmt.setFloat(2, newTotalBill);
+            pstmt.setDouble(3, discount);
+            pstmt.setInt(4, bookingId);
+            pstmt.executeUpdate();
+        }
+    }
 }

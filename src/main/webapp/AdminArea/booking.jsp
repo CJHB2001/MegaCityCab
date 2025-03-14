@@ -53,6 +53,7 @@ request.setAttribute("vehicleList", vehicleList);
         <th>Customer Name</th>
         <th>Vehicle Type</th>
         <th>Vehicle Number</th>
+           <th>Discount</th>
         <th>Total Bill</th>
         <th>Booking Status</th>
                  <th>Payment Status</th>
@@ -79,6 +80,7 @@ request.setAttribute("vehicleList", vehicleList);
                     </c:otherwise>
                 </c:choose>
             </td>
+                     <td>${booking.discount}%</td>
             <td>Rs. ${booking.totalBill}0</td>
            <td>
     <c:choose>
@@ -244,36 +246,59 @@ request.setAttribute("vehicleList", vehicleList);
     </div>
 </div>
 
-                      <div class="modal fade" id="assignCarModal${booking.id}" tabindex="-1" aria-labelledby="assignCarModalLabel${booking.id}" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="assignCarModalLabel${booking.id}">Assign Car to Booking #${booking.id}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="${pageContext.request.contextPath}/booking" method="post">
-                    <input type="hidden" name="action" value="assignCar">
-                    <input type="hidden" name="id" value="${booking.id}">
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="carId" class="form-label">Select Car</label>
-                            <select class="form-select" id="carId" name="carId" required>
-                                <option value="">Select a Car</option>
-                                <c:forEach var="vehicle" items="${vehicleList}">
-                                    <option value="${vehicle.id}">${vehicle.vehicleNumber} (${vehicle.vehicleType})</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Assign Car</button>
-                    </div>
-                </form>
+
+
+<!-- Updated Assign Car Modal -->
+<div class="modal fade" id="assignCarModal${booking.id}" tabindex="-1" aria-labelledby="assignCarModalLabel${booking.id}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="assignCarModalLabel${booking.id}">Assign Car to Booking #${booking.id}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <form action="${pageContext.request.contextPath}/booking" method="post">
+                <input type="hidden" name="action" value="assignCar">
+                <input type="hidden" name="id" value="${booking.id}">
+                <input type="hidden" name="originalAmount" id="originalAmount${booking.id}" value="${booking.totalBill}">
+                
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Original Amount</label>
+                        <input type="text" class="form-control" value="Rs. ${booking.totalBill}0" readonly>
+                    </div>
+                    
+                <div class="mb-3">
+				    <label for="discount${booking.id}" class="form-label">Discount Percentage (%)</label>
+				    <input type="number" class="form-control" id="discount${booking.id}" 
+				           name="discount" min="0" max="100" step="0.01" required 
+				           value="0" oninput="calculateDiscount(${booking.id})">
+				</div>
+                
+                    
+                    <div class="mb-3">
+                        <label class="form-label">New Total Bill</label>
+                        <input type="text" class="form-control" id="newTotalBill${booking.id}" 
+                               name="newTotalBill" readonly>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="carId" class="form-label">Select Car</label>
+                        <select class="form-select" id="carId" name="carId" required>
+                            <option value="">Select a Cab</option>
+                            <c:forEach var="vehicle" items="${vehicleList}">
+                                <option value="${vehicle.id}">${vehicle.vehicleNumber} (${vehicle.vehicleType})</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Assign Car & Update</button>
+                </div>
+            </form>
         </div>
     </div>
-
+</div>
        
                       
                                
@@ -309,7 +334,23 @@ request.setAttribute("vehicleList", vehicleList);
         </main>
     </section>
 
-    <!-- Add Booking Modal -->
+    
+<script>
+function calculateDiscount(bookingId) {
+    const originalAmount = parseFloat(document.getElementById('originalAmount' + bookingId).value);
+    const discountInput = document.getElementById('discount' + bookingId).value;
+    const discount = parseFloat(discountInput) || 0;
+    
+    if (discount < 0 || discount > 100) {
+        alert('Discount must be between 0 and 100');
+        document.getElementById('discount' + bookingId).value = '';
+        return;
+    }
+    
+    const discountedAmount = originalAmount * (1 - discount / 100);
+    document.getElementById('newTotalBill' + bookingId).value = discountedAmount.toFixed(2);
+}
+</script>
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

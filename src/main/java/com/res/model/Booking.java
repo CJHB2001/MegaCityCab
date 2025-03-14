@@ -37,6 +37,7 @@ public class Booking {
     private String driverGender;
     private int tripStatus;
     private int paymentStatus;
+    private double discount;
 
     public Booking() {}
 
@@ -46,7 +47,7 @@ public class Booking {
                    String vehicleNumber, String vehicleImagePath, String vehicleBrand, String vehicleColor, 
                    String vehicleFuelType, int vehicleDoors, int vehicleCapacity, int driverId, String driverName, 
                    String driverImagePath, int driverAge, String driverExperience, String driverLicenseId, 
-                   String driverGender, int tripStatus ,int paymentStatus ) {
+                   String driverGender, int tripStatus ,int paymentStatus,double discount ) {
         
         this.id = id;
         this.customerId = customerId;
@@ -81,6 +82,8 @@ public class Booking {
         this.driverGender = driverGender;
         this.tripStatus = tripStatus;
         this.paymentStatus = paymentStatus;
+        this.discount = discount;
+
     }
 
     // Getters and Setters
@@ -182,4 +185,7 @@ public class Booking {
     
     public int getPaymentStatus() { return paymentStatus; }
     public void setPaymentStatus(int paymentStatus) { this.paymentStatus = paymentStatus; }
+    
+    public double getDiscount() { return discount; }
+    public void setDiscount(double discount) { this.discount = discount; }
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.res.model.Booking" %>
 <%@ page import="com.res.dao.BookingDAO" %>
@@ -95,7 +96,33 @@ request.setAttribute("vehicleList", vehicleList);
                            Order ID: ${booking.id} - ${booking.vehicleType} (${booking.vehicleBrand})
                         </h3>
                         <ul class="car-specfication">
-                           <li><span>Amount</span>Rs. ${booking.totalBill}</li>
+             
+
+<li>
+    <span>Amount</span>
+    <c:choose>
+        <c:when test="${booking.discount > 0}">
+            <c:choose>
+                <c:when test="${booking.discount == 100}">
+                    <!-- Handle 100% discount case -->
+                    <s class="text-muted">Rs. <fmt:formatNumber value="${booking.totalBill * 100}" pattern="#,##0.00"/></s>
+                </c:when>
+                <c:otherwise>
+                    <!-- Calculate original amount -->
+                    <c:set var="originalAmount" value="${booking.totalBill / (1 - booking.discount/100)}" />
+                    <s class="text-muted">Rs. <fmt:formatNumber value="${originalAmount}" pattern="#,##0.00"/></s>
+                </c:otherwise>
+            </c:choose>
+            <span class="text-success ms-2">
+                Rs. <fmt:formatNumber value="${booking.totalBill}" pattern="#,##0.00"/>
+            </span>
+        </c:when>
+        <c:otherwise>
+            Rs. <fmt:formatNumber value="${booking.totalBill}" pattern="#,##0.00"/>
+        </c:otherwise>
+    </c:choose>
+</li>
+
                            <li><span>Vehicle Number</span>
                               <c:choose>
                                  <c:when test="${booking.carId != 0}">
@@ -114,11 +141,13 @@ request.setAttribute("vehicleList", vehicleList);
                            <li><span>Passengers</span>${booking.passengers}</li>
                            <li><span>Distance</span>${booking.distanceKm}KM</li>
                            <li><span>Vehicle Fuel Type</span>${booking.vehicleFuelType}</li>
-    <li><span>Booking Status:</span>
-   <span class="badge ${booking.carId != 0 ? 'bg-success text-white' : 'bg-warning text-white'}">
-      ${booking.carId != 0 ? 'Confirmed' : 'Pending'}
+<li>
+   <span>Booking Status:</span>
+   <span class="badge ${booking.carId == 0 ? 'bg-warning text-white' : 'bg-success text-white'}">
+      ${booking.carId == 0 ? 'Pending' : 'Confirmed'}
    </span>
 </li>
+
 
 <li><span>Payment Status:</span>
    <c:choose>
