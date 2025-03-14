@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="com.res.model.Booking" %>
 <%@ page import="com.res.dao.BookingDAO" %>
 <%@ page import="java.sql.SQLException" %>
@@ -104,8 +105,34 @@ request.setAttribute("booking", booking);
             <h2 class="section-title">Payment Summary</h2>
             <table>
                 <tr>
-                    <td>Base Fare</td>
-                    <td>Rs. ${booking.totalBill}0</td>
+                    <td>Discount</td>
+                    <td>${booking.discount}0%</td>
+                </tr>
+                <tr>
+                    <td>Amount</td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${booking.discount > 0}">
+                                <c:choose>
+                                    <c:when test="${booking.discount == 100}">
+                                        <!-- Handle 100% discount case -->
+                                        <s class="text-muted">Rs. <fmt:formatNumber value="${booking.totalBill * 100}" pattern="#,##0.00"/></s>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <!-- Calculate original amount -->
+                                        <c:set var="originalAmount" value="${booking.totalBill / (1 - booking.discount/100)}" />
+                                        <s class="text-muted">Rs. <fmt:formatNumber value="${originalAmount}" pattern="#,##0.00"/></s>
+                                    </c:otherwise>
+                                </c:choose>
+                                <span class="text-success ms-2">
+                                    Rs. <fmt:formatNumber value="${booking.totalBill}" pattern="#,##0.00"/>
+                                </span>
+                            </c:when>
+                            <c:otherwise>
+                                Rs. <fmt:formatNumber value="${booking.totalBill}" pattern="#,##0.00"/>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
                 </tr>
                 <tr class="total-row">
                     <td>Total Bill</td>

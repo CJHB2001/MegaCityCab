@@ -157,7 +157,7 @@
             
             
             <script>
-    // Bootstrap validation
+
     (function () {
         'use strict';
         var forms = document.querySelectorAll('.needs-validation');

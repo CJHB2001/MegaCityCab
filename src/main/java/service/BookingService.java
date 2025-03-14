@@ -42,5 +42,9 @@ public class BookingService {
     public Booking getBookingById(int bookingId) throws SQLException {
         return bookingDAO.getBookingById(bookingId);
     }
+ 
+    public void assignCarToBooking(int bookingId, int carId, float newTotalBill, double discount) throws SQLException {
+        bookingDAO.assignCarToBooking(bookingId, carId, newTotalBill, discount);
+    }
     
 }
