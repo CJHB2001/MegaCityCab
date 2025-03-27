@@ -1,14 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.res.model.Employee" %>
-<%@ page import="com.res.dao.EmployeeDAO" %>
-<%
-    // Fetch the employee list from the database
-    EmployeeDAO employeeDAO = new EmployeeDAO();
-    List<Employee> employeeList = employeeDAO.getAllEmployees();
-    request.setAttribute("userList", employeeList);
-%>
 
 <!DOCTYPE html>
 <html lang="en">
